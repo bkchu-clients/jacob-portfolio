@@ -14,17 +14,20 @@
   align-items: center;
   margin: 0;
 }
-.footer__link {
+.footer__links {
   grid-row: 2 / 3;
+  grid-column: 8 / -1;
+  display: flex;
+  align-items: center;
+}
+.footer__link {
   font-family: 'Space Mono';
   font-size: 3rem;
   font-weight: normal;
   text-decoration: none;
   color: black;
+  margin-right: 3rem;
 }
-.footer__link--first {
-  grid-column: 8 / 9;
-}
-.footer__link--second {
-  grid-column: 9 / 10;
+.footer__link:last-of-type {
+  margin-right: 0;
 }
