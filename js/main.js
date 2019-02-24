@@ -13,7 +13,7 @@
   // while the window is scrolling
   $(window).scroll(function() {
     // if the user has hit the bottom of the page
-    if ($(window).scrollTop() + $(window).height() >= getDocHeight()) {
+    if ($(window).scrollTop() + $(window).height() / 2 >= getDocHeight() / 2) {
       // set flag to true
       isBottom = true;
       // add the class that will flip the arrow
