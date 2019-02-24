@@ -37,6 +37,7 @@
   .footer {
     height: 9rem;
     margin-top: 25rem;
+    padding: 0;
   }
   .footer__copyright {
     grid-row: 2 / 3;
@@ -51,7 +52,7 @@
   .footer__links {
     grid-row: 2 / 3;
     grid-column: 8 / -1;
-    display: flex;
+    flex-direction: row;
     align-items: center;
   }
   .footer__link {
@@ -60,6 +61,7 @@
     font-weight: normal;
     text-decoration: none;
     color: black;
+    margin-bottom: 0;
     margin-right: 3rem;
   }
   .footer__link:last-of-type {
