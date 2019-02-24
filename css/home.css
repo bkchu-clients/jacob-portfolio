@@ -78,6 +78,9 @@
 .experience p {
   margin: 0;
 }
+.experience__title {
+  font-weight: 500;
+}
 .experiences__resume-link {
   text-decoration: none;
   color: black;
