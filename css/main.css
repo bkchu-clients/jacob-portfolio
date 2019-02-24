@@ -109,7 +109,6 @@ body {
   box-sizing: inherit;
 }
 
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -119,10 +118,17 @@ body {
  */
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 3.25rem;
+  grid-template-columns: 1fr;
+  grid-column-gap: 0;
+  padding: 0 3rem;
 }
-
+@media only screen and (min-width: 75em) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 3.25rem;
+    padding: 0;
+  }
+}
 /*
  * Italicized
  */
@@ -212,8 +218,12 @@ body {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
+@media only screen and (min-width: 75em) {
   /* Style adjustments for viewports that meet the condition */
+  html,
+  body {
+    background: blue;
+  }
 }
 
 @media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
