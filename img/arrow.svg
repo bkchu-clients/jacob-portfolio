@@ -1,0 +1,23 @@
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+      <polygon id="path-1" points="37.3333333 18.6666667 34.0433333 15.3766667 21 28.3966667 21 0 16.3333333 0 16.3333333 28.3966667 3.31333333 15.3533333 0 18.6666667 18.6666667 37.3333333"></polygon>
+  </defs>
+  <g id="current" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+      <g id="Homepage/Hover" transform="translate(-1270.000000, -698.000000)">
+          <rect fill="#FFFFFF" x="0" y="0" width="1440" height="1800"></rect>
+          <g id="icon/arrow-downward" transform="translate(1289.000000, 717.000000) rotate(-360.000000) translate(-1289.000000, -717.000000) translate(1261.000000, 689.000000)">
+              <g id="ic_arrow_downward" transform="translate(9.333333, 9.333333)">
+                  <mask id="mask-2" fill="white">
+                      <use xlink:href="#path-1"></use>
+                  </mask>
+                  <use id="Shape" fill="#010101" xlink:href="#path-1"></use>
+                  <g id="Base/Color/Grey-600" mask="url(#mask-2)" stroke="#212121">
+                      <g transform="translate(-9.333333, -9.333333)" id="Swatch">
+                          <rect x="0.5" y="0.5" width="55" height="55"></rect>
+                      </g>
+                  </g>
+              </g>
+          </g>
+      </g>
+  </g>
+</svg>

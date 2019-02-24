@@ -1,0 +1,13 @@
+.arrow {
+  position: fixed;
+  bottom: 15rem;
+  right: 15rem;
+}
+.arrow-img {
+  height: 6.5rem;
+  width: 6.5rem;
+  padding: 1rem;
+}
+.arrow-img--flipped {
+  transform: rotate(180deg);
+}

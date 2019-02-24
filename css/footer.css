@@ -1,0 +1,28 @@
+.footer {
+  height: 9rem;
+  margin-top: 25rem;
+  border-top: 1px solid black;
+  grid-template-rows: repeat(3, 1fr);
+}
+.footer__copyright {
+  grid-row: 2 / 3;
+  grid-column: 2 / 8;
+  font-family: 'Space Mono';
+  font-size: 2.25rem;
+  font-weight: normal;
+  margin: 0;
+}
+.footer__link {
+  grid-row: 2 / 3;
+  font-family: 'Space Mono';
+  font-size: 2.25rem;
+  font-weight: normal;
+  text-decoration: none;
+  color: black;
+}
+.footer__link--first {
+  grid-column: 8 / 9;
+}
+.footer__link--second {
+  grid-column: 9 / 10;
+}
