@@ -124,6 +124,10 @@
   font-size: 2.25rem;
   line-height: 3rem;
 }
+.experiences__resume-link:hover {
+  background-color: var(--highlight);
+  color: white;
+}
 .experience--three {
   margin-bottom: 4rem;
 }
