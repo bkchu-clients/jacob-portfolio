@@ -15,7 +15,7 @@
   margin: 0;
 }
 
-@media only screen and (min-width: 75em) {
+@media only screen and (min-width: 50em) {
   .header {
     padding: 10rem 0 5rem;
   }

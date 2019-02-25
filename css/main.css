@@ -121,7 +121,7 @@ body {
   grid-template-columns: 1fr;
   padding: 0 3rem;
 }
-@media only screen and (min-width: 75em) {
+@media only screen and (min-width: 50em) {
   .grid {
     grid-template-columns: repeat(12, 1fr);
     grid-column-gap: 3.25rem;
@@ -217,7 +217,7 @@ body {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 75em) {
+@media only screen and (min-width: 50em) {
   /* Style adjustments for viewports that meet the condition
   html,
   body {
