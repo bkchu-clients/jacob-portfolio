@@ -23,7 +23,7 @@
 .project:last-of-type {
   margin-bottom: 0;
 }
-.project:hover {
+.project span:hover {
   color: white;
   background-color: var(--highlight);
 }
