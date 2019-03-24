@@ -33,7 +33,7 @@
 
 @media only screen and (min-width: 50em) {
   .case-studies {
-    grid-column: 2 / 10;
+    grid-column: 1 / -1;
     margin-top: 33rem;
   }
   .case-studies__title {
@@ -89,7 +89,7 @@
 
 @media only screen and (min-width: 50em) {
   .info {
-    grid-column: 2 / 7;
+    grid-column: 1 / 7;
     margin-bottom: 0;
   }
   .info__title {
@@ -161,7 +161,7 @@
 
 @media only screen and (min-width: 50em) {
   .experiences {
-    grid-column: 2 / 7;
+    grid-column: 1 / 7;
   }
   .experiences__title {
     font-size: 2.25rem;
@@ -175,5 +175,8 @@
   }
   .experience--three {
     margin-bottom: 5rem;
+  }
+  .experiences__resume-link {
+    font-size: 2.75rem;
   }
 }

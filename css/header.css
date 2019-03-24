@@ -17,10 +17,10 @@
 
 @media only screen and (min-width: 50em) {
   .header {
-    padding: 10rem 0 5rem;
+    padding: 10rem 15rem 5rem;
   }
   .header__title {
     font-size: 3rem;
-    grid-column: 2 / -1;
+    grid-column: 1 / -1;
   }
 }
