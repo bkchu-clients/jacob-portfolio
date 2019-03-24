@@ -1,5 +1,5 @@
 (function() {
-  // set initial boolean if the bottom is hit
+  // set initial boolean flag and will be used to determine when the bottom is hit
   var isBottom = false;
 
   function getDocHeight() {

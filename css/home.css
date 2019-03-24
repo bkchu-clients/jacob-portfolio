@@ -1,17 +1,20 @@
-.projects {
+/******************************************************************************
+ * CASE STUDIES SECTION
+******************************************************************************/
+.case-studies {
   grid-row: 1 / 2;
   font-family: 'Space Mono';
   font-weight: normal;
   margin-top: 16.5rem;
 }
-.projects__title {
+.case-studies__title {
   font-family: inherit;
-  font-size: 2rem;
+  font-size: 2.25rem;
   line-height: 2rem;
   font-weight: inherit;
   margin-bottom: 3rem;
 }
-.project {
+.case-study {
   padding: 1rem;
   font-size: 4rem;
   line-height: 4.75rem;
@@ -20,30 +23,33 @@
   font-weight: inherit;
   cursor: pointer;
 }
-.project:last-of-type {
+.case-study:last-of-type {
   margin-bottom: 0;
 }
-.project span:hover {
+.case-study span:hover {
   color: white;
   background-color: var(--highlight);
 }
 
 @media only screen and (min-width: 50em) {
-  .projects {
+  .case-studies {
     grid-column: 2 / 10;
     margin-top: 33rem;
   }
-  .projects__title {
+  .case-studies__title {
     font-size: 2.25rem;
     line-height: 3.25rem;
     margin-bottom: 2.25rem;
   }
-  .project {
-    font-size: 5rem;
+  .case-study {
+    font-size: 6rem;
     line-height: 7rem;
   }
 }
 
+/******************************************************************************
+ * SPACE BETWEEN CASE STUDIES AND INFO SECTION
+******************************************************************************/
 .space {
   grid-row: 2 / 3;
   height: 7rem;
@@ -52,18 +58,20 @@
 @media only screen and (min-width: 50em) {
   .space {
     grid-column: 1 / -1;
-    height: 25rem;
+    height: 17rem;
   }
 }
 
+/******************************************************************************
+ * INFO SECTION
+******************************************************************************/
 .info {
   grid-row: 3 / 4;
   font-weight: unset;
-  margin-bottom: 7rem;
 }
 .info__title {
   font-family: 'Space Mono';
-  font-size: 2rem;
+  font-size: 2.25rem;
   line-height: 3rem;
   margin: 0 0 4rem 0;
   font-weight: inherit;
@@ -72,7 +80,8 @@
   font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 2rem;
   font-weight: inherit;
-  line-height: 3rem;
+  line-height: 4rem;
+  margin: 0;
 }
 .info__paragraph--underline {
   text-decoration: underline;
@@ -86,20 +95,38 @@
   .info__title {
     font-size: 2.25rem;
     line-height: 3rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
   .info__paragraph {
-    font-size: 2.25rem;
-    line-height: 3.75rem;
+    font-size: 3rem;
+    line-height: 6rem;
   }
 }
 
-.experiences {
+/******************************************************************************
+ * SPACE BETWEEN CASE STUDIES AND INFO SECTION
+******************************************************************************/
+.space--two {
   grid-row: 4 / 5;
+  height: 9rem;
+}
+
+@media only screen and (min-width: 50em) {
+  .space--two {
+    grid-column: 1 / -1;
+    height: 10rem;
+  }
+}
+
+/******************************************************************************
+ * EXPERIENCE SECTION
+******************************************************************************/
+.experiences {
+  grid-row: 5 / 6;
 }
 .experiences__title {
   font-family: 'Space Mono';
-  font-size: 2rem;
+  font-size: 2.25rem;
   line-height: 3rem;
   margin: 0 0 4rem 0;
   font-weight: inherit;
@@ -134,17 +161,16 @@
 
 @media only screen and (min-width: 50em) {
   .experiences {
-    grid-column: 8 / 11;
-    grid-row: 3 / 4;
+    grid-column: 2 / 7;
   }
   .experiences__title {
     font-size: 2.25rem;
     line-height: 3rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
   .experience {
-    font-size: 2.25rem;
-    line-height: 3.75rem;
+    font-size: 2.75rem;
+    line-height: 4rem;
     margin-bottom: 3rem;
   }
   .experience--three {

@@ -143,6 +143,15 @@ body {
 }
 
 /*
+ * Underlined
+ */
+.underlined {
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid black;
+}
+
+/*
  * Hide visually and from screen readers
  */
 
