@@ -36,7 +36,8 @@
 }
 .overview {
   grid-column: 1/-1;
-  padding: 8rem 0;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
   background-color: #ffedb7;
   padding-left: 3rem;
   padding-right: 3rem;
@@ -53,6 +54,10 @@
 }
 
 @media only screen and (min-width: 60em) {
+  .overview {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
   .overview__picture {
     grid-column: 2/span 5;
   }
