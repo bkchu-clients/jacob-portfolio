@@ -28,8 +28,8 @@ $roboto: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, 
 
 @include mq() {
   .cs-title {
-  margin-top: 35rem;
-  grid-column: 2 / -2;
+    margin-top: 35rem;
+    grid-column: 2 / -2;
 
     &__header {
       font-size: 9rem;
@@ -63,7 +63,6 @@ $roboto: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, 
 
 @include mq() {
   .overview {
-
     &__picture {
       grid-column: 2 / span 5;
     }
