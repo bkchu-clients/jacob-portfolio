@@ -1,3 +1,5 @@
+@import './media-query';
+
 /******************************************************************************
  * CASE STUDIES SECTION
 ******************************************************************************/
@@ -40,7 +42,7 @@
   }
 }
 
-@media only screen and (min-width: 60em) {
+@include mq() {
   .case-studies {
     grid-column: 2 / -2;
     margin-top: 33rem;
@@ -66,7 +68,7 @@
   height: 7rem;
 }
 
-@media only screen and (min-width: 60em) {
+@include mq() {
   .space {
     grid-column: 1 / -1;
     height: 17rem;
@@ -101,7 +103,7 @@
   }
 }
 
-@media only screen and (min-width: 60em) {
+@include mq() {
   .info {
     grid-column: 2 / 7;
     margin-bottom: 0;
@@ -127,7 +129,7 @@
   height: 9rem;
 }
 
-@media only screen and (min-width: 60em) {
+@include mq() {
   .space--two {
     grid-column: 1 / -1;
     height: 10rem;
@@ -182,7 +184,7 @@
   }
 }
 
-@media only screen and (min-width: 60em) {
+@include mq() {
   .experiences {
     grid-column: 2 / 7;
 

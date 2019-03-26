@@ -1,3 +1,5 @@
+@import './media-query';
+
 .arrow {
   position: fixed;
   bottom: 2rem;
@@ -16,7 +18,7 @@
   }
 }
 
-@media only screen and (min-width: 60em) {
+@include mq() {
   .arrow {
     bottom: 15rem;
     right: 15rem;
