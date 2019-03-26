@@ -306,5 +306,9 @@ h3 {
     page-break-after: avoid;
   }
 }
+.link {
+  text-decoration: none;
+  color: black;
+}
 
 /*# sourceMappingURL=main.css.map */
