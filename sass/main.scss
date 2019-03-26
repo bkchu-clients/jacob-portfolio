@@ -120,6 +120,10 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   padding: 0 3rem;
+
+  &--nopad {
+    padding: 0;
+  }
 }
 @media only screen and (min-width: 60em) {
   .grid {

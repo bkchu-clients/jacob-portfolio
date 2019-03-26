@@ -47,12 +47,14 @@ $roboto: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, 
   grid-column: 1 / -1;
   padding: 8rem 0;
   background-color: rgb(255, 237, 183);
+  padding-left: 3rem;
+  padding-right: 3rem;
 
   &__picture {
     grid-column: 1 / -1;
   }
 
-  &__text {
+  &__texts {
     grid-column: 1 / -1;
     font-family: $roboto;
     font-size: 3rem;
@@ -67,7 +69,7 @@ $roboto: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, 
       grid-column: 2 / span 5;
     }
 
-    &__text {
+    &__texts {
       grid-column: 7 / span 5;
       font-family: $roboto;
       font-size: 3rem;
