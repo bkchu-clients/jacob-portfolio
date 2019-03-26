@@ -1,0 +1,209 @@
+/******************************************************************************
+ * CASE STUDIES SECTION
+******************************************************************************/
+.case-studies {
+  grid-row: 1 / 2;
+  font-family: 'Space Mono';
+  font-weight: normal;
+  margin-top: 16.5rem;
+
+  &__title {
+    font-family: inherit;
+    font-size: 2.25rem;
+    line-height: 2rem;
+    font-weight: inherit;
+    margin-bottom: 3rem;
+  }
+}
+
+.case-study {
+  padding: 1rem;
+  font-size: 4rem;
+  line-height: 4.75rem;
+  margin-left: -1rem;
+  margin-bottom: 7rem;
+  font-weight: inherit;
+  cursor: pointer;
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  & span:hover {
+    color: white;
+    background-color: var(--highlight);
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .case-studies {
+    grid-column: 2 / -2;
+    margin-top: 33rem;
+
+    &__title {
+      font-size: 2.25rem;
+      line-height: 3.25rem;
+      margin-bottom: 2.25rem;
+    }
+  }
+
+  .case-study {
+    font-size: 6rem;
+    line-height: 7rem;
+  }
+}
+
+/******************************************************************************
+ * SPACE BETWEEN CASE STUDIES AND INFO SECTION
+******************************************************************************/
+.space {
+  grid-row: 2 / 3;
+  height: 7rem;
+}
+
+@media only screen and (min-width: 60em) {
+  .space {
+    grid-column: 1 / -1;
+    height: 17rem;
+  }
+}
+
+/******************************************************************************
+ * INFO SECTION
+******************************************************************************/
+.info {
+  grid-row: 3 / 4;
+  font-weight: unset;
+
+  &__title {
+    font-family: 'Space Mono';
+    font-size: 2.25rem;
+    line-height: 3rem;
+    margin: 0 0 4rem 0;
+    font-weight: inherit;
+  }
+
+  &__paragraph {
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: inherit;
+    line-height: 4rem;
+    margin: 0;
+
+    &--underline {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .info {
+    grid-column: 2 / 7;
+    margin-bottom: 0;
+
+    &__title {
+      font-size: 2.25rem;
+      line-height: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    &__paragraph {
+      font-size: 3rem;
+      line-height: 6rem;
+    }
+  }
+}
+
+/******************************************************************************
+ * SPACE BETWEEN CASE STUDIES AND INFO SECTION
+******************************************************************************/
+.space--two {
+  grid-row: 4 / 5;
+  height: 9rem;
+}
+
+@media only screen and (min-width: 60em) {
+  .space--two {
+    grid-column: 1 / -1;
+    height: 10rem;
+  }
+}
+
+/******************************************************************************
+ * EXPERIENCE SECTION
+******************************************************************************/
+.experiences {
+  grid-row: 5 / 6;
+
+  &__title {
+    font-family: 'Space Mono';
+    font-size: 2.25rem;
+    line-height: 3rem;
+    margin: 0 0 4rem 0;
+    font-weight: inherit;
+  }
+
+  &__resume-link {
+    text-decoration: none;
+    color: black;
+    font-family: 'Space Mono';
+    font-size: 2.25rem;
+    line-height: 3rem;
+  }
+
+  &__resume-link:hover {
+    background-color: var(--highlight);
+    color: white;
+  }
+}
+
+.experience {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 2rem;
+  font-weight: inherit;
+  line-height: 3rem;
+  margin-bottom: 3rem;
+
+  p {
+    margin: 0;
+  }
+
+  &__title {
+    font-weight: 500;
+  }
+
+  &--three {
+    margin-bottom: 4rem;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .experiences {
+    grid-column: 2 / 7;
+
+    &__title {
+      font-size: 2.25rem;
+      line-height: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    &__resume-link {
+      font-size: 2.75rem;
+    }
+  }
+
+  .experience {
+    font-size: 2.75rem;
+    line-height: 4rem;
+    margin-bottom: 3rem;
+
+    &--three {
+      margin-bottom: 5rem;
+    }
+  }
+}

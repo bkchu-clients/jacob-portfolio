@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  font-family: 'Space Mono';
+  font-family: "Space Mono";
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
   background: white;
@@ -15,12 +15,14 @@
   margin: 0;
 }
 
-@media only screen and (min-width: 50em) {
+@media only screen and (min-width: 60em) {
   .header {
     padding: 10rem 15rem 5rem;
   }
   .header__title {
     font-size: 3rem;
-    grid-column: 1 / -1;
+    grid-column: 1/-1;
   }
 }
+
+/*# sourceMappingURL=header.css.map */
