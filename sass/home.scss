@@ -1,11 +1,11 @@
-@import './media-query';
+@import './general';
 
 /******************************************************************************
  * CASE STUDIES SECTION
 ******************************************************************************/
 .case-studies {
   grid-row: 1 / 2;
-  font-family: 'Space Mono';
+  font-family: $spacemono;
   font-weight: normal;
   margin-top: 16.5rem;
 
@@ -84,7 +84,7 @@
   font-weight: unset;
 
   &__title {
-    font-family: 'Space Mono';
+    font-family: $spacemono;
     font-size: 2.25rem;
     line-height: 3rem;
     margin: 0 0 4rem 0;
@@ -92,7 +92,7 @@
   }
 
   &__paragraph {
-    font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: $roboto;
     font-size: 2rem;
     font-weight: inherit;
     line-height: 4rem;
@@ -145,7 +145,7 @@
   grid-row: 5 / 6;
 
   &__title {
-    font-family: 'Space Mono';
+    font-family: $spacemono;
     font-size: 2.25rem;
     line-height: 3rem;
     margin: 0 0 4rem 0;
@@ -155,7 +155,7 @@
   &__resume-link {
     text-decoration: none;
     color: black;
-    font-family: 'Space Mono';
+    font-family: $spacemono;
     font-size: 2.25rem;
     line-height: 3rem;
   }
@@ -167,7 +167,7 @@
 }
 
 .experience {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: $roboto;
   font-size: 2rem;
   font-weight: inherit;
   line-height: 3rem;

@@ -12,7 +12,7 @@
   line-height: 6rem;
 }
 .cs-title__subheader {
-  font-family: "Space Mono";
+  font-family: "Space Mono", "Courier New", Courier, monospace;
   font-size: 3rem;
   font-weight: normal;
   line-height: 4.5rem;
