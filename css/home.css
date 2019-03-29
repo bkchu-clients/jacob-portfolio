@@ -105,7 +105,7 @@
   .info__paragraph {
     font-size: 2.75rem;
     line-height: 6rem;
-    letter-spacing: 0.075rem;
+    letter-spacing: 0.06875rem;
   }
 }
 /******************************************************************************
@@ -176,13 +176,13 @@
   .experiences__resume-link {
     font-size: 2.75rem;
     line-height: 3rem;
-    letter-spacing: 0.075rem;
+    letter-spacing: 0.06875rem;
   }
 
   .experience {
     font-size: 2.75rem;
     line-height: 4rem;
-    letter-spacing: 0.075rem;
+    letter-spacing: 0.06875rem;
     margin-bottom: 3rem;
   }
   .experience--three {
