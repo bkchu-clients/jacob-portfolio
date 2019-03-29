@@ -1,3 +1,115 @@
+.grid--inner {
+  grid-column: 2/-2;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-column-gap: 3.25rem;
+}
+
+.width-1 {
+  grid-column: span 1;
+}
+
+.width-2 {
+  grid-column: span 2;
+}
+
+.width-3 {
+  grid-column: span 3;
+}
+
+.width-4 {
+  grid-column: span 4;
+}
+
+.width-5 {
+  grid-column: span 5;
+}
+
+.width-6 {
+  grid-column: span 6;
+}
+
+.width-7 {
+  grid-column: span 7;
+}
+
+.width-8 {
+  grid-column: span 8;
+}
+
+.width-9 {
+  grid-column: span 9;
+}
+
+.width-10 {
+  grid-column: span 10;
+}
+
+@media only screen and (min-width: 60em) {
+  .width-1\@m {
+    grid-column: span 1;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .width-2\@m {
+    grid-column: span 2;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .width-3\@m {
+    grid-column: span 3;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .width-4\@m {
+    grid-column: span 4;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .width-5\@m {
+    grid-column: span 5;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .width-6\@m {
+    grid-column: span 6;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .width-7\@m {
+    grid-column: span 7;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .width-8\@m {
+    grid-column: span 8;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .width-9\@m {
+    grid-column: span 9;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .width-10\@m {
+    grid-column: span 10;
+  }
+}
+
+.full-width {
+  width: 100%;
+  object-fit: cover;
+}
+
 .arrow {
   position: fixed;
   bottom: 2rem;

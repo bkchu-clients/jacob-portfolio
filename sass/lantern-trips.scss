@@ -1,5 +1,38 @@
 @import './general';
 
+@mixin box($color: rgb(255, 237, 183)) {
+  border: 1px solid $color;
+  border-radius: 4px;
+  padding: 3rem;
+  align-self: start;
+}
+
+.cs {
+  &__header {
+    @include paragraph($spacemono, $fs: 4rem, $lh: 4.5rem, $ls: 0.1875rem);
+    margin-bottom: 5.5rem;
+    padding-bottom: 3rem;
+    border-bottom: solid 1px black;
+  }
+
+  &__subheader {
+    @include paragraph($spacemono, $fs: 3rem, $lh: 5rem, $ls: 0.06875rem);
+    margin-bottom: 5rem;
+  }
+
+  &__text {
+    @include paragraph;
+
+    &--spacemono {
+      @include paragraph($spacemono, $fs: 3rem, $lh: 6rem, $ls: 0.06875rem);
+    }
+  }
+
+  &__box {
+    @include box(rgb(151, 151, 151));
+  }
+}
+
 .cs-title {
   margin-top: 20rem;
   margin-bottom: 9rem;
@@ -15,12 +48,7 @@
   }
 
   &__subheader {
-    font-family: $spacemono;
-    font-size: 3rem;
-    font-weight: normal;
-    line-height: 4.5rem;
-    letter-spacing: 0.1875rem;
-    margin: 0;
+    @include paragraph($spacemono, $fs: 3rem, $lh: 4.5rem, $ls: 0.1875rem);
   }
 }
 
@@ -78,10 +106,7 @@
     &__texts {
       align-self: center;
       grid-column: 7 / -2;
-      font-family: $roboto;
-      font-size: 2.75rem;
-      line-height: 6rem;
-      letter-spacing: 0.0625rem;
+      @include paragraph();
     }
   }
 }
@@ -92,14 +117,12 @@
 @include mq() {
   .summary {
     margin-top: 14.5rem;
+    margin-bottom: 16rem;
 
     &__question {
       grid-column: 2 / span 8;
       margin: 0;
-      font-family: $spacemono;
-      font-size: 3rem;
-      line-height: 6rem;
-      letter-spacing: 0.06875rem;
+      @include paragraph($spacemono, $fs: 3rem);
     }
 
     &__points {
@@ -114,14 +137,66 @@
       padding-left: 5rem;
       border-radius: 4px;
       border: solid 1px rgb(151, 151, 151);
-      font-family: $roboto;
-      font-size: 2.75rem;
-      line-height: 5rem;
-      letter-spacing: 0.0625rem;
+      @include paragraph($lh: 5rem);
 
       &:not(:last-of-type) {
         margin-bottom: 6rem;
       }
     }
   }
+}
+
+.research {
+  &__description {
+    @include paragraph($lh: 5rem);
+    margin-bottom: 3rem;
+  }
+
+  // &__image {
+  //   width: 100%;
+  // }
+
+  .space {
+    height: 15.5rem;
+  }
+
+  &__box {
+    // align-self: start;
+    padding: 3rem;
+    border-radius: 4px;
+    border: solid 4px rgb(255, 237, 183);
+
+    &-text {
+      @include paragraph;
+
+      &:not(:last-of-type) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &__images {
+    position: relative;
+    height: 100%;
+    margin-bottom: 53.125rem;
+  }
+
+  &__image {
+    width: 80%;
+    position: absolute;
+
+    &--two {
+      z-index: 2;
+    }
+
+    &--three {
+      z-index: 1;
+
+      top: 9rem;
+      left: 20%;
+    }
+  }
+}
+
+@include mq() {
 }
