@@ -55,8 +55,9 @@
   }
 
   .case-study {
-    font-size: 6rem;
+    font-size: 5rem;
     line-height: 7rem;
+    letter-spacing: 0.0625rem;
   }
 }
 
@@ -115,8 +116,9 @@
     }
 
     &__paragraph {
-      font-size: 3rem;
+      font-size: 2.75rem;
       line-height: 6rem;
+      letter-spacing: 0.075rem;
     }
   }
 }
@@ -196,12 +198,15 @@
 
     &__resume-link {
       font-size: 2.75rem;
+      line-height: 3rem;
+      letter-spacing: 0.075rem;
     }
   }
 
   .experience {
     font-size: 2.75rem;
     line-height: 4rem;
+    letter-spacing: 0.075rem;
     margin-bottom: 3rem;
 
     &--three {
