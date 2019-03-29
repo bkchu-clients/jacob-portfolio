@@ -66,17 +66,62 @@
   .overview {
     padding-left: 0rem;
     padding-right: 0rem;
-    
+
     &__picture {
-      grid-column: 2 / span 5;
+      grid-column: 2 / span 4;
+
+      img {
+        width: 100%;
+      }
     }
 
     &__texts {
-      grid-column: 7 / span 5;
+      align-self: center;
+      grid-column: 7 / -2;
       font-family: $roboto;
-      font-size: 3rem;
+      font-size: 2.75rem;
       line-height: 6rem;
       letter-spacing: 0.0625rem;
+    }
+  }
+}
+
+.summary {
+}
+
+@include mq() {
+  .summary {
+    margin-top: 14.5rem;
+
+    &__question {
+      grid-column: 2 / span 8;
+      margin: 0;
+      font-family: $spacemono;
+      font-size: 3rem;
+      line-height: 6rem;
+      letter-spacing: 0.06875rem;
+    }
+
+    &__points {
+      grid-column: 4 / -2;
+      margin-top: 9rem;
+    }
+
+    &__point {
+      margin: 0;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      padding-left: 5rem;
+      border-radius: 4px;
+      border: solid 1px rgb(151, 151, 151);
+      font-family: $roboto;
+      font-size: 2.75rem;
+      line-height: 5rem;
+      letter-spacing: 0.0625rem;
+
+      &:not(:last-of-type) {
+        margin-bottom: 6rem;
+      }
     }
   }
 }
