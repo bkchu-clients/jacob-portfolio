@@ -45,6 +45,14 @@
   grid-column: span 10;
 }
 
+.width-11 {
+  grid-column: span 11;
+}
+
+.width-12 {
+  grid-column: span 12;
+}
+
 @media only screen and (min-width: 60em) {
   .width-1\@m {
     grid-column: span 1;
@@ -102,6 +110,18 @@
 @media only screen and (min-width: 60em) {
   .width-10\@m {
     grid-column: span 10;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .width-11\@m {
+    grid-column: span 11;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .width-12\@m {
+    grid-column: span 12;
   }
 }
 

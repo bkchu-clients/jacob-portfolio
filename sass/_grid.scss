@@ -47,6 +47,14 @@
   grid-column: span 10;
 }
 
+.width-11 {
+  grid-column: span 11;
+}
+
+.width-12 {
+  grid-column: span 12;
+}
+
 .width-1\@m {
   @include mq() {
     grid-column: span 1;
@@ -104,5 +112,17 @@
 .width-10\@m {
   @include mq() {
     grid-column: span 10;
+  }
+}
+
+.width-11\@m {
+  @include mq() {
+    grid-column: span 11;
+  }
+}
+
+.width-12\@m {
+  @include mq() {
+    grid-column: span 12;
   }
 }
