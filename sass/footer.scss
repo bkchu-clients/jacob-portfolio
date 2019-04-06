@@ -57,15 +57,12 @@
     }
 
     &__greeting {
+      @include paragraph($spacemono, $fs: 2.25rem, $lh: 3rem);
       margin: 0;
-      font-size: 3rem;
-      line-height: 3rem;
     }
 
     &__copyright {
-      font-family: $spacemono;
-      font-size: 2.25rem;
-      font-weight: normal;
+      @include paragraph($spacemono, $fs: 2.25rem, $lh: 3rem);
       margin: 0;
     }
 
@@ -75,10 +72,7 @@
     }
 
     &__link {
-      font-family: $spacemono;
-      font-size: 2.25rem;
-      line-height: 2.25rem;
-      font-weight: normal;
+      @include paragraph($spacemono, $fs: 2.25rem, $lh: 3rem);
       text-decoration: none;
       color: black;
       margin-bottom: 0;
