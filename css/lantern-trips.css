@@ -339,6 +339,7 @@
 }
 .dnd__image {
   width: 40%;
+  object-fit: contain;
 }
 
 /*# sourceMappingURL=lantern-trips.css.map */
