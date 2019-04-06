@@ -8,3 +8,18 @@ $spacemono: 'Space Mono', 'Courier New', Courier, monospace;
   letter-spacing: $ls;
   font-weight: $fw;
 }
+
+.header {
+  // size: 72, type: Roboto Bold, line-height: 72, letter spacing: 0
+  @include paragraph($roboto, $fs: 9rem, $lh: 9rem, $fw: bold, $ls: 0);
+}
+
+.subheader {
+  // size: 24, type: Space Mono Regular, line-height: 40, letter spacing: 1.5
+  @include paragraph($spacemono, $fs: 3rem, $lh: 5rem, $ls: 0.1875rem);
+}
+
+.subsubheader {
+  // size: 24, type: Space Mono Regular, line-height: 40, letter spacing: .55
+  @include paragraph($spacemono, $fs: 3rem, $lh: 5rem, $ls: 0.06875rem);
+}

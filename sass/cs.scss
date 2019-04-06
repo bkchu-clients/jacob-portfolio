@@ -2,7 +2,6 @@
 
 .cs {
   &__header {
-    @include paragraph($spacemono, $fs: 4rem, $lh: 4.5rem, $ls: 0.1875rem);
     margin-bottom: 5.5rem;
     padding-bottom: 3rem;
     border-bottom: solid 1px black;
@@ -13,7 +12,6 @@
   }
 
   &__subheader {
-    @include paragraph($spacemono, $fs: 3rem, $lh: 5rem, $ls: 0.06875rem);
     margin-bottom: 5rem;
 
     .bold {
@@ -25,7 +23,7 @@
     @include paragraph($lh: 5rem);
 
     &--spacemono {
-      @include paragraph($spacemono, $fs: 3rem, $lh: 5rem, $ls: 0.06875rem);
+      @include paragraph($spacemono);
 
       &.bold {
         font-weight: bold;

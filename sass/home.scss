@@ -48,7 +48,7 @@
     margin-top: 33rem;
 
     &__title {
-      @include paragraph($roboto, $fs: 2.25rem, $lh: 3.25rem);
+      @include paragraph($spacemono, $fs: 2.25rem, $lh: 3.25rem);
       margin-bottom: 2.25rem;
     }
   }

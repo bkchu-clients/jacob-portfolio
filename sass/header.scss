@@ -1,6 +1,6 @@
 @import './general';
 
-.header {
+.main-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -20,7 +20,7 @@
 }
 
 @include mq() {
-  .header {
+  .main-header {
     padding: 10rem 0 5rem;
 
     &__title {
