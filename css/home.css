@@ -170,7 +170,7 @@
 
 @media only screen and (min-width: 60em) {
   .case-studies {
-    grid-column: 2/span 8;
+    grid-column: 2/span 7;
     margin-top: 33rem;
   }
   .case-studies__title {
