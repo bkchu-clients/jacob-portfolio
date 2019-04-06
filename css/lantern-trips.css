@@ -53,73 +53,73 @@
   grid-column: span 12;
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .width-1\@m {
     grid-column: span 1;
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .width-2\@m {
     grid-column: span 2;
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .width-3\@m {
     grid-column: span 3;
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .width-4\@m {
     grid-column: span 4;
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .width-5\@m {
     grid-column: span 5;
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .width-6\@m {
     grid-column: span 6;
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .width-7\@m {
     grid-column: span 7;
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .width-8\@m {
     grid-column: span 8;
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .width-9\@m {
     grid-column: span 9;
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .width-10\@m {
     grid-column: span 10;
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .width-11\@m {
     grid-column: span 11;
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .width-12\@m {
     grid-column: span 12;
   }
@@ -151,7 +151,7 @@
   font-weight: normal;
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .cs-title {
     margin-top: 35rem;
     grid-column: 2/-2;
@@ -184,7 +184,7 @@
   letter-spacing: 0.0625rem;
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .overview {
     padding-left: 0rem;
     padding-right: 0rem;
@@ -208,7 +208,7 @@
     font-weight: normal;
   }
 }
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .summary {
     margin-top: 14.5rem;
     margin-bottom: 16rem;
@@ -286,7 +286,7 @@
   left: 20%;
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60rem) {
   .research__box {
     margin-bottom: 53.125rem;
   }
