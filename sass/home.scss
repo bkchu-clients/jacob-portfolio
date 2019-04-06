@@ -48,16 +48,13 @@
     margin-top: 33rem;
 
     &__title {
-      font-size: 2.25rem;
-      line-height: 3.25rem;
+      @include paragraph($roboto, $fs: 2.25rem, $lh: 3.25rem);
       margin-bottom: 2.25rem;
     }
   }
-
+  
   .case-study {
-    font-size: 5rem;
-    line-height: 7rem;
-    letter-spacing: 0.0625rem;
+    @include paragraph($spacemono, $fs: 4rem, $lh: 7rem, $ls: 0.05rem);
   }
 }
 
@@ -72,7 +69,7 @@
 @include mq() {
   .space {
     grid-column: 1 / -1;
-    height: 17rem;
+    height: 11rem;
   }
 }
 
@@ -106,7 +103,7 @@
 
 @include mq() {
   .info {
-    grid-column: 2 / 7;
+    grid-column: 2 / 8;
     margin-bottom: 0;
 
     &__title {
@@ -116,9 +113,7 @@
     }
 
     &__paragraph {
-      font-size: 2.75rem;
-      line-height: 6rem;
-      letter-spacing: 0.06875rem;
+      @include paragraph($fs: 2.25rem, $lh: 6rem, $ls: 0.06875rem);
     }
   }
 }
@@ -134,7 +129,7 @@
 @include mq() {
   .space--two {
     grid-column: 1 / -1;
-    height: 10rem;
+    height: 11rem;
   }
 }
 
@@ -153,11 +148,9 @@
   }
 
   &__resume-link {
+    @include paragraph($spacemono, $fs: 2.25rem, $lh: 3rem);
     text-decoration: none;
     color: black;
-    font-family: $spacemono;
-    font-size: 2.25rem;
-    line-height: 3rem;
   }
 
   &__resume-link:hover {
@@ -177,10 +170,6 @@
     margin: 0;
   }
 
-  &__title {
-    font-weight: 500;
-  }
-
   &--three {
     margin-bottom: 4rem;
   }
@@ -197,20 +186,16 @@
     }
 
     &__resume-link {
-      font-size: 2.75rem;
-      line-height: 3rem;
-      letter-spacing: 0.06875rem;
+      @include paragraph($spacemono, $fs:2.25rem, $lh: 3rem, $ls: 0.06875rem);
     }
   }
 
   .experience {
-    font-size: 2.75rem;
-    line-height: 4rem;
-    letter-spacing: 0.06875rem;
+    @include paragraph($fs: 2.25rem, $lh: 4rem, $ls: 0.06875rem);
     margin-bottom: 3rem;
 
     &--three {
-      margin-bottom: 5rem;
+      margin-bottom: 11rem;
     }
   }
 }

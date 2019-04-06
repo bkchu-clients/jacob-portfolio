@@ -12,3 +12,10 @@
     @content;
   }
 }
+
+@mixin box($color: rgb(255, 237, 183)) {
+  border: 1px solid $color;
+  border-radius: 4px;
+  padding: 3rem;
+  align-self: start;
+}
