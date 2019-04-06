@@ -44,7 +44,7 @@
 
 @include mq() {
   .case-studies {
-    grid-column: 2 / -3;
+    grid-column: 2 / span 8;
     margin-top: 33rem;
 
     &__title {
