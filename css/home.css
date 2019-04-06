@@ -4,6 +4,7 @@
   line-height: 9rem;
   letter-spacing: 0;
   font-weight: bold;
+  margin-top: 0;
 }
 
 .subheader {
@@ -12,6 +13,7 @@
   line-height: 5rem;
   letter-spacing: 0.1875rem;
   font-weight: normal;
+  margin-top: 0;
 }
 
 .subsubheader {
@@ -20,6 +22,7 @@
   line-height: 5rem;
   letter-spacing: 0.06875rem;
   font-weight: normal;
+  margin-top: 0;
 }
 
 .grid--inner {
@@ -203,6 +206,7 @@
     line-height: 3.25rem;
     letter-spacing: 0.06875rem;
     font-weight: normal;
+    margin-top: 0;
     margin-bottom: 2.25rem;
   }
 
@@ -212,6 +216,7 @@
     line-height: 7rem;
     letter-spacing: 0.05rem;
     font-weight: normal;
+    margin-top: 0;
   }
 }
 /******************************************************************************
@@ -269,6 +274,7 @@
     line-height: 6rem;
     letter-spacing: 0.06875rem;
     font-weight: normal;
+    margin-top: 0;
   }
 }
 /******************************************************************************
@@ -304,6 +310,7 @@
   line-height: 3rem;
   letter-spacing: 0.06875rem;
   font-weight: normal;
+  margin-top: 0;
   text-decoration: none;
   color: black;
 }
@@ -341,6 +348,7 @@
     line-height: 3rem;
     letter-spacing: 0.06875rem;
     font-weight: normal;
+    margin-top: 0;
   }
 
   .experience {
@@ -349,6 +357,7 @@
     line-height: 4rem;
     letter-spacing: 0.06875rem;
     font-weight: normal;
+    margin-top: 0;
     margin-bottom: 3rem;
   }
   .experience--three {

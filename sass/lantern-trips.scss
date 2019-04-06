@@ -62,7 +62,6 @@
     padding-right: 0rem;
 
     &__picture {
-      grid-column: 3 / span 2;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -75,7 +74,6 @@
 
     &__texts {
       align-self: center;
-      grid-column: 6 / -3;
       @include paragraph();
     }
   }
@@ -87,26 +85,19 @@
 @include mq() {
   .summary {
     margin-top: 14.5rem;
-    margin-bottom: 16rem;
+    margin-bottom: 10rem;
 
     &__question {
-      grid-column: 2 / span 8;
       margin: 0;
       @include paragraph($spacemono, $fs: 3rem);
     }
 
     &__points {
-      grid-column: 4 / -2;
       margin-top: 9rem;
     }
 
     &__point {
       margin: 0;
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-      padding-left: 5rem;
-      border-radius: 4px;
-      border: solid 1px rgb(151, 151, 151);
       @include paragraph($lh: 5rem);
 
       @include all-but-last {
@@ -119,7 +110,7 @@
 .research {
   &__description {
     @include paragraph($lh: 5rem);
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
   // &__image {
@@ -127,7 +118,7 @@
   // }
 
   .space {
-    height: 15.5rem;
+    height: 10rem;
     &--small {
       height: 12rem;
     }
@@ -135,10 +126,6 @@
 
   &__box {
     // align-self: start;
-    padding: 3rem;
-    border-radius: 4px;
-    border: solid 4px rgb(255, 237, 183);
-    margin-bottom: 9rem;
     &-text {
       @include paragraph;
 
@@ -156,6 +143,11 @@
     width: 80%;
 
     &--two {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      object-fit: cover;
     }
 
     &--three {
@@ -164,6 +156,9 @@
 
       top: 9rem;
       left: 20%;
+      bottom: 0;
+      right: 0;
+      object-fit: cover;
     }
   }
 }
@@ -171,7 +166,7 @@
 @include mq() {
   .research {
     &__box {
-      margin-bottom: 53.125rem;
+      margin-bottom: 45.125rem;
     }
   }
 }
@@ -193,5 +188,13 @@
 .dnd {
   &__header {
     margin-bottom: 10rem;
+  }
+  
+  &__images {
+
+  }
+
+  &__image {
+    width: 40%;
   }
 }

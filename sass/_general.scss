@@ -14,8 +14,15 @@
 }
 
 @mixin box($color: rgb(255, 237, 183)) {
-  border: 1px solid $color;
+  border: .25rem solid $color;
   border-radius: 4px;
   padding: 3rem;
   align-self: start;
+  p:first-of-type {
+    margin-top: 0;  
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
 }

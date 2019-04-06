@@ -4,6 +4,7 @@
   line-height: 9rem;
   letter-spacing: 0;
   font-weight: bold;
+  margin-top: 0;
 }
 
 .subheader {
@@ -12,6 +13,7 @@
   line-height: 5rem;
   letter-spacing: 0.1875rem;
   font-weight: normal;
+  margin-top: 0;
 }
 
 .subsubheader {
@@ -20,6 +22,7 @@
   line-height: 5rem;
   letter-spacing: 0.06875rem;
   font-weight: normal;
+  margin-top: 0;
 }
 
 .grid--inner {
@@ -210,6 +213,7 @@
     line-height: 3rem;
     letter-spacing: 0.06875rem;
     font-weight: normal;
+    margin-top: 0;
     margin: 0;
   }
   .footer__copyright {
@@ -218,6 +222,7 @@
     line-height: 3rem;
     letter-spacing: 0.06875rem;
     font-weight: normal;
+    margin-top: 0;
     margin: 0;
   }
   .footer__links {
@@ -230,6 +235,7 @@
     line-height: 3rem;
     letter-spacing: 0.06875rem;
     font-weight: normal;
+    margin-top: 0;
     text-decoration: none;
     color: black;
     margin-bottom: 0;

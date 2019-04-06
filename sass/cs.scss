@@ -1,9 +1,10 @@
 @import './general';
 
 .cs {
-  &__header {
-    margin-bottom: 5.5rem;
-    padding-bottom: 3rem;
+  &__subheader {
+    margin-top: 0;
+    margin-bottom: 5rem;
+    padding-bottom: 2rem;
     border-bottom: solid 1px black;
 
     .bold {
@@ -11,7 +12,7 @@
     }
   }
 
-  &__subheader {
+  &__subsubheader {
     margin-bottom: 5rem;
 
     .bold {
@@ -41,14 +42,6 @@
     &--gray {
       border-color: rgb(151, 151, 151);
     }
-
-    &--thick {
-      border-width: 0.5rem;
-    }
-
-    &--v-thick {
-      border-width: 1rem;
-    }
   }
 
   &__space {
@@ -64,12 +57,17 @@
   }
 
   &-footer {
-    &__link {
-      @include paragraph($spacemono, $fs: 5rem, $lh: 5rem, $ls: 0.1875rem);
-      height: 31rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    a {
+      color: black;
+
+      &:hover {
+        background: var(--highlight);
+      }
+    }
+    .arrow-next {
+      margin-left: 3rem;
+      width: 3rem;
+      transform: rotate(-90deg);
     }
   }
 }

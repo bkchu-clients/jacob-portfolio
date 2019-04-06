@@ -4,6 +4,7 @@
   line-height: 9rem;
   letter-spacing: 0;
   font-weight: bold;
+  margin-top: 0;
 }
 
 .subheader {
@@ -12,6 +13,7 @@
   line-height: 5rem;
   letter-spacing: 0.1875rem;
   font-weight: normal;
+  margin-top: 0;
 }
 
 .subsubheader {
@@ -20,6 +22,7 @@
   line-height: 5rem;
   letter-spacing: 0.06875rem;
   font-weight: normal;
+  margin-top: 0;
 }
 
 .grid--inner {
@@ -154,18 +157,19 @@
   object-fit: cover;
 }
 
-.cs__header {
-  margin-bottom: 5.5rem;
-  padding-bottom: 3rem;
+.cs__subheader {
+  margin-top: 0;
+  margin-bottom: 5rem;
+  padding-bottom: 2rem;
   border-bottom: solid 1px black;
 }
-.cs__header .bold {
+.cs__subheader .bold {
   font-weight: bold;
 }
-.cs__subheader {
+.cs__subsubheader {
   margin-bottom: 5rem;
 }
-.cs__subheader .bold {
+.cs__subsubheader .bold {
   font-weight: bold;
 }
 .cs__text {
@@ -174,6 +178,7 @@
   line-height: 5rem;
   letter-spacing: 0.06875rem;
   font-weight: normal;
+  margin-top: 0;
 }
 .cs__text--spacemono {
   font-family: "Space Mono", "Courier New", Courier, monospace;
@@ -181,6 +186,7 @@
   line-height: 5rem;
   letter-spacing: 0.06875rem;
   font-weight: normal;
+  margin-top: 0;
 }
 .cs__text--spacemono.bold {
   font-weight: bold;
@@ -189,19 +195,19 @@
   font-weight: bold;
 }
 .cs__box {
-  border: 1px solid #ffedb7;
+  border: 0.25rem solid #ffedb7;
   border-radius: 4px;
   padding: 3rem;
   align-self: start;
 }
+.cs__box p:first-of-type {
+  margin-top: 0;
+}
+.cs__box p:last-of-type {
+  margin-bottom: 0;
+}
 .cs__box--gray {
   border-color: #979797;
-}
-.cs__box--thick {
-  border-width: 0.5rem;
-}
-.cs__box--v-thick {
-  border-width: 1rem;
 }
 .cs__space {
   height: 15.5rem;
@@ -212,16 +218,16 @@
 .cs__space--large {
   height: 28rem;
 }
-.cs-footer__link {
-  font-family: "Space Mono", "Courier New", Courier, monospace;
-  font-size: 5rem;
-  line-height: 5rem;
-  letter-spacing: 0.1875rem;
-  font-weight: normal;
-  height: 31rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.cs-footer a {
+  color: black;
+}
+.cs-footer a:hover {
+  background: var(--highlight);
+}
+.cs-footer .arrow-next {
+  margin-left: 3rem;
+  width: 3rem;
+  transform: rotate(-90deg);
 }
 
 /*# sourceMappingURL=cs.css.map */
