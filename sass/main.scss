@@ -123,7 +123,8 @@ body {
 }
 @media only screen and (min-width: 60em) {
   .grid {
-    grid-template-columns: 9.25% repeat(10, 1fr) 9.25%;
+    // grid-template-columns: 9.25% repeat(10, 1fr) 9.25%;
+    grid-template-columns: 1fr repeat(10, 10rem) 1fr;
     grid-column-gap: 3.25rem;
     padding: 0;
   }
