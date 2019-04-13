@@ -267,6 +267,7 @@
     margin-bottom: 0;
   }
   .info__title {
+    grid-column: 1/-1;
     font-size: 2.25rem;
     line-height: 3rem;
     margin-bottom: 3rem;
@@ -281,20 +282,22 @@
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-column-gap: 3.25rem;
-    height: 500px;
+    height: auto;
   }
   .info__paragraph p {
+    margin: 0;
     grid-column: 1/span 6;
+    height: 100%;
   }
   .info__paragraph p:hover + .info__image {
     opacity: 1;
   }
   .info__image {
-    grid-column: 7/span 4;
+    grid-column: 8/span 3;
     display: block;
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     opacity: 0;
     transition: all 200ms ease-in-out;
   }
