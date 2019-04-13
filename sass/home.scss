@@ -37,8 +37,7 @@
   }
 
   & span:hover {
-    color: white;
-    background-color: var(--highlight);
+    color: var(--highlight);
   }
 }
 
@@ -128,7 +127,7 @@
         margin: 0;
         grid-column: 1 / span 6;
         height: 100%;
-        
+
         &:hover + .info__image {
           opacity: 1;
         }

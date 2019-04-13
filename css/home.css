@@ -191,8 +191,7 @@
   margin-bottom: 0;
 }
 .case-study span:hover {
-  color: white;
-  background-color: var(--highlight);
+  color: var(--highlight);
 }
 
 @media only screen and (min-width: 60rem) {
