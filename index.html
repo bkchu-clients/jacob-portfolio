@@ -1,38 +1,25 @@
-<!doctype html>
-<html
-  class="no-js"
-  lang="en"
->
-
+<!DOCTYPE html>
+<html class="no-js" lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>
       Jacob Kim / Experience & Interaction Designer
     </title>
-    <meta
-      name="description"
-      content
-    >
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    >
+    <meta name="description" content />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="apple-touch-icon" href="icon.png" />
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/arrow.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/arrow.css" />
+    <link rel="stylesheet" href="css/home.css" />
 
-    <meta
-      name="theme-color"
-      content="#fafafa"
-    >
+    <meta name="theme-color" content="#fafafa" />
   </head>
 
   <body>
@@ -41,16 +28,19 @@
   <![endif] -->
 
     <header class="main-header grid">
-      <h1 class="main-header__title">
-        <a
-          href="/"
-          class="link"
-        >
-          Jacob Kim /
-          <br class="mobile-only">
-          Experience & Interaction Designer
+      <div class="grid--inner">
+        <a href="/" class="main-header__link link width-10">
+          <img class="main-header__logo" src="img/logo.svg" alt="logo" />
+          <div>
+            <h1 class="main-header__title">
+              Jacob Kim
+            </h1>
+            <h2 class="main-header__subtitle">
+              Experience & Interaction Designer
+            </h2>
+          </div>
         </a>
-      </h1>
+      </div>
     </header>
 
     <main class="grid">
@@ -108,11 +98,7 @@
           <p class="experience__date">Oct 2017 - Nov 2017</p>
           <p class="experience__location">Los Angeles, CA</p>
         </div>
-        <a
-          href="jacob_resume.pdf"
-          target="_blank"
-          class="experiences__resume-link"
-        >
+        <a href="jacob_resume.pdf" target="_blank" class="experiences__resume-link">
           View Full Resume
         </a>
       </div>
@@ -120,19 +106,12 @@
 
     <footer class="footer grid">
       <div class="footer__content">
-
         <p class="footer__greeting">Reach out ~</p>
         <div class="footer__links">
-          <a
-            href="mailto:jacobjinwoo@gmail.com"
-            class="footer__link footer__link--first"
-          >
+          <a href="mailto:jacobjinwoo@gmail.com" class="footer__link footer__link--first">
             Email
           </a>
-          <a
-            href="https://www.linkedin.com/in/jacobjkim/"
-            class="footer__link footer__link--second"
-          >
+          <a href="https://www.linkedin.com/in/jacobjkim/" class="footer__link footer__link--second">
             LinkedIn
           </a>
         </div>
@@ -140,39 +119,28 @@
       </div>
     </footer>
 
-    <a
-      href="#anchor"
-      class="arrow"
-    >
-      <img
-        src="img/arrow.svg"
-        alt="arrow-button"
-        class="arrow-img"
-      >
+    <a href="#anchor" class="arrow">
+      <img src="img/arrow.svg" alt="arrow-button" class="arrow-img" />
     </a>
 
     <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script>
-      window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')
+      window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>');
     </script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>
-      window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+      window.ga = function() {
+        ga.q.push(arguments);
+      };
+      ga.q = [];
+      ga.l = +new Date();
+      ga('create', 'UA-XXXXX-Y', 'auto');
+      ga('send', 'pageview');
     </script>
-    <script
-      src="https://www.google-analytics.com/analytics.js"
-      async
-      defer
-    ></script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
   </body>
-
 </html>

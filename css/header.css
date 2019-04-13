@@ -168,10 +168,29 @@
   padding-bottom: 3.5rem;
   background: white;
 }
+.main-header__logo {
+  height: 53px;
+  width: 31px;
+  margin-right: 3rem;
+}
+.main-header__link {
+  display: flex;
+}
 .main-header__title {
-  font-size: 2rem;
-  font-family: inherit;
-  font-weight: 400;
+  font-family: "Space Mono", "Courier New", Courier, monospace;
+  font-size: 4rem;
+  line-height: 4rem;
+  letter-spacing: 0.06875rem;
+  font-weight: bold;
+  margin-top: 0;
+}
+.main-header__subtitle {
+  font-family: "Space Mono", "Courier New", Courier, monospace;
+  font-size: 2.25rem;
+  line-height: 4rem;
+  letter-spacing: 0.06875rem;
+  font-weight: normal;
+  margin-top: 0;
   margin: 0;
 }
 
@@ -180,8 +199,21 @@
     padding: 10rem 0 5rem;
   }
   .main-header__title {
+    font-family: "Space Mono", "Courier New", Courier, monospace;
+    font-size: 4rem;
+    line-height: 4rem;
+    letter-spacing: 0.06875rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin: 0;
+  }
+  .main-header__subtitle {
+    font-family: "Space Mono", "Courier New", Courier, monospace;
     font-size: 2.25rem;
-    grid-column: 2/-2;
+    line-height: 4rem;
+    letter-spacing: 0.06875rem;
+    font-weight: normal;
+    margin-top: 0;
   }
 }
 

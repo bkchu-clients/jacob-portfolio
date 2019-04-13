@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="166px" height="265px" viewBox="0 0 166 265" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="current" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ICON" transform="translate(-67.000000, -18.000000)" fill="#FF5555">
+            <g id="Group" transform="translate(67.000000, 18.000000)">
+                <path d="M14.3858659,130.449788 C5.30777767,117.067057 0,100.891463 0,83.469163 C0,37.3704172 37.1603658,0 83,0 C128.839634,0 166,37.3704172 166,83.469163 C166,100.687352 160.81586,116.687875 151.931642,129.978284 L83.5804196,265 L14.3858659,130.449788 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

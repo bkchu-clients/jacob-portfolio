@@ -11,10 +11,22 @@
   padding-bottom: 3.5rem;
   background: white;
 
+  &__logo {
+    height: 53px;
+    width: 31px;
+    margin-right: 3rem;
+  }
+
+  &__link {
+    display: flex;
+  }
+  
   &__title {
-    font-size: 2rem;
-    font-family: inherit;
-    font-weight: 400;
+    @include paragraph($spacemono, $fs: 4rem, $fw: bold, $lh: 4rem);
+  }
+  
+  &__subtitle {
+    @include paragraph($spacemono, $fs: 2.25rem, $fw: normal, $lh: 4rem);
     margin: 0;
   }
 }
@@ -24,8 +36,12 @@
     padding: 10rem 0 5rem;
 
     &__title {
-      font-size: 2.25rem;
-      grid-column: 2 / -2;
+      @include paragraph($spacemono, $fs: 4rem, $fw: bold, $lh: 4rem);
+      margin: 0;
+    }
+
+    &__subtitle {
+      @include paragraph($spacemono, $fs: 2.25rem, $fw: normal, $lh: 4rem);
     }
   }
 }
