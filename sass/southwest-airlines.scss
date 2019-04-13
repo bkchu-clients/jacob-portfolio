@@ -1,0 +1,44 @@
+@import './general';
+
+.cs-title {
+  margin-top: 20rem;
+  margin-bottom: 9rem;
+  padding-bottom: 5rem;
+  border-bottom: 1px solid black;
+
+  &__header {
+    margin: 0 0 3rem;
+  }
+
+  &__subheader {
+    @include paragraph($spacemono, $fs: 3rem, $lh: 4.5rem, $ls: 0.1875rem);
+  }
+}
+
+@include mq() {
+  .cs-title {
+    margin-top: 35rem;
+
+    &__subheader {
+      font-size: 4rem;
+      line-height: 5rem;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.overview {
+  grid-column: 1 / -1;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background-color: rgb(221, 250, 252);
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+@include mq() {
+  .overview {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}
