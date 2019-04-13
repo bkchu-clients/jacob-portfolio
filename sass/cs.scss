@@ -51,9 +51,22 @@
       height: 12rem;
     }
 
+    &--v-small {
+      height: 10rem;
+    }
+
     &--large {
       height: 28rem;
     }
+
+    @mixin spaces() {
+      @for $i from 0 through 16 {
+        &--#{$i} {
+          height: #{$i}rem;
+        }
+      }
+    }
+    @include spaces();
   }
 
   &-footer {

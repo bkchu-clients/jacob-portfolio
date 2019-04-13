@@ -215,8 +215,62 @@
 .cs__space--small {
   height: 12rem;
 }
+.cs__space--v-small {
+  height: 10rem;
+}
 .cs__space--large {
   height: 28rem;
+}
+.cs__space--0 {
+  height: 0rem;
+}
+.cs__space--1 {
+  height: 1rem;
+}
+.cs__space--2 {
+  height: 2rem;
+}
+.cs__space--3 {
+  height: 3rem;
+}
+.cs__space--4 {
+  height: 4rem;
+}
+.cs__space--5 {
+  height: 5rem;
+}
+.cs__space--6 {
+  height: 6rem;
+}
+.cs__space--7 {
+  height: 7rem;
+}
+.cs__space--8 {
+  height: 8rem;
+}
+.cs__space--9 {
+  height: 9rem;
+}
+.cs__space--10 {
+  height: 10rem;
+}
+.cs__space--11 {
+  height: 11rem;
+}
+.cs__space--12 {
+  height: 12rem;
+}
+.cs__space--13 {
+  height: 13rem;
+}
+.cs__space--14 {
+  height: 14rem;
+}
+.cs__space--15 {
+  height: 15rem;
+}
+.cs__space--16 {
+  height: 16rem;
 }
 .cs-footer a {
   color: black;
