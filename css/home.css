@@ -257,10 +257,13 @@
 .info__paragraph--underline {
   text-decoration: underline;
 }
+.info__image {
+  display: none;
+}
 
 @media only screen and (min-width: 60rem) {
   .info {
-    grid-column: 2/8;
+    grid-column: 2/-2;
     margin-bottom: 0;
   }
   .info__title {
@@ -275,6 +278,24 @@
     letter-spacing: 0.06875rem;
     font-weight: normal;
     margin-top: 0;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-column-gap: 3.25rem;
+    height: 500px;
+  }
+  .info__paragraph p {
+    grid-column: 1/span 6;
+  }
+  .info__paragraph p:hover + .info__image {
+    opacity: 1;
+  }
+  .info__image {
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+    grid-column: 7/span 4;
+    width: 100%;
+    object-fit: cover;
+    display: block;
   }
 }
 /******************************************************************************

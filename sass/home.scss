@@ -52,7 +52,7 @@
       margin-bottom: 2.25rem;
     }
   }
-  
+
   .case-study {
     @include paragraph($spacemono, $fs: 4rem, $lh: 7rem, $ls: 0.05rem);
   }
@@ -99,11 +99,15 @@
       text-decoration: underline;
     }
   }
+
+  &__image {
+    display: none;
+  }
 }
 
 @include mq() {
   .info {
-    grid-column: 2 / 8;
+    grid-column: 2 / -2;
     margin-bottom: 0;
 
     &__title {
@@ -114,6 +118,27 @@
 
     &__paragraph {
       @include paragraph($fs: 2.25rem, $lh: 6rem, $ls: 0.06875rem);
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-column-gap: 3.25rem;
+      height: 500px;
+
+      p {
+        grid-column: 1 / span 6;
+        
+        &:hover + .info__image {
+          opacity: 1;
+        }
+      }
+    }
+
+    &__image {
+      opacity: 0;
+      transition: all 200ms ease-in-out;
+      grid-column: 7 / span 4;
+      width: 100%;
+      object-fit: cover;
+      display: block;
     }
   }
 }
@@ -186,7 +211,7 @@
     }
 
     &__resume-link {
-      @include paragraph($spacemono, $fs:2.25rem, $lh: 3rem, $ls: 0.06875rem);
+      @include paragraph($spacemono, $fs: 2.25rem, $lh: 3rem, $ls: 0.06875rem);
     }
   }
 
