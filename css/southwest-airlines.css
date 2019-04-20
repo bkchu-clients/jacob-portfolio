@@ -200,5 +200,28 @@
     padding-right: 0rem;
   }
 }
+.swa__design {
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+.swa__design:not(:last-of-type) {
+  margin-bottom: 5rem;
+}
+
+@media only screen and (min-width: 60rem) {
+  .swa__designs {
+    display: flex;
+    justify-content: space-between;
+    height: 60rem;
+    width: 100%;
+  }
+  .swa__design {
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .swa__design:not(:last-of-type) {
+    margin-right: 2rem;
+    margin-bottom: 0;
+  }
+}
 
 /*# sourceMappingURL=southwest-airlines.css.map */
