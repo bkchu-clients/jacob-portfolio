@@ -47,17 +47,6 @@
     padding-left: 0rem;
     padding-right: 0rem;
 
-    &__picture {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      img {
-        width: 100%;
-        object-fit: cover;
-      }
-    }
-
     &__texts {
       align-self: center;
       @include paragraph();
@@ -111,6 +100,7 @@
   }
 
   &__box {
+    margin-bottom: 5rem;
     // align-self: start;
     &-text {
       @include paragraph;
@@ -122,38 +112,15 @@
   }
 
   &__images {
-    position: relative;
-  }
-
-  &__image {
-    width: 80%;
-
-    &--two {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      object-fit: cover;
-    }
-
-    &--three {
-      position: absolute;
-      z-index: -1;
-
-      top: 9rem;
-      left: 20%;
-      bottom: 0;
-      right: 0;
-      object-fit: cover;
-    }
   }
 }
 
 @include mq() {
   .research {
-    &__box {
-      margin-bottom: 45.125rem;
-    }
+
+    // &__images {
+    //   padding-top: 0;
+    // }
   }
 }
 
