@@ -19,12 +19,12 @@ $spacemono: 'Space Mono', 'Courier New', Courier, monospace;
 
 .subheader {
   // size: 24, type: Space Mono Regular, line-height: 40, letter spacing: 1.5
-  @include paragraph($spacemono, $fs: 3rem, $lh: 5rem, $ls: 0.1875rem);
+  @include paragraph($spacemono, $fs: 2rem, $lh: 3.4rem, $ls: 0.1875rem);
 }
 
 .subsubheader {
   // size: 24, type: Space Mono Regular, line-height: 40, letter spacing: .55
-  @include paragraph($spacemono, $fs: 3rem, $lh: 5rem, $ls: 0.06875rem);
+  @include paragraph($spacemono, $fs: 2rem, $lh: 3.4rem, $ls: 0.06875rem);
 }
 
 @include mq() {
@@ -42,4 +42,8 @@ $spacemono: 'Space Mono', 'Courier New', Courier, monospace;
     // size: 24, type: Space Mono Regular, line-height: 40, letter spacing: .55
     @include paragraph($spacemono, $fs: 3rem, $lh: 5rem, $ls: 0.06875rem);
   }
+}
+
+.bold {
+  font-weight: bold !important;
 }

@@ -9,8 +9,8 @@
 
 .subheader {
   font-family: "Space Mono", "Courier New", Courier, monospace;
-  font-size: 3rem;
-  line-height: 5rem;
+  font-size: 2rem;
+  line-height: 3.4rem;
   letter-spacing: 0.1875rem;
   font-weight: normal;
   margin-top: 0;
@@ -18,8 +18,8 @@
 
 .subsubheader {
   font-family: "Space Mono", "Courier New", Courier, monospace;
-  font-size: 3rem;
-  line-height: 5rem;
+  font-size: 2rem;
+  line-height: 3.4rem;
   letter-spacing: 0.06875rem;
   font-weight: normal;
   margin-top: 0;
@@ -53,6 +53,10 @@
     margin-top: 0;
   }
 }
+.bold {
+  font-weight: bold !important;
+}
+
 .grid--inner {
   grid-column: 2/-2;
   display: grid;
