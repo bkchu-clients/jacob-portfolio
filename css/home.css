@@ -320,7 +320,7 @@
     grid-column: 1/span 6;
     height: 100%;
   }
-  .info__paragraph p:hover + .info__image {
+  .info__paragraph:hover > .info__image {
     opacity: 1;
   }
   .info__image {

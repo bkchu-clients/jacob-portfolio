@@ -127,10 +127,10 @@
         margin: 0;
         grid-column: 1 / span 6;
         height: 100%;
+      }
 
-        &:hover + .info__image {
-          opacity: 1;
-        }
+      &:hover > .info__image {
+        opacity: 1;
       }
     }
 
