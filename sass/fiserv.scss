@@ -1,0 +1,46 @@
+@import './general';
+
+.overview {
+  grid-column: 1 / -1;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background-color: rgb(255, 230, 230);
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+@include mq() {
+  .overview {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}
+
+.swa {
+
+  &__design {
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5);
+    @include all-but-last() {
+      margin-bottom: 5rem;
+    }
+  }
+}
+@include mq() {
+  .swa {
+    &__designs {
+      display: flex;
+      justify-content: space-between;
+      height: 60rem;
+      width: 100%;
+    }
+
+    &__design {
+      max-height: 100%;
+      object-fit: contain;
+      @include all-but-last() {
+        margin-right: 2rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

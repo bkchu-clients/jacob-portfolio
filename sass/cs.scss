@@ -40,7 +40,18 @@
     @include box;
 
     &--gray {
-      border-color: rgb(151, 151, 151);
+      border-color: black;
+    }
+
+    &--center {
+      text-align: center;
+    }
+
+    &--grid {
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-column-gap: 3.25rem;
     }
   }
 
@@ -103,7 +114,7 @@
       padding-bottom: 2rem;
       border-bottom: solid 1px black;
     }
-  
+
     &__subsubheader {
       margin-bottom: 5rem;
     }

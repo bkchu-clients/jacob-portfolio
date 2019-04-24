@@ -244,7 +244,16 @@
   margin-bottom: 0;
 }
 .cs__box--gray {
-  border-color: #979797;
+  border-color: black;
+}
+.cs__box--center {
+  text-align: center;
+}
+.cs__box--grid {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-column-gap: 3.25rem;
 }
 .cs__space {
   height: 15.5rem;
