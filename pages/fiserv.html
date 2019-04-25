@@ -46,7 +46,7 @@
       }
 
       #mainDialog {
-        box-shadow: 0 5px 10px rgba(0,0,0,.1), 0 8px 5px rgba(0,0,0,.05);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 8px 5px rgba(0, 0, 0, 0.05);
         max-width: 400px;
         margin: 5px;
         border-radius: 4px;
@@ -65,10 +65,16 @@
       }
       #pass {
         width: 100%;
-        border: 2px solid #ff5555;
+        border: 2px solid #8e8e8e;
         border-radius: 4px;
         height: 40px;
         font-size: 20px;
+        padding: 10px;
+      }
+
+      #pass:focus {
+        border: 2px solid #ff5555;
+        outline: none;
       }
 
       #messageWrapper {
