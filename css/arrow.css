@@ -189,6 +189,10 @@
   object-fit: cover;
 }
 
+.img__zoom {
+  cursor: pointer;
+}
+
 .arrow {
   position: fixed;
   bottom: 2rem;

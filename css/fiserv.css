@@ -189,6 +189,10 @@
   object-fit: cover;
 }
 
+.img__zoom {
+  cursor: pointer;
+}
+
 .overview {
   grid-column: 1/-1;
   padding-top: 8rem;

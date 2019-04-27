@@ -189,6 +189,10 @@
   object-fit: cover;
 }
 
+.img__zoom {
+  cursor: pointer;
+}
+
 .cs-title {
   margin-top: 25rem;
   margin-bottom: 9rem;
