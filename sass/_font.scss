@@ -40,7 +40,7 @@ $spacemono: 'Space Mono', 'Courier New', Courier, monospace;
 
   .subsubheader {
     // size: 24, type: Space Mono Regular, line-height: 40, letter spacing: .55
-    @include paragraph($spacemono, $fs: 3rem, $lh: 5rem, $ls: 0.06875rem);
+    @include paragraph($spacemono, $fs: 2.25rem, $lh: 5rem, $ls: 0.06875rem);
   }
 }
 
