@@ -327,10 +327,12 @@
   .info__image {
     grid-row: 3/6;
     grid-column: 7/span 5;
+    align-self: start;
     display: block;
     height: 100%;
     width: 100%;
     object-fit: contain;
+    object-position: 0 0;
     opacity: 0;
   }
   .info__image--hovered {
