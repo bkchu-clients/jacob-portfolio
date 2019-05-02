@@ -12,12 +12,14 @@
   background: white;
 
   &__logo {
-    height: 8rem;
+    height: 7rem;
     margin-right: 3rem;
+    padding-bottom: .5rem;
   }
 
   &__link {
     display: flex;
+    align-items: center;
   }
   
   &__title {

@@ -205,11 +205,13 @@
   background: white;
 }
 .main-header__logo {
-  height: 8rem;
+  height: 7rem;
   margin-right: 3rem;
+  padding-bottom: 0.5rem;
 }
 .main-header__link {
   display: flex;
+  align-items: center;
 }
 .main-header__title {
   font-family: "Space Mono", "Courier New", Courier, monospace;
