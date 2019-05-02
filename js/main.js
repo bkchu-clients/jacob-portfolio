@@ -1,8 +1,10 @@
 (function() {
   // start gallery
-  $(".lightgallery").lightGallery({
-    selector: '.img__zoom'
-  }); 
+  if($(".lightgallery")){
+    $(".lightgallery").lightGallery({
+      selector: '.img__zoom'
+    }); 
+  }
 
 
   // set initial boolean flag and will be used to determine when the bottom is hit
