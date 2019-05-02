@@ -117,7 +117,7 @@
     }
 
     &__paragraph {
-      @include paragraph($fs: 2.25rem, $lh: 6rem, $ls: 0.06875rem);
+      @include paragraph($fs: 2.25rem, $lh: 5rem, $ls: 0.06875rem);
       display: grid;
       grid-template-columns: repeat(10, 1fr);
       grid-column-gap: 3.25rem;
