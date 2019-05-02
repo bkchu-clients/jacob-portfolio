@@ -321,19 +321,20 @@
   }
   .info__paragraph p {
     margin: 0;
-    grid-column: 1/span 6;
+    grid-column: 1/span 5;
     height: 100%;
   }
-  .info__paragraph:hover > .info__image {
-    opacity: 1;
-  }
   .info__image {
-    grid-column: 8/span 3;
+    grid-row: 3/6;
+    grid-column: 7/span 5;
     display: block;
     height: 100%;
     width: 100%;
     object-fit: contain;
     opacity: 0;
+  }
+  .info__image--hovered {
+    opacity: 1;
   }
 }
 /******************************************************************************

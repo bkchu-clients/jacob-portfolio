@@ -48,4 +48,10 @@
     return false;
   });
 
+  $('.info, .experiences, .space--two').mouseenter(function() {
+    console.log('experience entered');
+    $('.info__image').addClass('info__image--hovered');
+  }).mouseleave(function() {
+    $('.info__image').removeClass('info__image--hovered');
+  })
 })();
