@@ -326,7 +326,7 @@
   }
   .info__image {
     grid-row: 3/6;
-    grid-column: 7/span 5;
+    grid-column: 8/span 4;
     align-self: start;
     display: block;
     height: 100%;
@@ -397,7 +397,7 @@
 
 @media only screen and (min-width: 60rem) {
   .experiences {
-    grid-column: 2/7;
+    grid-column: 2/-2;
   }
   .experiences__title {
     font-size: 2.25rem;

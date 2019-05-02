@@ -133,7 +133,7 @@
 
     &__image {
       grid-row: 3 / 6;
-      grid-column: 7 / span 5;
+      grid-column: 8 / span 4;
       align-self: start;
       display: block;
       
@@ -209,7 +209,7 @@
 
 @include mq() {
   .experiences {
-    grid-column: 2 / 7;
+    grid-column: 2 / -2;
 
     &__title {
       font-size: 2.25rem;

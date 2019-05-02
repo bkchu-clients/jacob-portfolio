@@ -48,7 +48,7 @@
     return false;
   });
 
-  $('.info, .experiences, .space--two').mouseenter(function() {
+  $('.info, .info__image, .experiences, .space--two').mouseenter(function() {
     console.log('experience entered');
     $('.info__image').addClass('info__image--hovered');
   }).mouseleave(function() {
