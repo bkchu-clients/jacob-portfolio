@@ -25,8 +25,8 @@
     return Math.max(D.body.scrollHeight, D.documentElement.scrollHeight, D.body.offsetHeight, D.documentElement.offsetHeight, D.body.clientHeight, D.documentElement.clientHeight);
   }
   // while the window is scrolling
-  $(window).scroll(function() {
-    $('.main-header__logo').rotate($(window).scrollTop() / 8);
+  $(window).scroll($.throttle(75, function() {
+    $('.main-header__logo').rotate($(window).scrollTop() * 1440 / $(document).height());
 
     if ($(window).scrollTop() >= 250 && !isHeaderMinimized) {
       isHeaderMinimized = true;
@@ -48,7 +48,7 @@
       // remove the arrow flipping class
       $('.arrow-img').removeClass('arrow-img--flipped');
     }
-  });
+  }));
 
   // we will use the flag here
   // if the arrow is clicked
@@ -56,10 +56,10 @@
     // if it is the bottom
     if (isBottom) {
       // scroll to the top
-      $('html, body').animate({ scrollTop: 0 }, 'slow');
+      $('html, body').animate({ scrollTop: 0 }, 1000);
     } else {
       // otherwise scroll to the bottom
-      $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
+      $('html, body').animate({ scrollTop: $(document).height() }, 1000);
     }
     return false;
   });
