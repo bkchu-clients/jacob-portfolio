@@ -26,7 +26,7 @@
   }
   // while the window is scrolling
   $(window).scroll($.throttle(75, function() {
-    $('.main-header__logo').rotate($(window).scrollTop() * 1440 / $(document).height());
+    $('.main-header__logo').rotate($(window).scrollTop() / 8);
 
     if ($(window).scrollTop() >= 250 && !isHeaderMinimized) {
       isHeaderMinimized = true;
