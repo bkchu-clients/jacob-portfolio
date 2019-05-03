@@ -1,6 +1,4 @@
 (function() {
-  var rotation = 0;
-
   jQuery.fn.rotate = function(degrees) {
     $(this).css({
       '-webkit-transform': 'rotate(' + degrees + 'deg)',
