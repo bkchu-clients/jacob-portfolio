@@ -1,41 +1,75 @@
 @import './general';
 
 .main-header {
+  $this: &;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
   font-family: $spacemono;
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
+  height: 17rem;
   background: white;
+  transition: all 150ms;
+
+  * {
+    transition: all 150ms;
+  }
 
   &__logo {
     height: 7rem;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
 
   &__link {
     display: flex;
     align-items: center;
   }
-  
+
   &__title {
     @include paragraph($spacemono, $fs: 4rem, $fw: bold, $lh: 4rem);
     margin: 0;
   }
-  
+
   &__subtitle {
     @include paragraph($spacemono, $fs: 2rem, $fw: normal, $lh: 2.5rem);
     margin: 0;
     margin-top: 1rem;
+    transform: scaleY(1);
+    transform-origin: auto 0;
+  }
+
+  &--minimized {
+    height: 7rem;
+
+    #{$this}__logo {
+      height: 5rem;
+      margin-right: 0.5rem;
+    }
+
+    #{$this}__link {
+      display: flex;
+      align-items: center;
+    }
+
+    #{$this}__title {
+      @include paragraph($spacemono, $fs: 2rem, $fw: bold, $lh: 2rem);
+      margin-bottom: 0;
+    }
+
+    #{$this}__subtitle {
+      @include paragraph($spacemono, $fs: 1.5rem, $fw: normal, $lh: 1.75rem);
+      transform: scaleY(0);
+      height: 0;
+    }
   }
 }
 
 @include mq() {
   .main-header {
-    padding: 10rem 0 5rem;
+    $this: &;
+    padding: 7rem 0 5rem;
+    height: auto;
 
     &__title {
       @include paragraph($spacemono, $fs: 4rem, $fw: bold, $lh: 4rem);
@@ -44,6 +78,35 @@
 
     &__subtitle {
       @include paragraph($spacemono, $fs: 2.25rem, $fw: normal, $lh: 4rem);
+      transform: scaleY(1);
+      height: auto;
+    }
+
+    &--minimized {
+      height: auto;
+      padding: 3rem 0 3rem;
+
+      #{$this}__logo {
+        height: 5rem;
+        margin-right: 0.5rem;
+      }
+
+      #{$this}__link {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      #{$this}__title {
+        @include paragraph($spacemono, $fs: 2rem, $fw: bold, $lh: 2rem);
+        margin-bottom: 0.5rem;
+      }
+
+      #{$this}__subtitle {
+        @include paragraph($spacemono, $fs: 1.5rem, $fw: normal, $lh: 1.5rem);
+        transform: scaleY(1);
+        height: auto;
+      }
     }
   }
 }

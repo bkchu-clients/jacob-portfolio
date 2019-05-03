@@ -18,10 +18,12 @@
   $(window).scroll(function() {
     if ($(window).scrollTop() >= 250 && !isHeaderMinimized) {
       isHeaderMinimized = true;
+      $('.main-header').addClass('main-header--minimized');
     } else if ($(window).scrollTop() < 250 && isHeaderMinimized) {
       isHeaderMinimized = false;
+      $('.main-header').removeClass('main-header--minimized');
     }
-    
+
     // if the user has hit the bottom of the page
     if ($(window).scrollTop() + $(window).height() / 2 >= getDocHeight() / 2 && !isBottom) {
       // set flag to true
