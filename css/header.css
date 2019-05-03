@@ -202,10 +202,10 @@
   font-family: "Space Mono", "Courier New", Courier, monospace;
   height: 17rem;
   background: white;
-  transition: all 150ms;
+  transition: all 400ms ease;
 }
 .main-header * {
-  transition: all 150ms;
+  transition: all 400ms ease;
 }
 .main-header__logo {
   height: 7rem;
