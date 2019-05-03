@@ -1,4 +1,16 @@
 (function() {
+  var rotation = 0;
+
+  jQuery.fn.rotate = function(degrees) {
+    $(this).css({
+      '-webkit-transform': 'rotate(' + degrees + 'deg)',
+      '-moz-transform': 'rotate(' + degrees + 'deg)',
+      '-ms-transform': 'rotate(' + degrees + 'deg)',
+      transform: 'rotate(' + degrees + 'deg)' 
+    });
+    return $(this);
+  };
+
   // start gallery
   if ($('.lightgallery')) {
     $('.lightgallery').lightGallery({
@@ -16,6 +28,8 @@
   }
   // while the window is scrolling
   $(window).scroll(function() {
+    $('.main-header__logo').rotate($(window).scrollTop() / 8);
+
     if ($(window).scrollTop() >= 250 && !isHeaderMinimized) {
       isHeaderMinimized = true;
       $('.main-header').addClass('main-header--minimized');
