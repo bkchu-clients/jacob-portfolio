@@ -1,32 +1,34 @@
 (function() {
   // start gallery
-  if($(".lightgallery")){
-    $(".lightgallery").lightGallery({
+  if ($('.lightgallery')) {
+    $('.lightgallery').lightGallery({
       selector: '.img__zoom'
-    }); 
+    });
   }
 
-
   // set initial boolean flag and will be used to determine when the bottom is hit
-  var isBottom = false;
+  let isBottom = false;
+  let isHeaderMinimized = false;
 
   function getDocHeight() {
     var D = document;
-    return Math.max(
-        D.body.scrollHeight, D.documentElement.scrollHeight,
-        D.body.offsetHeight, D.documentElement.offsetHeight,
-        D.body.clientHeight, D.documentElement.clientHeight
-    );
+    return Math.max(D.body.scrollHeight, D.documentElement.scrollHeight, D.body.offsetHeight, D.documentElement.offsetHeight, D.body.clientHeight, D.documentElement.clientHeight);
   }
   // while the window is scrolling
   $(window).scroll(function() {
+    if ($(window).scrollTop() >= 250 && !isHeaderMinimized) {
+      isHeaderMinimized = true;
+    } else if ($(window).scrollTop() < 250 && isHeaderMinimized) {
+      isHeaderMinimized = false;
+    }
+    
     // if the user has hit the bottom of the page
-    if ($(window).scrollTop() + $(window).height() / 2 >= getDocHeight() / 2) {
+    if ($(window).scrollTop() + $(window).height() / 2 >= getDocHeight() / 2 && !isBottom) {
       // set flag to true
       isBottom = true;
       // add the class that will flip the arrow
       $('.arrow-img').addClass('arrow-img--flipped');
-    } else {
+    } else if ($(window).scrollTop() + $(window).height() / 2 < getDocHeight() / 2 && isBottom) {
       // otherwise set flag to false
       isBottom = false;
       // remove the arrow flipping class
@@ -48,10 +50,11 @@
     return false;
   });
 
-  $('.info, .info__image, .experiences, .space--two').mouseenter(function() {
-    console.log('experience entered');
-    $('.info__image').addClass('info__image--hovered');
-  }).mouseleave(function() {
-    $('.info__image').removeClass('info__image--hovered');
-  })
+  $('.info, .info__image, .experiences, .space--two')
+    .mouseenter(function() {
+      $('.info__image').addClass('info__image--hovered');
+    })
+    .mouseleave(function() {
+      $('.info__image').removeClass('info__image--hovered');
+    });
 })();
