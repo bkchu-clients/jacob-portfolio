@@ -28,10 +28,10 @@
   $(window).scroll($.throttle(75, function() {
     $('.main-header__logo').rotate($(window).scrollTop() / 8);
 
-    if ($(window).scrollTop() >= 250 && !isHeaderMinimized) {
+    if ($(window).scrollTop() >= 150 && !isHeaderMinimized) {
       isHeaderMinimized = true;
       $('.main-header').addClass('main-header--minimized');
-    } else if ($(window).scrollTop() < 250 && isHeaderMinimized) {
+    } else if ($(window).scrollTop() < 150 && isHeaderMinimized) {
       isHeaderMinimized = false;
       $('.main-header').removeClass('main-header--minimized');
     }
