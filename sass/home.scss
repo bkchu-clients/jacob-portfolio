@@ -52,7 +52,7 @@
 @include mq() {
   .case-studies {
     grid-column: 2 / span 8;
-    margin-top: 25rem;
+    margin-top: 30rem;
 
     &__title {
       @include paragraph($spacemono, $fs: 2.25rem, $lh: 3.25rem);
