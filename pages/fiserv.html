@@ -6,17 +6,26 @@
     <meta name="robots" content="noindex, nofollow" />
     <title>Password Protected Page</title>
     <style>
+      @import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700|Space+Mono:400,700');
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
       html,
       body {
         margin: 0;
         width: 100%;
         height: 100%;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Space Mono';
+        font-size: 8px;
       }
       #dialogText {
         padding: 10px 30px;
         color: white;
-        background-color: #333333;
+        background-color: #ff5555;
+        font-size: 2rem;
       }
 
       #dialogWrap {
@@ -38,15 +47,20 @@
       #mainDialog {
         max-width: 400px;
         margin: 5px;
-        border: solid #aaaaaa 1px;
-        border-radius: 10px;
-        box-shadow: 3px 3px 5px 3px #aaaaaa;
+        border-radius: 4px;
+
+        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
         margin-left: auto;
         margin-right: auto;
         background-color: #ffffff;
         overflow: hidden;
         text-align: left;
       }
+
+      #passwordPrompt {
+        font-size: 2rem;
+      }
+
       #passArea {
         padding: 20px 30px;
         background-color: white;
@@ -54,10 +68,14 @@
       #passArea > * {
         margin: 5px auto;
       }
+
       #pass {
         width: 100%;
         height: 40px;
-        font-size: 30px;
+        font-size: 2rem;
+        border: solid 2px #3e3e3e;
+        border-radius: 4px;
+        padding: 1rem 1rem;
       }
 
       #messageWrapper {
@@ -79,10 +97,13 @@
       }
 
       #submitPass {
-        font-size: 20px;
+        font-family: 'Space Mono';
+        font-size: 2rem;
         border-radius: 5px;
-        background-color: #e7e7e7;
-        border: solid gray 1px;
+        background-color: #ff5555;
+        color: white;
+        padding: 1rem;
+        border: 0;
         float: right;
       }
       #contentFrame {
