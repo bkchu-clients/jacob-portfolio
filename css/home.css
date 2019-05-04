@@ -217,17 +217,23 @@
   margin-left: -1rem;
   margin-bottom: 7rem;
   font-weight: inherit;
-  cursor: pointer;
+}
+.case-study:hover {
+  cursor: url(../img/cursor.svg), auto;
 }
 .case-study a {
   color: black;
   text-decoration: none;
+}
+.case-study a:hover {
+  cursor: url(../img/cursor.svg), auto;
 }
 .case-study:last-of-type {
   margin-bottom: 0;
 }
 .case-study span:hover {
   color: var(--highlight);
+  cursor: url(../img/cursor.svg), auto;
 }
 
 @media only screen and (min-width: 60rem) {
@@ -248,7 +254,7 @@
   .case-study {
     font-family: "Space Mono", "Courier New", Courier, monospace;
     font-size: 4rem;
-    line-height: 7rem;
+    line-height: 6rem;
     letter-spacing: 0.05rem;
     font-weight: normal;
     margin-top: 0;
