@@ -1,334 +1,254 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
+﻿<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>
-      Fiserv | Jacob Kim / Experience & Interaction Designer
-    </title>
-    <meta name="description" content />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
-    <link rel="manifest" href="../site.webmanifest" />
-    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#ff5555" />
-    <meta name="msapplication-TileColor" content="#ff5555" />
-    <meta name="theme-color" content="#ff5555" />
-
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/preflight.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/header.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/arrow.css" />
-    <link rel="stylesheet" href="../css/fiserv.css" />
-    <link rel="stylesheet" href="../css/cs.css" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/utilities.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css" />
-
-    <meta name="theme-color" content="#fafafa" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Password Protected Page</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #dialogText {
+            padding: 10px 30px;
+            color: white;
+            background-color: #333333;
+        }
+        
+        #dialogWrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: table;
+            background-color: #EEEEEE;
+        }
+        
+        #dialogWrapCell {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        #mainDialog {
+            max-width: 400px;
+            margin: 5px;
+            border: solid #AAAAAA 1px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px 3px #AAAAAA;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #FFFFFF;
+            overflow: hidden;
+            text-align: left;
+        }
+        #passArea {
+            padding: 20px 30px;
+            background-color: white;
+        }
+        #passArea > * {
+            margin: 5px auto;
+        }
+        #pass {
+            width: 100%;
+            height: 40px;
+            font-size: 30px;
+        }
+        
+        #messageWrapper {
+            float: left;
+            vertical-align: middle;
+            line-height: 30px;
+        }
+        
+        .notifyText {
+            display: none;
+        }
+        
+        #invalidPass {
+            color: red;
+        }
+        
+        #success {
+            color: green;
+        }
+        
+        #submitPass {
+            font-size: 20px;
+            border-radius: 5px;
+            background-color: #E7E7E7;
+            border: solid gray 1px;
+            float: right;
+        }
+        #contentFrame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
   </head>
-
   <body>
-    <!-- [if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif] -->
-
-    <!-- header -->
-    <header class="main-header grid">
-      <div class="grid--inner">
-        <a href="/" class="main-header__link link width-10">
-          <img class="main-header__logo" src="../img/logo.svg" alt="logo" />
-          <div>
-            <h1 class="main-header__title">
-              Jacob Kim
-            </h1>
-            <h2 class="main-header__subtitle">Experience & <br class="mobile-only" />Interaction Designer</h2>
-          </div>
-        </a>
-      </div>
-    </header>
-
-    <!-- main content -->
-    <main class="lightgallery">
-      <div class="grid">
-        <div class="grid--inner">
-          <div class="cs-title width-10">
-            <h2 class="cs-title__header header">Fiserv</h2>
-            <h3 class="cs-title__subheader">B2B white-label banking product</h3>
-          </div>
-        </div>
-      </div>
-
-      <div class="overview grid">
-        <div class="grid--inner">
-          <div class="cs__text width-10 width-5@m flex items-center">
-            <img class="img__zoom w-full lg:w-4/5 mb-24 lg:mb-0" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556493042/jacob-portfolio/fiserv/Fiserv4.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556493042/jacob-portfolio/fiserv/Fiserv4.png" alt="" />
-          </div>
-          <div class="cs__text width-10 width-5@m">
-            <p class="cs__text mb-12">
-              Fiserv provides financial technology to numerous institutions, credit unions, thrifts and retailers across the country. A trusted fintech company, Fiserv provides its clients with innovative methods and solutions to a range of problems.
-            </p>
-            <p class="cs__text mb-12">
-              The fintech space has some of the most complicated paths for a user and it was our job to come up with efficient solutions to complete those tasks. Users transfer money to their friends and family for professional services or simply paying the tab at a restaurant. Drawing from user testing and research I was able to immerse myself into the many paths a user can take to complete a transfer.
-            </p>
-            <p class="cs__text">
-              My team consisted of over a dozen people. Comprised of designers, developers, project managers, business analysts and QA. Along with our team, we collaborated with Fiserv’s business and technology teams.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cs__space--10"></div>
-
-      <div class="grid">
-        <div class="grid--inner">
-          <h2 class="cs__subheader subheader width-10">Understanding the project context</h2>
-          <div class="width-10 width-7@m">
-            <p class="cs__text">
-              <strong>The Challenge</strong>
-              <br />
-              The challenge was to create a white - label banking application that could be utilized by multiple financial institutions. When the team broke the project down to different features, I was tasked to build the transfer feature. I built multiple flows where a consumer could make a simple one - time transfer or a more complicated transfer, such as a recurring transfer that took place on the 1st and 15th of every month.
-            </p>
-            <div class="cs__space--7"></div>
-            <p class="cs__text">
-              <strong>My Role</strong>
-              <br />
-              I took ownership of the transfer work stream as well as assisted with research and IA documentation. I was responsible for creating wireframes, research deliverables, and keynote presentations.
-            </p>
-            <div class="cs__space--7"></div>
-            <p class="cs__text">
-              <strong>Provide solutions to the client</strong>
-              <br />
-              1. A white - label banking application that provides financial institutions with an easy and flexible product.
-              <br />
-              2. Intuitive transfer flows that allow for ease of use across different breakpoints.
-            </p>
-          </div>
-
-          <div class="cs__space--12 width-10"></div>
-
-          <h2 class="cs__subheader subheader width-10">The Taxonomy of the transfer flow</h2>
-          <div class="width-1@m"></div>
-          <div class="width-10 width-8@m">
-            <img class="img__zoom" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556493042/jacob-portfolio/fiserv/Fiserv5.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556493042/jacob-portfolio/fiserv/Fiserv5.png" alt="" />
-          </div>
-          <div class="width-1@m"></div>
-
-          <div class="cs__space--12 width-10"></div>
-
-          <h2 class="cs__subheader subheader width-10">Validating our designs through research</h2>
-          <div class="width-1@m"></div>
-          <div class="width-10 width-8@m">
-            <h3 class="subsubheader">Listening to our participants -</h3>
-            <div class="cs__space--5"></div>
-            <p class="cs__text mb-12">
-              Throughout the project cycle, our team held over 20 contextual inquiries that helped us iterate on our designs. My team helped our researchers conduct contextual inquiries to assess the mobile application at our in-house usability testing lab. Our researchers screened multiple participants to ensure we were interviewing the target audience. Participants then answered interview questions that included how and when they checked their account summary, and transaction history (to name a few). After consolidating user data, we needed to pivot our designs to meet our user’s needs.
-            </p>
-            <p class="cs__text">
-              The design team sat behind the glass of our usability testing room to listen to feedback given by participants who went through 7 tasks on the mobile app. Out of the 7, there were 3 tasks that pertained to either setting up a transfer or editing one. I noticed that the majority of participants did not want to receive a notification every time a recurring transfer occurred, whether it was a twice a month transfer or a twice a year transfer. For those who had stricter budgeting, we added a checkbox that allowed users to get a notification after every transfer.
-            </p>
-            <div class="cs__space--6"></div>
-            <div class="cs__box cs__box--gray">
-              <h3 class="subheader">“It’s pretty close, I will say that with Bank of America it just depends on what version you’re using, if you get in and try to edit a recurring transfer it is challenging, with this app it’s much easier”</h3>
+    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
+    <div id="dialogWrap">
+        <div id="dialogWrapCell">
+            <div id="mainDialog">
+                <div id="dialogText">This page is password protected.</div>
+                <div id="passArea">
+                    <p id="passwordPrompt">Password</p>
+                    <input id="pass" type="password" name="pass">
+                    <div>
+                        <span id="messageWrapper">
+                            <span id="invalidPass" class="notifyText">Sorry, please try again.</span>
+                            <span id="success" class="notifyText">Success!</span>
+                            &nbsp;
+                        </span>
+                        <button id="submitPass" type="button">Submit</button>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="width-1@m"></div>
-
-          <div class="cs__space--12 width-10"></div>
-          <h2 class="cs__subheader subheader width-10">Clarifying assumptions & small victories</h2>
-
-          <div class="cs__box cs__box--gray cs__box--grid width-10">
-            <div class="cs__space--6 width-10"></div>
-
-            <div class="width-1"></div>
-            <div class="width-8">
-              <h3 class="subheader">
-                We made the assumption that a user would read the ‘help’ messages prior to making a transfer. Giving more affordance to the message block and focusing on the placement made a huge difference.
-              </h3>
-
-              <div class="cs__space--6 width-10"></div>
-
-              <p class="cs__text">
-                <strong>* Not all users take the time to read instructions before diving in.</strong> <br />
-                When we observed users start the transfer process, we noticed that users did not read or may have overlooked the ‘help’ text that is displayed below the header. The text was placed there to explain the limitations of sending a transfer on a weekend or holiday. We saw this as an opportunity to be more explicit with how we displayed the message. We recommended that the text be formatted into a text block that would be displayed with the scheduling dropdown. If the user were to select a date during a weekend or holiday the message would be displayed immediately.
-              </p>
-
-              <div class="cs__space--6 width-10"></div>
-
-              <img class="img__zoom" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556493039/jacob-portfolio/fiserv/Fiserv3.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556493039/jacob-portfolio/fiserv/Fiserv3.png" alt="" />
-
-              <div class="cs__space--6 width-10"></div>
-            </div>
-            <div class="width-1"></div>
-          </div>
-
-          <div class="cs__space--11 width-10"></div>
-
-          <div class="cs__box cs__box--gray cs__box--grid width-10">
-            <div class="cs__space--6 width-10"></div>
-
-            <div class="width-1"></div>
-            <div class="width-8">
-              <h3 class="subheader">
-                At a glance, participants quickly browse through content. Giving more affordance to key info will help alleviate confusion and manage retention.
-              </h3>
-
-              <div class="cs__space--6 width-10"></div>
-
-              <p class="cs__text">
-                Users want to be able to tab between ‘Scheduled Transfers’ and ‘Transfer History’ effortlessly when they’re reviewing a transfer. Some of the main reasons are to confirm the process time and date for a transfer or to edit their transfer. The most convenient way is to tap on a scheduled transfer and read the details. Users could not tell that the rows were tappable due to a lack of any visual cue given to a row. To alleviate the confusion we added a chevron icon to indicate that the row expanded to display more detail. We also saw that participants glanced over the statuses. By emphasizing the color treatment and iconography of the current status we were able to capture their attention.
-              </p>
-
-              <div class="cs__space--6 width-10"></div>
-
-              <img class="img__zoom" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556493043/jacob-portfolio/fiserv/Fiserv2.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556493043/jacob-portfolio/fiserv/Fiserv2.png" alt="" />
-
-              <div class="cs__space--6 width-10"></div>
-            </div>
-            <div class="width-1"></div>
-          </div>
-
-          <div class="cs__space--11 width-10"></div>
-
-          <h2 class="cs__subheader subheader width-10">[Converging] Giving the user a trusted and reliable flow</h2>
-          <p class="cs__text width-10 width-7@m">A banking application needs to prioritize reliability because, at the end of the day, users are trusting the app with their money. With a simple and intuitive design, users can navigate through the transfer flow by filling in the necessary information. At the start of the transfer flow, the user is presented with the basics - From, To, Amount and Scheduling. After iterating on multiple transfer flows and interviewing users throughout the design cycle, we determined three key tasks.</p>
-
-          <div class="cs__space--9 width-10"></div>
-
-          <div class="cs__box cs__box--gray cs__box--center width-10 width-5@m">
-            <p class="subheader">One - Time Transfer</p>
-          </div>
-          <div class="width-5@m"></div>
-          <div class="cs__space--4 width-10"></div>
-          <div class="cs__box cs__box--gray cs__box--center width-10 width-5@m">
-            <p class="subheader">Immediate Transfer</p>
-          </div>
-          <div class="width-5@m"></div>
-          <div class="cs__space--4 width-10"></div>
-          <div class="cs__box cs__box--gray cs__box--center width-10 width-5@m">
-            <p class="subheader">Recurring Transfer</p>
-          </div>
-          <div class="width-5@m"></div>
-
-          <div class="cs__space--11 width-10"></div>
         </div>
-      </div>
-
-      <div class="overview grid">
-        <div class="grid--inner">
-          <div class="width-10">
-            <img class="img__zoom" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556985063/jacob-portfolio/fiserv/Fiserv1.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556985063/jacob-portfolio/fiserv/Fiserv1.png" alt="" />
-          </div>
-        </div>
-      </div>
-
-      <div class="cs__space--11 width-10"></div>
-
-      <div class="grid">
-        <div class="grid--inner">
-          <h2 class="cs__subheader subheader width-10">Narrowing the scope</h2>
-          <div class="cs__box cs__box--gray cs__box--grid width-10">
-            <div class="width-1"></div>
-            <div class="width-8">
-              <div class="cs__space--12"></div>
-              <img class="img__zoom" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556493040/jacob-portfolio/fiserv/Fiserv6.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556493040/jacob-portfolio/fiserv/Fiserv6.png" alt="" />
-              <div class="cs__space--12"></div>
-            </div>
-            <div class="width-1"></div>
-          </div>
-
-          <div class="cs__space--7 width-10"></div>
-
-          <div class="cs__text width-10 width-7@m">
-            As a user begins to navigate through the recurring transfers, different inputs appear. For example, a recurring transfer that occurs on a weekly basis has three additional inputs. The user has to select a start on date, pick a duration as well as an end on date. Once we built the recurring transfer flow, our team decided to internally test the flow with people in our office. We asked our testers to explain the flows to us and explain the different inputs that appeared depending on the frequency.
-          </div>
-          <div class="width-1@m"></div>
-
-          <div class="cs__space--9  width-10"></div>
-        </div>
-      </div>
-
-      <div class="overview grid">
-        <div class="grid--inner">
-          <div class="width-1"></div>
-          <div class="width-8">
-            <img class="img__zoom" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556515320/jacob-portfolio/fiserv/Fiserv7.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556515320/jacob-portfolio/fiserv/Fiserv7.png" alt="" />
-          </div>
-          <div class="width-1"></div>
-        </div>
-      </div>
-
-      <div class="grid">
-        <div class="grid--inner">
-          <div class="cs__space--11 width-10"></div>
-          <h2 class="cs__subheader subheader width-10">What I learned</h2>
-          <div class="cs__box cs__box--gray cs__box--center width-10 width-5@m">
-            <p class="subheader">"Designing for trust"</p>
-          </div>
-          <div class="width-5@m"></div>
-          <div class="cs__space--5 width-10"></div>
-          <div class="width-10 width-8@m">
-            <p class="cs__text mb-12">When it comes to banking, users are focused on the task at hand as it involves their finances. Due to this one - track mind, they often go straight to what needs to be done and overlook the details. Focusing our iterations on the details allowed us to showcase the importance of a ‘help’ message or an alert that would have been overlooked by the user.</p>
-            <p class="cs__text">This project has been ongoing for more than a year now. My role was to iterate on past designs that were created by the lead designer, Xavier Harrell, and use research findings to validate my design decisions. Being a part of this project taught me to be transparent with the client. I was able to defend my design decisions and explain to stakeholders why a change was made or why it was necessary to pivot our focus on a feature. I believe that your designs are as good as the research behind it, and luckily, we had the funding and resources to do a lot of it.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cs__space--16 width-10"></div>
-
-      <div class="grid cs-footer">
-        <div class="grid--inner">
-          <div class="width-10 width-4@m">
-            <a class="w-auto subheader no-underline" href="./fiserv.html">
-              Next Case Study
-            </a>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <!-- footer -->
-    <footer class="footer grid">
-      <div class="footer__content">
-        <p class="footer__greeting">Reach out ~</p>
-        <div class="footer__links">
-          <a href="mailto:jacobjinwoo@gmail.com" class="footer__link footer__link--first">
-            Email
-          </a>
-          <a href="https://www.linkedin.com/in/jacobjkim/" class="footer__link footer__link--second">
-            LinkedIn
-          </a>
-        </div>
-        <p class="footer__copyright">©2019 — Jacob Kim</p>
-      </div>
-    </footer>
-
-    <a href="#anchor" class="arrow">
-      <img src="../img/arrow.svg" alt="arrow-button" class="arrow-img" />
-    </a>
-
-    <script src="../js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/pbkdf2.js"></script>
     <script>
-      window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>');
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/js/lightgallery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/modules/lg-zoom.min.js"></script>
-    <script src="../js/plugins.js"></script>
-    <script src="../js/main.js"></script>
+        /*! srcdoc-polyfill - v0.1.1 - 2013-03-01
+        * http://github.com/jugglinmike/srcdoc-polyfill/
+        * Copyright (c) 2013 Mike Pennisi; Licensed MIT */
+        (function( window, document, undefined ) {
+	
+	        var idx, iframes;
+	        var _srcDoc = window.srcDoc;
+	        var isCompliant = !!("srcdoc" in document.createElement("iframe"));
+	        var implementations = {
+		        compliant: function( iframe, content ) {
 
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-      window.ga = function() {
-        ga.q.push(arguments);
-      };
-      ga.q = [];
-      ga.l = +new Date();
-      ga('create', 'UA-XXXXX-Y', 'auto');
-      ga('send', 'pageview');
+			        if (content) {
+				        iframe.setAttribute("srcdoc", content);
+			        }
+		        },
+		        legacy: function( iframe, content ) {
+
+			        var jsUrl;
+
+			        if (!iframe || !iframe.getAttribute) {
+				        return;
+			        }
+
+			        if (!content) {
+				        content = iframe.getAttribute("srcdoc");
+			        } else {
+				        iframe.setAttribute("srcdoc", content);
+			        }
+
+			        if (content) {
+				        // The value returned by a script-targeted URL will be used as
+				        // the iFrame's content. Create such a URL which returns the
+				        // iFrame element's `srcdoc` attribute.
+				        jsUrl = "javascript: window.frameElement.getAttribute('srcdoc');";
+
+				        iframe.setAttribute("src", jsUrl);
+
+				        // Explicitly set the iFrame's window.location for
+				        // compatability with IE9, which does not react to changes in
+				        // the `src` attribute when it is a `javascript:` URL, for
+				        // some reason
+				        if (iframe.contentWindow) {
+					        iframe.contentWindow.location = jsUrl;
+				        }
+			        }
+		        }
+	        };
+	        var srcDoc = window.srcDoc = {
+		        // Assume the best
+		        set: implementations.compliant,
+		        noConflict: function() {
+			        window.srcDoc = _srcDoc;
+			        return srcDoc;
+		        }
+	        };
+
+	        // If the browser supports srcdoc, no shimming is necessary
+	        if (isCompliant) {
+		        return;
+	        }
+
+	        srcDoc.set = implementations.legacy;
+
+	        // Automatically shim any iframes already present in the document
+	        iframes = document.getElementsByTagName("iframe");
+	        idx = iframes.length;
+
+	        while (idx--) {
+		        srcDoc.set( iframes[idx] );
+	        }
+
+        }( this, this.document ));
     </script>
-    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    <script>
+        var pl = {"salt":"Jb6Zp903geRhTPczjvFAZQ50ecPkFt7Jf+VXK26Tjeo=","iv":"vIC3W/LGDEFJzqYPz6Iw6Q==","data":"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"};
+        
+        var submitPass = document.getElementById('submitPass');
+        var passEl = document.getElementById('pass');
+        var invalidPassEl = document.getElementById('invalidPass');
+        var successEl = document.getElementById('success');
+        var contentFrame = document.getElementById('contentFrame');
+        
+        if (pl === "") {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+            alert("This page is meant to be used with the encryption tool. It doesn't work standalone.");
+        }
+        
+        function doSubmit(evt) {
+            try {
+                var decrypted = decryptFile(CryptoJS.enc.Base64.parse(pl.data), passEl.value, CryptoJS.enc.Base64.parse(pl.salt), CryptoJS.enc.Base64.parse(pl.iv));
+                if (decrypted === "") throw "No data returned";
+                
+                // Set default iframe link targets to _top so all links break out of the iframe
+                decrypted = decrypted.replace("<head>", "<head><base href=\".\" target=\"_top\">");
+                
+                srcDoc.set(contentFrame, decrypted);
+                
+                successEl.style.display = "inline";
+                passEl.disabled = true;
+                submitPass.disabled = true;
+                setTimeout(function() {
+                    dialogWrap.style.display = "none";
+                }, 1000);
+            } catch (e) {
+                invalidPassEl.style.display = "inline";
+                passEl.value = "";
+            }
+        }
+        
+        submitPass.onclick = doSubmit;
+        passEl.onkeypress = function(e){
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            invalidPassEl.style.display = "none";
+            if (keyCode == '13'){
+              // Enter pressed
+              doSubmit();
+              return false;
+            }
+        }
+        
+        function decryptFile(contents, password, salt, iv) {
+            var _cp = CryptoJS.lib.CipherParams.create({
+                ciphertext: contents
+            });
+            var key = CryptoJS.PBKDF2(password, salt, { keySize: 256/32, iterations: 100 });
+            var decrypted = CryptoJS.AES.decrypt(_cp, key, {iv: iv});
+            
+            return decrypted.toString(CryptoJS.enc.Utf8);
+        }
+    </script>
   </body>
 </html>
