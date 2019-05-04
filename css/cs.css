@@ -327,11 +327,7 @@
 }
 .cs-footer a:hover {
   color: var(--highlight);
-}
-.cs-footer .arrow-next {
-  margin-left: 3rem;
-  width: 3rem;
-  transform: rotate(-90deg);
+  cursor: url(../img/cursor.svg), auto;
 }
 
 @media only screen and (min-width: 60rem) {

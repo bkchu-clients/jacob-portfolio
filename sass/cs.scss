@@ -86,12 +86,8 @@
 
       &:hover {
         color: var(--highlight);
+        cursor: url(../img/cursor.svg), auto;
       }
-    }
-    .arrow-next {
-      margin-left: 3rem;
-      width: 3rem;
-      transform: rotate(-90deg);
     }
   }
 }
