@@ -209,7 +209,8 @@
 }
 .main-header__logo {
   height: 7rem;
-  margin-right: 0.5rem;
+  padding: 0.5rem;
+  margin-right: 1rem;
 }
 .main-header__link {
   display: flex;
