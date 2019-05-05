@@ -8,7 +8,7 @@
 }
 
 .img__zoom {
-  cursor: pointer;
+  cursor: url(../img/cursor.svg), auto;  
 }
 
 @mixin all-but-last() {

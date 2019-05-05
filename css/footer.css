@@ -190,7 +190,7 @@
 }
 
 .img__zoom {
-  cursor: pointer;
+  cursor: url(../img/cursor.svg), auto;
 }
 
 .footer {
