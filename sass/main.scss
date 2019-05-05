@@ -325,3 +325,7 @@ body {
   text-decoration: none;
   color: black;
 }
+
+a:hover {
+  cursor: url(../img/cursor.svg), auto;
+}

@@ -308,4 +308,8 @@ h3 {
   color: black;
 }
 
+a:hover {
+  cursor: url(../img/cursor.svg), auto;
+}
+
 /*# sourceMappingURL=main.css.map */

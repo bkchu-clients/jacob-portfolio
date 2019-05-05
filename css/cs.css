@@ -327,7 +327,6 @@
 }
 .cs-footer a:hover {
   color: var(--highlight);
-  cursor: url(../img/cursor.svg), auto;
 }
 
 @media only screen and (min-width: 60rem) {
