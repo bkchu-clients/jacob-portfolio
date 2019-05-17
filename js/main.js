@@ -9,6 +9,12 @@
     return $(this);
   };
 
+  // add animations to the header only when the page has completely loaded
+  $(document).ready(function() {
+    console.log('der');
+    $('.main-header').addClass('animated');
+  });
+
   // start gallery
   if ($('.lightgallery')) {
     $('.lightgallery').lightGallery({
@@ -25,30 +31,32 @@
     return Math.max(D.body.scrollHeight, D.documentElement.scrollHeight, D.body.offsetHeight, D.documentElement.offsetHeight, D.body.clientHeight, D.documentElement.clientHeight);
   }
   // while the window is scrolling
-  $(window).scroll($.throttle(75, function() {
-    $('.main-header__logo').rotate($(window).scrollTop() / 8);
+  $(window).scroll(
+    $.throttle(75, function() {
+      $('.main-header__logo').rotate($(window).scrollTop() / 8);
 
-    if ($(window).scrollTop() >= 150 && !isHeaderMinimized) {
-      isHeaderMinimized = true;
-      $('.main-header').addClass('main-header--minimized');
-    } else if ($(window).scrollTop() < 150 && isHeaderMinimized) {
-      isHeaderMinimized = false;
-      $('.main-header').removeClass('main-header--minimized');
-    }
+      if ($(window).scrollTop() >= 150 && !isHeaderMinimized) {
+        isHeaderMinimized = true;
+        $('.main-header').addClass('main-header--minimized');
+      } else if ($(window).scrollTop() < 150 && isHeaderMinimized) {
+        isHeaderMinimized = false;
+        $('.main-header').removeClass('main-header--minimized');
+      }
 
-    // if the user has hit the bottom of the page
-    if ($(window).scrollTop() + $(window).height() / 2 >= getDocHeight() / 2 && !isBottom) {
-      // set flag to true
-      isBottom = true;
-      // add the class that will flip the arrow
-      $('.arrow-img').addClass('arrow-img--flipped');
-    } else if ($(window).scrollTop() + $(window).height() / 2 < getDocHeight() / 2 && isBottom) {
-      // otherwise set flag to false
-      isBottom = false;
-      // remove the arrow flipping class
-      $('.arrow-img').removeClass('arrow-img--flipped');
-    }
-  }));
+      // if the user has hit the bottom of the page
+      if ($(window).scrollTop() + $(window).height() / 2 >= getDocHeight() / 2 && !isBottom) {
+        // set flag to true
+        isBottom = true;
+        // add the class that will flip the arrow
+        $('.arrow-img').addClass('arrow-img--flipped');
+      } else if ($(window).scrollTop() + $(window).height() / 2 < getDocHeight() / 2 && isBottom) {
+        // otherwise set flag to false
+        isBottom = false;
+        // remove the arrow flipping class
+        $('.arrow-img').removeClass('arrow-img--flipped');
+      }
+    })
+  );
 
   // we will use the flag here
   // if the arrow is clicked

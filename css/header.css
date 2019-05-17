@@ -204,7 +204,7 @@
   background: white;
   transition: all 150ms ease;
 }
-.main-header * {
+.main-header.animated * {
   transition: all 150ms ease;
 }
 .main-header__logo {

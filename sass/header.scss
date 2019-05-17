@@ -12,7 +12,7 @@
   background: white;
   transition: all 150ms ease;
 
-  * {
+  &.animated * {
     transition: all 150ms ease;
   }
 
