@@ -1,357 +1,1508 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
+﻿<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>
-      Lantern Trips | Jacob Kim / Experience & Interaction Designer
-    </title>
-    <meta name="description" content="I’m Jacob Kim, an experience designer from Los Angeles, CA currently helping launch digital products at projekt202." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Password Protected Page</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700|Space+Mono:400,700');
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
-    <link rel="manifest" href="../site.webmanifest" />
-    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#ff5555" />
-    <meta name="msapplication-TileColor" content="#ff5555" />
-    <meta name="theme-color" content="#ff5555" />
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        font-family: 'Space Mono';
+        font-size: 8px;
+      }
+      #dialogText {
+        padding: 10px 30px;
+        color: white;
+        background-color: #ff5555;
+        font-size: 2rem;
+      }
 
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/preflight.min.css" rel="stylesheet" />
+      #dialogWrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eeeeee;
+      }
+
+      #dialogWrapCell {
+        z-index: 9999;
+        max-width: 90%;
+      }
+
+      #mainDialog {
+        max-width: 400px;
+        margin: 5px;
+        border-radius: 4px;
+
+        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #ffffff;
+        overflow: hidden;
+        text-align: left;
+      }
+
+      #passwordPrompt {
+        font-size: 2rem;
+      }
+
+      #passArea {
+        padding: 20px 30px;
+        background-color: white;
+      }
+      #passArea > * {
+        margin: 5px auto;
+      }
+
+      #pass {
+        width: 100%;
+        height: 40px;
+        font-size: 2rem;
+        border: solid 2px #3e3e3e;
+        border-radius: 4px;
+        padding: 1rem 1rem;
+      }
+
+      #messageWrapper {
+        float: left;
+        vertical-align: middle;
+        line-height: 30px;
+      }
+
+      .notifyText {
+        display: none;
+      }
+
+      #invalidPass {
+        color: red;
+      }
+
+      #success {
+        color: green;
+      }
+
+      #submitPass {
+        font-family: 'Space Mono';
+        font-size: 2rem;
+        border-radius: 5px;
+        background-color: #ff5555;
+        color: white;
+        padding: 1rem;
+        border: 0;
+        float: right;
+      }
+      #contentFrame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/header.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/lantern-trips.css" />
-    <link rel="stylesheet" href="../css/cs.css" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/utilities.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css" />
-
-    <meta name="theme-color" content="#fafafa" />
   </head>
-
   <body>
-    <!-- [if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif] -->
-
-    <!-- header -->
-    <header class="main-header grid">
-      <div class="grid--inner">
-        <a href="/" class="main-header__link link width-10">
-          <img class="main-header__logo" src="../img/logo.svg" alt="logo" />
-          <div>
-            <h1 class="main-header__title">
-              Jacob Kim
-            </h1>
-            <h2 class="main-header__subtitle">Experience & <br class="mobile-only" />Interaction Designer</h2>
-          </div>
-        </a>
-      </div>
-    </header>
-
-    <!-- main content -->
-    <main class="lightgallery">
-      <div class="grid">
+    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
+    <div id="dialogWrap">
+      <header class="main-header main-header--minimized grid">
         <div class="grid--inner">
-          <div class="cs-title width-10">
-            <h2 class="cs-title__header header">Lantern Trips</h2>
-            <h3 class="cs-title__subheader">Group travel made simple</h3>
-          </div>
-        </div>
-      </div>
-      <div class="overview grid mb-32 lg:mb-0">
-        <div class="grid--inner">
-          <div class="width-10 width-4@m flex justify-center items-center mb-20 lg:mb-0">
-            <img class="img__zoom w-1/2" data-src="../img/iphone-jet-black.png" src="../img/iphone-jet-black.png" alt="black iphone" />
-          </div>
-          <div class="width-10 width-5@m">
-            <p class="cs__text mb-12">
-              Lantern Trips is a mobile application that aims to simplify trip planning and become the most trusted source for travel. Although Lantern Trips has conducted market research, defined features, and identified target users, they wish to assess and iterate on what exists in the market so they can deliver a competitive app.
-            </p>
-            <p class="cs__text mb-12">
-              <strong>The Challenge:</strong>
-              How do we design for collaborative travel during a trip where everyone can share and contribute?
-            </p>
-            <p class="cs__text mb-12">
-              <strong>The Solution:</strong>
-              We designed a mobile app that allows travelers to create an itinerary, collaborate on activities and share their moments on social media.
-            </p>
-            <p class="cs__text">
-              <strong>My Role:</strong>
-              UX Designer, Researcher, Project Manager
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="summary grid">
-        <div class="grid--inner">
-          <div class="width-1@m"></div>
-          <p class="subheader summary__question width-10 width-8@m mb-20">
-            How do we make Lantern Trips stand out from their competitors? We began defining areas that could be improved on while integrating Lantern Trips core values:
-          </p>
-          <div class="width-1@m"></div>
-          <div class="width-1@m"></div>
-          <div class="width-2@m"></div>
-          <div class="summary__points width-10 width-6@m mb-32">
-            <p class="cs__text cs__box cs__box--gray cs__box--center mb-20 summary__point">
-              To cultivate a shared travel community with collaborative trip building.
-            </p>
-            <p class="cs__text cs__box cs__box--gray cs__box--center mb-20 summary__point">
-              Create unique travel experiences utilizing trusted recommendations.
-            </p>
-            <p class="cs__text cs__box cs__box--gray cs__box--center summary__point">
-              Inspire discovery & exploration from travelers like you.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid">
-        <div class="research grid--inner">
-          <h3 class="cs__subheader subheader research__title width-10">Understanding our users</h3>
-          <p class="cs__text width-10 width-6@m mb-16">
-            The companies that we thought best represented Lantern Trips values were Bonjournal, TripAdvisor, Tripcast and Trippy. By doing a heuristic evaluation and competitive analysis on current market leaders we realized a few things.
-          </p>
-          <img class="img__zoom full-width width-10 width-8@m" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172809/jacob-portfolio/lantern/Lantern_7.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172809/jacob-portfolio/lantern/Lantern_7.png" alt="competitive analysis" />
-
-          <div class="space width-10"></div>
-
-          <div class="cs__box cs__box--gray width-10 width-5@m research__box">
-            <p class="cs__text mb-6 lg:mb-8">
-              1. Companies that tried to have too many features were not as successful as those who focused on a few core functions.
-            </p>
-            <p class="cs__text mb-6 lg:mb-8">
-              2. Lantern Trips didn’t have a true direct competitor who tried to solve the hassles of group trip planning.
-            </p>
-            <p class="cs__text">
-              3. Competitors would have complicated task flows that hindered users from completing simple tasks such as booking a flight.
-            </p>
-          </div>
-          <div class="research__images width-10 width-5@m">
-            <img class="img__zoom research__image" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555789189/jacob-portfolio/lantern/Lantern_Trips_analysis.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555789189/jacob-portfolio/lantern/Lantern_Trips_analysis.png" alt="competitive analysis" />
-          </div>
-          <div class="cs__space--12 width-10"></div>
-          <h3 class="cs__subsubheader subsubheader width-10">Interviewing users -</h3>
-          <p class="cs__text width-10 width-5@m mb-20 lg:mb-0">
-            My team conducted user interviews to empathize with our target audience to find out what aspects of travel inspired them and what pain points they came across. After identifying qualified participants, we ended with a sample pool of 15 people and took their key points and conducted an affinity diagram.
-          </p>
-          <p class="subsubheader cs__box cs__box--gray width-10 width-5@m mb-0">
-            “Being able to share an itinerary and make decisions was a real pain. It was too much information.”
-          </p>
-          <div class="space width-10"></div>
-
-          <h3 class="cs__subsubheader subsubheader width-10">Major findings -</h3>
-          <div class="cs__box cs__box--gray cs__box--thick width-10 width-8@m findings">
-            <p class="cs__text--spacemono bold full-width findings__point">Pain Points</p>
-            <p class="cs__text full-width findings__point">
-              1. Sharing between people within their group (itinerary & photos).
-            </p>
-            <p class="cs__text full-width findings__point">
-              2. Planning with people is difficult because it's hard to share between platforms.
-            </p>
-            <p class="cs__text full-width findings__point">
-              3. Travelers don't think that they can trust online reviews.
-            </p>
-            <p class="cs__text full-width findings__point">
-              4. Travelers feel as though travel blogs are paid advertisement and mask their true feelings.
-            </p>
-          </div>
-          <div class="cs__box cs__box--gray cs__box--thick width-10 width-8@m findings">
-            <p class="cs__text--spacemono bold full-width findings__point">Needs</p>
-            <p class="cs__text full-width findings__point">
-              1. Travelers want to hear their friends and 3rd party opinions.
-            </p>
-            <p class="cs__text full-width findings__point">
-              2. Travelers want to share recommendations so that they can inspire others.
-            </p>
-            <p class="cs__text full-width findings__point">
-              3. Travelers want to post things that are still fresh in their head.
-            </p>
-            <p class="cs__text full-width findings__point">
-              4. Travelers want to get the locals' advice/tips/suggestions.
-            </p>
-          </div>
-          <div class="cs__box cs__box--gray cs__box--thick width-10 width-8@m findings findings--last">
-            <p class="cs__text--spacemono bold full-width findings__point">Motivations</p>
-            <p class="cs__text full-width findings__point">
-              1. Group travel tends to be high cost and therefore content heavy. Users are more likely to post on expensive, high effort travels.
-            </p>
-            <p class="cs__text full-width findings__point">
-              2. Being able to go back to your photos/posts.
-            </p>
-            <p class="cs__text full-width findings__point">
-              3. Majority of travelers reported being discouraged from posting due to data costs and limited wi-fi access.
-            </p>
-          </div>
-          <div class="cs__space--11 width-10"></div>
-          <h3 class="cs__subsubheader subsubheader width-10">Revealing opportunities -</h3>
-
-          <div class="width-10 width-8@m">
-            <img class="img__zoom full-width" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172814/jacob-portfolio/lantern/Lantern_8.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172814/jacob-portfolio/lantern/Lantern_8.png" alt="competitive analysis" />
-          </div>
-          <div class="cs__space--7 width-10"></div>
-          <p class="cs__text width-10 width-7@m mb-12">
-            <strong>Pre-trip frustrations:</strong><br />
-            During the ‘Pre-Trip’ phase, users were on social media to see what their friends have done during their vacations. Users want a authentic experience, we saw this as an opportunity to give users of Lantern Trips auto-generated itineraries based on their friends past experiences. Research participants were saying that they felt Yelp and Google reviews were generated feedback to boost revenue for those companies and lacked authenticity.
-          </p>
-          <p class="cs__text width-10 width-7@m">
-            <strong>During:</strong><br />
-            Users tend to use google sheets or an excel document to access their itinerary during a trip. Instead of opening a new application, why not have it built into Lantern Trips app? We saw a pattern of frustrated travelers who couldn’t collaboratively edit/update their itinerary during a trip. With the new app, a user can edit their group itinerary and request approvals from other members. Instead of texting or using Facebook Messenger to contact their friends during a trip, they can use the app to communicate a itinerary change.
-          </p>
-          <div class="cs__space--9 width-10"></div>
-          <div class="h-px width-10 bg-black"></div>
-
-          <div class="cs__space--9 width-10"></div>
-
-          <div class="width-10 width-9@m">
-            <img class="img__zoom full-width" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555779116/jacob-portfolio/lantern/Lantern_Trips_Sitemap.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555779116/jacob-portfolio/lantern/Lantern_Trips_Sitemap.png" alt="competitive analysis" />
-          </div>
-          <div class="cs__space--4 width-10"></div>
-          <h3 class="subsubheader width-10">Information architecture -</h3>
-          <div class="cs__space--3 width-10"></div>
-          <p class="cs__text width-10 width-7@m">
-            We organized categories through card sorting. After going through multiple rounds in order to solidify the taxonomy and app structure, we created the sitemap. The information gathered from user interviews were used to construct how the pages on the interface were grouped, what order they appeared in, and the relationship between different elements.
-          </p>
-          <div class="cs__space--9 width-10"></div>
-        </div>
-        <div class="grid--inner dnd">
-          <h3 class="cs__subheader subheader research__title width-10 dnd__header">Iterate on user feedback to create useful designs</h3>
-          <div class="width-10 width-5@m flex items-start lg:mr-32 mb-20 lg:mb-0 w-3/4 lg:w-auto mx-auto">
-            <div class="flex justify-center items-center mr-16">
-              <img class="img__zoom" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172872/jacob-portfolio/lantern/Lantern_4.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172872/jacob-portfolio/lantern/Lantern_4.png" alt="competitive analysis" />
+          <a href="/" class="main-header__link link width-10">
+            <img class="main-header__logo" src="../img/logo.svg" alt="logo" />
+            <div>
+              <h1 class="main-header__title">
+                Jacob Kim
+              </h1>
+              <h2 class="main-header__subtitle">
+                Experience & <br class="mobile-only" />Interaction Designer
+              </h2>
             </div>
-            <div class="flex justify-center items-center">
-              <img class="img__zoom" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172870/jacob-portfolio/lantern/Lantern_3.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172870/jacob-portfolio/lantern/Lantern_3.png" alt="competitive analysis" />
-            </div>
-          </div>
-          <div class="width-10 width-5@m">
-            <p class="cs__text">
-              We held a design studio with our client to collaboratively come up with different iterations on prioritized features. After multiple rounds of designing, we were able to focus our solutions on the following topics:
-              <strong>
-                Collaborative Planning, Content Sharing and Documenting to Social Media.
-              </strong>
-              <br />
-              <br />
-              By creating a low-fidelity prototype we were able to get feedback on the features we decided were the most practical and important for an MVP. Our team went through multiple rounds of user testing with paper prototypes and medium-fidelity wireframes.
-            </p>
-          </div>
-          <div class="cs__space--small width-10"></div>
-          <h3 class="subsubheader width-10 mb-8">User feedback -</h3>
-          <p class="cs__text width-10 width-7@m">
-            1. Users complained that the "segment page" was too condensed and that they wanted to view more segment details before clicking "going".
-            <br />
-            2. Users wished that they could preview the section on their schedule before approving the segment.
-            <br />
-            3. Users wanted icons on "itinerary page" to be more prominent. The "share" icon caused too much delay in performing main task due to the placement of the button.
-            <br />
-            4. Users wanted to see an "album block" section on the "segment page" so that they can preview what photos already exist for that section.
-            <br />
-            5. Users were confused with the CTAs (delete selected photos and cancel) on the "carousel image page".
-          </p>
-          <div class="cs__space--small width-10"></div>
-          <h3 class="subsubheader width-10 mb-8">Usability tests -</h3>
-          <div class="cs__box cs__box--gray width-10 width-8@m mb-12">
-            <img class="img__zoom full-width" style="margin-bottom: 3rem;" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555173420/jacob-portfolio/lantern/Lantern_1.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555173420/jacob-portfolio/lantern/Lantern_1.png" alt="competitive analysis" />
-          </div>
-          <p class="cs__text width-10 width-7@m">
-            1. There was a lot of visual confusion on the page due to the different icons. We saw that users weren't benefiting from an overview of who was in the photo album, so we changed the naming convention to text.
-            <br />
-            <br />
-            2. Users were confused that a stack of photos was differentiated by just a number on the photo. We changed the stack to be visually different from a single photo by adding a "stacked" photo effect.
-          </p>
-          <div class="cs__space--small width-10"></div>
-        </div>
-      </div>
-      <div class="overview grid">
-        <div class="grid--inner py-0 lg:py-20 flex">
-          <div class="flex justify-center lg:justify-start items-center">
-            <img class="img__zoom w-1/2" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172805/jacob-portfolio/lantern/Lantern_2.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172805/jacob-portfolio/lantern/Lantern_2.png" alt="competitive analysis" />
-          </div>
-          <div class="flex justify-center lg:justify-center items-center">
-            <img class="img__zoom w-1/2" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172874/jacob-portfolio/lantern/Lantern_5.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172874/jacob-portfolio/lantern/Lantern_5.png" alt="competitive analysis" />
-          </div>
-          <div class="flex justify-center lg:justify-end items-center">
-            <img class="img__zoom w-1/2" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172875/jacob-portfolio/lantern/Lantern_6.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555172875/jacob-portfolio/lantern/Lantern_6.png" alt="competitive analysis" />
-          </div>
-        </div>
-      </div>
-      <div class="cs__space--small"></div>
-      <div class="grid">
-        <div class="grid--inner">
-          <h3 class="cs__subheader subheader width-10">Next steps</h3>
-          <p class="cs__text width-10 width-7@m mb-24">
-            We presented our prototype to our client and showed them the features that would be included in the MVP. Moving forward, we suggested a few things:
-          </p>
-          <div class="cs__box cs__box--gray width-10 width-8@m mb-24">
-            <p class="cs__text">
-              After user testing with multiple people, we found that it would be much easier on the client's developer if Lantern Trips was integrated with another app that is already utilized by travelers such as DropBox or Google Photos in order to share/store content. We told them to explore different options like implementing another platform or simplifying the content in order to solve the learnability issue.
-            </p>
-          </div>
-          <div class="cs__box cs__box--gray width-10 width-8@m">
-            <p class="cs__text">
-              We encouraged our client to continue usability testing on the MVP as well as the overall layout of the app with the prototype and the high-fidelity wireframes.
-            </p>
-          </div>
-          <div class="cs__space--small width-10"></div>
-          <h3 class="cs__subheader subheader width-10">What I learned</h3>
-          <p class="cs__text width-10 width-7@m">
-            Working with clients won’t always be easy. Luckily, our client was willing to compromise on features to finish the design sprint and focus on what users told us during testing. I had to be able to justify a design change not based on personal bias but from user feedback. As we constantly iterated on our designs I had to learn to accept design changes and not get caught up with just the visuals.
-          </p>
-        </div>
-      </div>
-
-      <div class="cs__space--16 width-10"></div>
-
-      <div class="grid cs-footer">
-        <div class="grid--inner">
-          <div class="width-10 flex justify-between">
-            <a class="w-auto subheader no-underline pr-4" href="./southwest-airlines.html">
-              Southwest Airlines, Cargo
-            </a>
-            <a class="w-auto subheader no-underline text-right pl-4" href="./fintech.html">
-              Fintech Company
-            </a>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <!-- footer -->
-    <footer class="footer grid">
-      <div class="footer__content">
-        <p class="footer__greeting">Reach out ~</p>
-        <div class="footer__links">
-          <a href="mailto:jacobjinwoo@gmail.com" class="footer__link footer__link--first">
-            Email
-          </a>
-          <a href="https://www.linkedin.com/in/jacobjkim/" class="footer__link footer__link--second">
-            LinkedIn
           </a>
         </div>
-        <p class="footer__copyright">©2019 — Jacob Kim</p>
+      </header>
+      <div id="dialogWrapCell">
+        <div id="mainDialog">
+          <div id="dialogText">This page is password protected.</div>
+          <div id="passArea">
+            <p id="passwordPrompt">Password</p>
+            <input id="pass" type="password" name="pass" />
+            <div>
+              <span id="messageWrapper">
+                <span id="invalidPass" class="notifyText"
+                  >Sorry, please try again.</span
+                >
+                <span id="success" class="notifyText">Success!</span>
+                &nbsp;
+              </span>
+              <button id="submitPass" type="button">Submit</button>
+              <div style="clear: both;"></div>
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
-
-    <script src="../js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    </div>
     <script>
-      window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>');
+      /*
+CryptoJS v3.1.2
+code.google.com/p/crypto-js
+(c) 2009-2013 by Jeff Mott. All rights reserved.
+code.google.com/p/crypto-js/wiki/License
+*/
+      var CryptoJS =
+        CryptoJS ||
+        (function(u, p) {
+          var d = {},
+            l = (d.lib = {}),
+            s = function() {},
+            t = (l.Base = {
+              extend: function(a) {
+                s.prototype = this;
+                var c = new s();
+                a && c.mixIn(a);
+                c.hasOwnProperty('init') ||
+                  (c.init = function() {
+                    c.$super.init.apply(this, arguments);
+                  });
+                c.init.prototype = c;
+                c.$super = this;
+                return c;
+              },
+              create: function() {
+                var a = this.extend();
+                a.init.apply(a, arguments);
+                return a;
+              },
+              init: function() {},
+              mixIn: function(a) {
+                for (var c in a) a.hasOwnProperty(c) && (this[c] = a[c]);
+                a.hasOwnProperty('toString') && (this.toString = a.toString);
+              },
+              clone: function() {
+                return this.init.prototype.extend(this);
+              }
+            }),
+            r = (l.WordArray = t.extend({
+              init: function(a, c) {
+                a = this.words = a || [];
+                this.sigBytes = c != p ? c : 4 * a.length;
+              },
+              toString: function(a) {
+                return (a || v).stringify(this);
+              },
+              concat: function(a) {
+                var c = this.words,
+                  e = a.words,
+                  j = this.sigBytes;
+                a = a.sigBytes;
+                this.clamp();
+                if (j % 4)
+                  for (var k = 0; k < a; k++)
+                    c[(j + k) >>> 2] |=
+                      ((e[k >>> 2] >>> (24 - 8 * (k % 4))) & 255) <<
+                      (24 - 8 * ((j + k) % 4));
+                else if (65535 < e.length)
+                  for (k = 0; k < a; k += 4) c[(j + k) >>> 2] = e[k >>> 2];
+                else c.push.apply(c, e);
+                this.sigBytes += a;
+                return this;
+              },
+              clamp: function() {
+                var a = this.words,
+                  c = this.sigBytes;
+                a[c >>> 2] &= 4294967295 << (32 - 8 * (c % 4));
+                a.length = u.ceil(c / 4);
+              },
+              clone: function() {
+                var a = t.clone.call(this);
+                a.words = this.words.slice(0);
+                return a;
+              },
+              random: function(a) {
+                for (var c = [], e = 0; e < a; e += 4)
+                  c.push((4294967296 * u.random()) | 0);
+                return new r.init(c, a);
+              }
+            })),
+            w = (d.enc = {}),
+            v = (w.Hex = {
+              stringify: function(a) {
+                var c = a.words;
+                a = a.sigBytes;
+                for (var e = [], j = 0; j < a; j++) {
+                  var k = (c[j >>> 2] >>> (24 - 8 * (j % 4))) & 255;
+                  e.push((k >>> 4).toString(16));
+                  e.push((k & 15).toString(16));
+                }
+                return e.join('');
+              },
+              parse: function(a) {
+                for (var c = a.length, e = [], j = 0; j < c; j += 2)
+                  e[j >>> 3] |=
+                    parseInt(a.substr(j, 2), 16) << (24 - 4 * (j % 8));
+                return new r.init(e, c / 2);
+              }
+            }),
+            b = (w.Latin1 = {
+              stringify: function(a) {
+                var c = a.words;
+                a = a.sigBytes;
+                for (var e = [], j = 0; j < a; j++)
+                  e.push(
+                    String.fromCharCode(
+                      (c[j >>> 2] >>> (24 - 8 * (j % 4))) & 255
+                    )
+                  );
+                return e.join('');
+              },
+              parse: function(a) {
+                for (var c = a.length, e = [], j = 0; j < c; j++)
+                  e[j >>> 2] |= (a.charCodeAt(j) & 255) << (24 - 8 * (j % 4));
+                return new r.init(e, c);
+              }
+            }),
+            x = (w.Utf8 = {
+              stringify: function(a) {
+                try {
+                  return decodeURIComponent(escape(b.stringify(a)));
+                } catch (c) {
+                  throw Error('Malformed UTF-8 data');
+                }
+              },
+              parse: function(a) {
+                return b.parse(unescape(encodeURIComponent(a)));
+              }
+            }),
+            q = (l.BufferedBlockAlgorithm = t.extend({
+              reset: function() {
+                this._data = new r.init();
+                this._nDataBytes = 0;
+              },
+              _append: function(a) {
+                'string' == typeof a && (a = x.parse(a));
+                this._data.concat(a);
+                this._nDataBytes += a.sigBytes;
+              },
+              _process: function(a) {
+                var c = this._data,
+                  e = c.words,
+                  j = c.sigBytes,
+                  k = this.blockSize,
+                  b = j / (4 * k),
+                  b = a ? u.ceil(b) : u.max((b | 0) - this._minBufferSize, 0);
+                a = b * k;
+                j = u.min(4 * a, j);
+                if (a) {
+                  for (var q = 0; q < a; q += k) this._doProcessBlock(e, q);
+                  q = e.splice(0, a);
+                  c.sigBytes -= j;
+                }
+                return new r.init(q, j);
+              },
+              clone: function() {
+                var a = t.clone.call(this);
+                a._data = this._data.clone();
+                return a;
+              },
+              _minBufferSize: 0
+            }));
+          l.Hasher = q.extend({
+            cfg: t.extend(),
+            init: function(a) {
+              this.cfg = this.cfg.extend(a);
+              this.reset();
+            },
+            reset: function() {
+              q.reset.call(this);
+              this._doReset();
+            },
+            update: function(a) {
+              this._append(a);
+              this._process();
+              return this;
+            },
+            finalize: function(a) {
+              a && this._append(a);
+              return this._doFinalize();
+            },
+            blockSize: 16,
+            _createHelper: function(a) {
+              return function(b, e) {
+                return new a.init(e).finalize(b);
+              };
+            },
+            _createHmacHelper: function(a) {
+              return function(b, e) {
+                return new n.HMAC.init(a, e).finalize(b);
+              };
+            }
+          });
+          var n = (d.algo = {});
+          return d;
+        })(Math);
+      (function() {
+        var u = CryptoJS,
+          p = u.lib.WordArray;
+        u.enc.Base64 = {
+          stringify: function(d) {
+            var l = d.words,
+              p = d.sigBytes,
+              t = this._map;
+            d.clamp();
+            d = [];
+            for (var r = 0; r < p; r += 3)
+              for (
+                var w =
+                    (((l[r >>> 2] >>> (24 - 8 * (r % 4))) & 255) << 16) |
+                    (((l[(r + 1) >>> 2] >>> (24 - 8 * ((r + 1) % 4))) & 255) <<
+                      8) |
+                    ((l[(r + 2) >>> 2] >>> (24 - 8 * ((r + 2) % 4))) & 255),
+                  v = 0;
+                4 > v && r + 0.75 * v < p;
+                v++
+              )
+                d.push(t.charAt((w >>> (6 * (3 - v))) & 63));
+            if ((l = t.charAt(64))) for (; d.length % 4; ) d.push(l);
+            return d.join('');
+          },
+          parse: function(d) {
+            var l = d.length,
+              s = this._map,
+              t = s.charAt(64);
+            t && ((t = d.indexOf(t)), -1 != t && (l = t));
+            for (var t = [], r = 0, w = 0; w < l; w++)
+              if (w % 4) {
+                var v = s.indexOf(d.charAt(w - 1)) << (2 * (w % 4)),
+                  b = s.indexOf(d.charAt(w)) >>> (6 - 2 * (w % 4));
+                t[r >>> 2] |= (v | b) << (24 - 8 * (r % 4));
+                r++;
+              }
+            return p.create(t, r);
+          },
+          _map:
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
+        };
+      })();
+      (function(u) {
+        function p(b, n, a, c, e, j, k) {
+          b = b + ((n & a) | (~n & c)) + e + k;
+          return ((b << j) | (b >>> (32 - j))) + n;
+        }
+        function d(b, n, a, c, e, j, k) {
+          b = b + ((n & c) | (a & ~c)) + e + k;
+          return ((b << j) | (b >>> (32 - j))) + n;
+        }
+        function l(b, n, a, c, e, j, k) {
+          b = b + (n ^ a ^ c) + e + k;
+          return ((b << j) | (b >>> (32 - j))) + n;
+        }
+        function s(b, n, a, c, e, j, k) {
+          b = b + (a ^ (n | ~c)) + e + k;
+          return ((b << j) | (b >>> (32 - j))) + n;
+        }
+        for (
+          var t = CryptoJS,
+            r = t.lib,
+            w = r.WordArray,
+            v = r.Hasher,
+            r = t.algo,
+            b = [],
+            x = 0;
+          64 > x;
+          x++
+        )
+          b[x] = (4294967296 * u.abs(u.sin(x + 1))) | 0;
+        r = r.MD5 = v.extend({
+          _doReset: function() {
+            this._hash = new w.init([
+              1732584193,
+              4023233417,
+              2562383102,
+              271733878
+            ]);
+          },
+          _doProcessBlock: function(q, n) {
+            for (var a = 0; 16 > a; a++) {
+              var c = n + a,
+                e = q[c];
+              q[c] =
+                (((e << 8) | (e >>> 24)) & 16711935) |
+                (((e << 24) | (e >>> 8)) & 4278255360);
+            }
+            var a = this._hash.words,
+              c = q[n + 0],
+              e = q[n + 1],
+              j = q[n + 2],
+              k = q[n + 3],
+              z = q[n + 4],
+              r = q[n + 5],
+              t = q[n + 6],
+              w = q[n + 7],
+              v = q[n + 8],
+              A = q[n + 9],
+              B = q[n + 10],
+              C = q[n + 11],
+              u = q[n + 12],
+              D = q[n + 13],
+              E = q[n + 14],
+              x = q[n + 15],
+              f = a[0],
+              m = a[1],
+              g = a[2],
+              h = a[3],
+              f = p(f, m, g, h, c, 7, b[0]),
+              h = p(h, f, m, g, e, 12, b[1]),
+              g = p(g, h, f, m, j, 17, b[2]),
+              m = p(m, g, h, f, k, 22, b[3]),
+              f = p(f, m, g, h, z, 7, b[4]),
+              h = p(h, f, m, g, r, 12, b[5]),
+              g = p(g, h, f, m, t, 17, b[6]),
+              m = p(m, g, h, f, w, 22, b[7]),
+              f = p(f, m, g, h, v, 7, b[8]),
+              h = p(h, f, m, g, A, 12, b[9]),
+              g = p(g, h, f, m, B, 17, b[10]),
+              m = p(m, g, h, f, C, 22, b[11]),
+              f = p(f, m, g, h, u, 7, b[12]),
+              h = p(h, f, m, g, D, 12, b[13]),
+              g = p(g, h, f, m, E, 17, b[14]),
+              m = p(m, g, h, f, x, 22, b[15]),
+              f = d(f, m, g, h, e, 5, b[16]),
+              h = d(h, f, m, g, t, 9, b[17]),
+              g = d(g, h, f, m, C, 14, b[18]),
+              m = d(m, g, h, f, c, 20, b[19]),
+              f = d(f, m, g, h, r, 5, b[20]),
+              h = d(h, f, m, g, B, 9, b[21]),
+              g = d(g, h, f, m, x, 14, b[22]),
+              m = d(m, g, h, f, z, 20, b[23]),
+              f = d(f, m, g, h, A, 5, b[24]),
+              h = d(h, f, m, g, E, 9, b[25]),
+              g = d(g, h, f, m, k, 14, b[26]),
+              m = d(m, g, h, f, v, 20, b[27]),
+              f = d(f, m, g, h, D, 5, b[28]),
+              h = d(h, f, m, g, j, 9, b[29]),
+              g = d(g, h, f, m, w, 14, b[30]),
+              m = d(m, g, h, f, u, 20, b[31]),
+              f = l(f, m, g, h, r, 4, b[32]),
+              h = l(h, f, m, g, v, 11, b[33]),
+              g = l(g, h, f, m, C, 16, b[34]),
+              m = l(m, g, h, f, E, 23, b[35]),
+              f = l(f, m, g, h, e, 4, b[36]),
+              h = l(h, f, m, g, z, 11, b[37]),
+              g = l(g, h, f, m, w, 16, b[38]),
+              m = l(m, g, h, f, B, 23, b[39]),
+              f = l(f, m, g, h, D, 4, b[40]),
+              h = l(h, f, m, g, c, 11, b[41]),
+              g = l(g, h, f, m, k, 16, b[42]),
+              m = l(m, g, h, f, t, 23, b[43]),
+              f = l(f, m, g, h, A, 4, b[44]),
+              h = l(h, f, m, g, u, 11, b[45]),
+              g = l(g, h, f, m, x, 16, b[46]),
+              m = l(m, g, h, f, j, 23, b[47]),
+              f = s(f, m, g, h, c, 6, b[48]),
+              h = s(h, f, m, g, w, 10, b[49]),
+              g = s(g, h, f, m, E, 15, b[50]),
+              m = s(m, g, h, f, r, 21, b[51]),
+              f = s(f, m, g, h, u, 6, b[52]),
+              h = s(h, f, m, g, k, 10, b[53]),
+              g = s(g, h, f, m, B, 15, b[54]),
+              m = s(m, g, h, f, e, 21, b[55]),
+              f = s(f, m, g, h, v, 6, b[56]),
+              h = s(h, f, m, g, x, 10, b[57]),
+              g = s(g, h, f, m, t, 15, b[58]),
+              m = s(m, g, h, f, D, 21, b[59]),
+              f = s(f, m, g, h, z, 6, b[60]),
+              h = s(h, f, m, g, C, 10, b[61]),
+              g = s(g, h, f, m, j, 15, b[62]),
+              m = s(m, g, h, f, A, 21, b[63]);
+            a[0] = (a[0] + f) | 0;
+            a[1] = (a[1] + m) | 0;
+            a[2] = (a[2] + g) | 0;
+            a[3] = (a[3] + h) | 0;
+          },
+          _doFinalize: function() {
+            var b = this._data,
+              n = b.words,
+              a = 8 * this._nDataBytes,
+              c = 8 * b.sigBytes;
+            n[c >>> 5] |= 128 << (24 - (c % 32));
+            var e = u.floor(a / 4294967296);
+            n[(((c + 64) >>> 9) << 4) + 15] =
+              (((e << 8) | (e >>> 24)) & 16711935) |
+              (((e << 24) | (e >>> 8)) & 4278255360);
+            n[(((c + 64) >>> 9) << 4) + 14] =
+              (((a << 8) | (a >>> 24)) & 16711935) |
+              (((a << 24) | (a >>> 8)) & 4278255360);
+            b.sigBytes = 4 * (n.length + 1);
+            this._process();
+            b = this._hash;
+            n = b.words;
+            for (a = 0; 4 > a; a++)
+              (c = n[a]),
+                (n[a] =
+                  (((c << 8) | (c >>> 24)) & 16711935) |
+                  (((c << 24) | (c >>> 8)) & 4278255360));
+            return b;
+          },
+          clone: function() {
+            var b = v.clone.call(this);
+            b._hash = this._hash.clone();
+            return b;
+          }
+        });
+        t.MD5 = v._createHelper(r);
+        t.HmacMD5 = v._createHmacHelper(r);
+      })(Math);
+      (function() {
+        var u = CryptoJS,
+          p = u.lib,
+          d = p.Base,
+          l = p.WordArray,
+          p = u.algo,
+          s = (p.EvpKDF = d.extend({
+            cfg: d.extend({ keySize: 4, hasher: p.MD5, iterations: 1 }),
+            init: function(d) {
+              this.cfg = this.cfg.extend(d);
+            },
+            compute: function(d, r) {
+              for (
+                var p = this.cfg,
+                  s = p.hasher.create(),
+                  b = l.create(),
+                  u = b.words,
+                  q = p.keySize,
+                  p = p.iterations;
+                u.length < q;
+
+              ) {
+                n && s.update(n);
+                var n = s.update(d).finalize(r);
+                s.reset();
+                for (var a = 1; a < p; a++) (n = s.finalize(n)), s.reset();
+                b.concat(n);
+              }
+              b.sigBytes = 4 * q;
+              return b;
+            }
+          }));
+        u.EvpKDF = function(d, l, p) {
+          return s.create(p).compute(d, l);
+        };
+      })();
+      CryptoJS.lib.Cipher ||
+        (function(u) {
+          var p = CryptoJS,
+            d = p.lib,
+            l = d.Base,
+            s = d.WordArray,
+            t = d.BufferedBlockAlgorithm,
+            r = p.enc.Base64,
+            w = p.algo.EvpKDF,
+            v = (d.Cipher = t.extend({
+              cfg: l.extend(),
+              createEncryptor: function(e, a) {
+                return this.create(this._ENC_XFORM_MODE, e, a);
+              },
+              createDecryptor: function(e, a) {
+                return this.create(this._DEC_XFORM_MODE, e, a);
+              },
+              init: function(e, a, b) {
+                this.cfg = this.cfg.extend(b);
+                this._xformMode = e;
+                this._key = a;
+                this.reset();
+              },
+              reset: function() {
+                t.reset.call(this);
+                this._doReset();
+              },
+              process: function(e) {
+                this._append(e);
+                return this._process();
+              },
+              finalize: function(e) {
+                e && this._append(e);
+                return this._doFinalize();
+              },
+              keySize: 4,
+              ivSize: 4,
+              _ENC_XFORM_MODE: 1,
+              _DEC_XFORM_MODE: 2,
+              _createHelper: function(e) {
+                return {
+                  encrypt: function(b, k, d) {
+                    return ('string' == typeof k ? c : a).encrypt(e, b, k, d);
+                  },
+                  decrypt: function(b, k, d) {
+                    return ('string' == typeof k ? c : a).decrypt(e, b, k, d);
+                  }
+                };
+              }
+            }));
+          d.StreamCipher = v.extend({
+            _doFinalize: function() {
+              return this._process(!0);
+            },
+            blockSize: 1
+          });
+          var b = (p.mode = {}),
+            x = function(e, a, b) {
+              var c = this._iv;
+              c ? (this._iv = u) : (c = this._prevBlock);
+              for (var d = 0; d < b; d++) e[a + d] ^= c[d];
+            },
+            q = (d.BlockCipherMode = l.extend({
+              createEncryptor: function(e, a) {
+                return this.Encryptor.create(e, a);
+              },
+              createDecryptor: function(e, a) {
+                return this.Decryptor.create(e, a);
+              },
+              init: function(e, a) {
+                this._cipher = e;
+                this._iv = a;
+              }
+            })).extend();
+          q.Encryptor = q.extend({
+            processBlock: function(e, a) {
+              var b = this._cipher,
+                c = b.blockSize;
+              x.call(this, e, a, c);
+              b.encryptBlock(e, a);
+              this._prevBlock = e.slice(a, a + c);
+            }
+          });
+          q.Decryptor = q.extend({
+            processBlock: function(e, a) {
+              var b = this._cipher,
+                c = b.blockSize,
+                d = e.slice(a, a + c);
+              b.decryptBlock(e, a);
+              x.call(this, e, a, c);
+              this._prevBlock = d;
+            }
+          });
+          b = b.CBC = q;
+          q = (p.pad = {}).Pkcs7 = {
+            pad: function(a, b) {
+              for (
+                var c = 4 * b,
+                  c = c - (a.sigBytes % c),
+                  d = (c << 24) | (c << 16) | (c << 8) | c,
+                  l = [],
+                  n = 0;
+                n < c;
+                n += 4
+              )
+                l.push(d);
+              c = s.create(l, c);
+              a.concat(c);
+            },
+            unpad: function(a) {
+              a.sigBytes -= a.words[(a.sigBytes - 1) >>> 2] & 255;
+            }
+          };
+          d.BlockCipher = v.extend({
+            cfg: v.cfg.extend({ mode: b, padding: q }),
+            reset: function() {
+              v.reset.call(this);
+              var a = this.cfg,
+                b = a.iv,
+                a = a.mode;
+              if (this._xformMode == this._ENC_XFORM_MODE)
+                var c = a.createEncryptor;
+              else (c = a.createDecryptor), (this._minBufferSize = 1);
+              this._mode = c.call(a, this, b && b.words);
+            },
+            _doProcessBlock: function(a, b) {
+              this._mode.processBlock(a, b);
+            },
+            _doFinalize: function() {
+              var a = this.cfg.padding;
+              if (this._xformMode == this._ENC_XFORM_MODE) {
+                a.pad(this._data, this.blockSize);
+                var b = this._process(!0);
+              } else (b = this._process(!0)), a.unpad(b);
+              return b;
+            },
+            blockSize: 4
+          });
+          var n = (d.CipherParams = l.extend({
+              init: function(a) {
+                this.mixIn(a);
+              },
+              toString: function(a) {
+                return (a || this.formatter).stringify(this);
+              }
+            })),
+            b = ((p.format = {}).OpenSSL = {
+              stringify: function(a) {
+                var b = a.ciphertext;
+                a = a.salt;
+                return (a
+                  ? s
+                      .create([1398893684, 1701076831])
+                      .concat(a)
+                      .concat(b)
+                  : b
+                ).toString(r);
+              },
+              parse: function(a) {
+                a = r.parse(a);
+                var b = a.words;
+                if (1398893684 == b[0] && 1701076831 == b[1]) {
+                  var c = s.create(b.slice(2, 4));
+                  b.splice(0, 4);
+                  a.sigBytes -= 16;
+                }
+                return n.create({ ciphertext: a, salt: c });
+              }
+            }),
+            a = (d.SerializableCipher = l.extend({
+              cfg: l.extend({ format: b }),
+              encrypt: function(a, b, c, d) {
+                d = this.cfg.extend(d);
+                var l = a.createEncryptor(c, d);
+                b = l.finalize(b);
+                l = l.cfg;
+                return n.create({
+                  ciphertext: b,
+                  key: c,
+                  iv: l.iv,
+                  algorithm: a,
+                  mode: l.mode,
+                  padding: l.padding,
+                  blockSize: a.blockSize,
+                  formatter: d.format
+                });
+              },
+              decrypt: function(a, b, c, d) {
+                d = this.cfg.extend(d);
+                b = this._parse(b, d.format);
+                return a.createDecryptor(c, d).finalize(b.ciphertext);
+              },
+              _parse: function(a, b) {
+                return 'string' == typeof a ? b.parse(a, this) : a;
+              }
+            })),
+            p = ((p.kdf = {}).OpenSSL = {
+              execute: function(a, b, c, d) {
+                d || (d = s.random(8));
+                a = w.create({ keySize: b + c }).compute(a, d);
+                c = s.create(a.words.slice(b), 4 * c);
+                a.sigBytes = 4 * b;
+                return n.create({ key: a, iv: c, salt: d });
+              }
+            }),
+            c = (d.PasswordBasedCipher = a.extend({
+              cfg: a.cfg.extend({ kdf: p }),
+              encrypt: function(b, c, d, l) {
+                l = this.cfg.extend(l);
+                d = l.kdf.execute(d, b.keySize, b.ivSize);
+                l.iv = d.iv;
+                b = a.encrypt.call(this, b, c, d.key, l);
+                b.mixIn(d);
+                return b;
+              },
+              decrypt: function(b, c, d, l) {
+                l = this.cfg.extend(l);
+                c = this._parse(c, l.format);
+                d = l.kdf.execute(d, b.keySize, b.ivSize, c.salt);
+                l.iv = d.iv;
+                return a.decrypt.call(this, b, c, d.key, l);
+              }
+            }));
+        })();
+      (function() {
+        for (
+          var u = CryptoJS,
+            p = u.lib.BlockCipher,
+            d = u.algo,
+            l = [],
+            s = [],
+            t = [],
+            r = [],
+            w = [],
+            v = [],
+            b = [],
+            x = [],
+            q = [],
+            n = [],
+            a = [],
+            c = 0;
+          256 > c;
+          c++
+        )
+          a[c] = 128 > c ? c << 1 : (c << 1) ^ 283;
+        for (var e = 0, j = 0, c = 0; 256 > c; c++) {
+          var k = j ^ (j << 1) ^ (j << 2) ^ (j << 3) ^ (j << 4),
+            k = (k >>> 8) ^ (k & 255) ^ 99;
+          l[e] = k;
+          s[k] = e;
+          var z = a[e],
+            F = a[z],
+            G = a[F],
+            y = (257 * a[k]) ^ (16843008 * k);
+          t[e] = (y << 24) | (y >>> 8);
+          r[e] = (y << 16) | (y >>> 16);
+          w[e] = (y << 8) | (y >>> 24);
+          v[e] = y;
+          y = (16843009 * G) ^ (65537 * F) ^ (257 * z) ^ (16843008 * e);
+          b[k] = (y << 24) | (y >>> 8);
+          x[k] = (y << 16) | (y >>> 16);
+          q[k] = (y << 8) | (y >>> 24);
+          n[k] = y;
+          e ? ((e = z ^ a[a[a[G ^ z]]]), (j ^= a[a[j]])) : (e = j = 1);
+        }
+        var H = [0, 1, 2, 4, 8, 16, 32, 64, 128, 27, 54],
+          d = (d.AES = p.extend({
+            _doReset: function() {
+              for (
+                var a = this._key,
+                  c = a.words,
+                  d = a.sigBytes / 4,
+                  a = 4 * ((this._nRounds = d + 6) + 1),
+                  e = (this._keySchedule = []),
+                  j = 0;
+                j < a;
+                j++
+              )
+                if (j < d) e[j] = c[j];
+                else {
+                  var k = e[j - 1];
+                  j % d
+                    ? 6 < d &&
+                      4 == j % d &&
+                      (k =
+                        (l[k >>> 24] << 24) |
+                        (l[(k >>> 16) & 255] << 16) |
+                        (l[(k >>> 8) & 255] << 8) |
+                        l[k & 255])
+                    : ((k = (k << 8) | (k >>> 24)),
+                      (k =
+                        (l[k >>> 24] << 24) |
+                        (l[(k >>> 16) & 255] << 16) |
+                        (l[(k >>> 8) & 255] << 8) |
+                        l[k & 255]),
+                      (k ^= H[(j / d) | 0] << 24));
+                  e[j] = e[j - d] ^ k;
+                }
+              c = this._invKeySchedule = [];
+              for (d = 0; d < a; d++)
+                (j = a - d),
+                  (k = d % 4 ? e[j] : e[j - 4]),
+                  (c[d] =
+                    4 > d || 4 >= j
+                      ? k
+                      : b[l[k >>> 24]] ^
+                        x[l[(k >>> 16) & 255]] ^
+                        q[l[(k >>> 8) & 255]] ^
+                        n[l[k & 255]]);
+            },
+            encryptBlock: function(a, b) {
+              this._doCryptBlock(a, b, this._keySchedule, t, r, w, v, l);
+            },
+            decryptBlock: function(a, c) {
+              var d = a[c + 1];
+              a[c + 1] = a[c + 3];
+              a[c + 3] = d;
+              this._doCryptBlock(a, c, this._invKeySchedule, b, x, q, n, s);
+              d = a[c + 1];
+              a[c + 1] = a[c + 3];
+              a[c + 3] = d;
+            },
+            _doCryptBlock: function(a, b, c, d, e, j, l, f) {
+              for (
+                var m = this._nRounds,
+                  g = a[b] ^ c[0],
+                  h = a[b + 1] ^ c[1],
+                  k = a[b + 2] ^ c[2],
+                  n = a[b + 3] ^ c[3],
+                  p = 4,
+                  r = 1;
+                r < m;
+                r++
+              )
+                var q =
+                    d[g >>> 24] ^
+                    e[(h >>> 16) & 255] ^
+                    j[(k >>> 8) & 255] ^
+                    l[n & 255] ^
+                    c[p++],
+                  s =
+                    d[h >>> 24] ^
+                    e[(k >>> 16) & 255] ^
+                    j[(n >>> 8) & 255] ^
+                    l[g & 255] ^
+                    c[p++],
+                  t =
+                    d[k >>> 24] ^
+                    e[(n >>> 16) & 255] ^
+                    j[(g >>> 8) & 255] ^
+                    l[h & 255] ^
+                    c[p++],
+                  n =
+                    d[n >>> 24] ^
+                    e[(g >>> 16) & 255] ^
+                    j[(h >>> 8) & 255] ^
+                    l[k & 255] ^
+                    c[p++],
+                  g = q,
+                  h = s,
+                  k = t;
+              q =
+                ((f[g >>> 24] << 24) |
+                  (f[(h >>> 16) & 255] << 16) |
+                  (f[(k >>> 8) & 255] << 8) |
+                  f[n & 255]) ^
+                c[p++];
+              s =
+                ((f[h >>> 24] << 24) |
+                  (f[(k >>> 16) & 255] << 16) |
+                  (f[(n >>> 8) & 255] << 8) |
+                  f[g & 255]) ^
+                c[p++];
+              t =
+                ((f[k >>> 24] << 24) |
+                  (f[(n >>> 16) & 255] << 16) |
+                  (f[(g >>> 8) & 255] << 8) |
+                  f[h & 255]) ^
+                c[p++];
+              n =
+                ((f[n >>> 24] << 24) |
+                  (f[(g >>> 16) & 255] << 16) |
+                  (f[(h >>> 8) & 255] << 8) |
+                  f[k & 255]) ^
+                c[p++];
+              a[b] = q;
+              a[b + 1] = s;
+              a[b + 2] = t;
+              a[b + 3] = n;
+            },
+            keySize: 8
+          }));
+        u.AES = p._createHelper(d);
+      })();
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/js/lightgallery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/modules/lg-zoom.min.js"></script>
-    <script src="../js/plugins.js"></script>
-    <script src="../js/main.js"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>
-      window.ga = function() {
-        ga.q.push(arguments);
+      /*
+CryptoJS v3.1.2
+code.google.com/p/crypto-js
+(c) 2009-2013 by Jeff Mott. All rights reserved.
+code.google.com/p/crypto-js/wiki/License
+*/
+      var CryptoJS =
+        CryptoJS ||
+        (function(g, j) {
+          var e = {},
+            d = (e.lib = {}),
+            m = function() {},
+            n = (d.Base = {
+              extend: function(a) {
+                m.prototype = this;
+                var c = new m();
+                a && c.mixIn(a);
+                c.hasOwnProperty('init') ||
+                  (c.init = function() {
+                    c.$super.init.apply(this, arguments);
+                  });
+                c.init.prototype = c;
+                c.$super = this;
+                return c;
+              },
+              create: function() {
+                var a = this.extend();
+                a.init.apply(a, arguments);
+                return a;
+              },
+              init: function() {},
+              mixIn: function(a) {
+                for (var c in a) a.hasOwnProperty(c) && (this[c] = a[c]);
+                a.hasOwnProperty('toString') && (this.toString = a.toString);
+              },
+              clone: function() {
+                return this.init.prototype.extend(this);
+              }
+            }),
+            q = (d.WordArray = n.extend({
+              init: function(a, c) {
+                a = this.words = a || [];
+                this.sigBytes = c != j ? c : 4 * a.length;
+              },
+              toString: function(a) {
+                return (a || l).stringify(this);
+              },
+              concat: function(a) {
+                var c = this.words,
+                  p = a.words,
+                  f = this.sigBytes;
+                a = a.sigBytes;
+                this.clamp();
+                if (f % 4)
+                  for (var b = 0; b < a; b++)
+                    c[(f + b) >>> 2] |=
+                      ((p[b >>> 2] >>> (24 - 8 * (b % 4))) & 255) <<
+                      (24 - 8 * ((f + b) % 4));
+                else if (65535 < p.length)
+                  for (b = 0; b < a; b += 4) c[(f + b) >>> 2] = p[b >>> 2];
+                else c.push.apply(c, p);
+                this.sigBytes += a;
+                return this;
+              },
+              clamp: function() {
+                var a = this.words,
+                  c = this.sigBytes;
+                a[c >>> 2] &= 4294967295 << (32 - 8 * (c % 4));
+                a.length = g.ceil(c / 4);
+              },
+              clone: function() {
+                var a = n.clone.call(this);
+                a.words = this.words.slice(0);
+                return a;
+              },
+              random: function(a) {
+                for (var c = [], b = 0; b < a; b += 4)
+                  c.push((4294967296 * g.random()) | 0);
+                return new q.init(c, a);
+              }
+            })),
+            b = (e.enc = {}),
+            l = (b.Hex = {
+              stringify: function(a) {
+                var c = a.words;
+                a = a.sigBytes;
+                for (var b = [], f = 0; f < a; f++) {
+                  var d = (c[f >>> 2] >>> (24 - 8 * (f % 4))) & 255;
+                  b.push((d >>> 4).toString(16));
+                  b.push((d & 15).toString(16));
+                }
+                return b.join('');
+              },
+              parse: function(a) {
+                for (var c = a.length, b = [], f = 0; f < c; f += 2)
+                  b[f >>> 3] |=
+                    parseInt(a.substr(f, 2), 16) << (24 - 4 * (f % 8));
+                return new q.init(b, c / 2);
+              }
+            }),
+            k = (b.Latin1 = {
+              stringify: function(a) {
+                var c = a.words;
+                a = a.sigBytes;
+                for (var b = [], f = 0; f < a; f++)
+                  b.push(
+                    String.fromCharCode(
+                      (c[f >>> 2] >>> (24 - 8 * (f % 4))) & 255
+                    )
+                  );
+                return b.join('');
+              },
+              parse: function(a) {
+                for (var c = a.length, b = [], f = 0; f < c; f++)
+                  b[f >>> 2] |= (a.charCodeAt(f) & 255) << (24 - 8 * (f % 4));
+                return new q.init(b, c);
+              }
+            }),
+            h = (b.Utf8 = {
+              stringify: function(a) {
+                try {
+                  return decodeURIComponent(escape(k.stringify(a)));
+                } catch (b) {
+                  throw Error('Malformed UTF-8 data');
+                }
+              },
+              parse: function(a) {
+                return k.parse(unescape(encodeURIComponent(a)));
+              }
+            }),
+            u = (d.BufferedBlockAlgorithm = n.extend({
+              reset: function() {
+                this._data = new q.init();
+                this._nDataBytes = 0;
+              },
+              _append: function(a) {
+                'string' == typeof a && (a = h.parse(a));
+                this._data.concat(a);
+                this._nDataBytes += a.sigBytes;
+              },
+              _process: function(a) {
+                var b = this._data,
+                  d = b.words,
+                  f = b.sigBytes,
+                  l = this.blockSize,
+                  e = f / (4 * l),
+                  e = a ? g.ceil(e) : g.max((e | 0) - this._minBufferSize, 0);
+                a = e * l;
+                f = g.min(4 * a, f);
+                if (a) {
+                  for (var h = 0; h < a; h += l) this._doProcessBlock(d, h);
+                  h = d.splice(0, a);
+                  b.sigBytes -= f;
+                }
+                return new q.init(h, f);
+              },
+              clone: function() {
+                var a = n.clone.call(this);
+                a._data = this._data.clone();
+                return a;
+              },
+              _minBufferSize: 0
+            }));
+          d.Hasher = u.extend({
+            cfg: n.extend(),
+            init: function(a) {
+              this.cfg = this.cfg.extend(a);
+              this.reset();
+            },
+            reset: function() {
+              u.reset.call(this);
+              this._doReset();
+            },
+            update: function(a) {
+              this._append(a);
+              this._process();
+              return this;
+            },
+            finalize: function(a) {
+              a && this._append(a);
+              return this._doFinalize();
+            },
+            blockSize: 16,
+            _createHelper: function(a) {
+              return function(b, d) {
+                return new a.init(d).finalize(b);
+              };
+            },
+            _createHmacHelper: function(a) {
+              return function(b, d) {
+                return new w.HMAC.init(a, d).finalize(b);
+              };
+            }
+          });
+          var w = (e.algo = {});
+          return e;
+        })(Math);
+      (function() {
+        var g = CryptoJS,
+          j = g.lib,
+          e = j.WordArray,
+          d = j.Hasher,
+          m = [],
+          j = (g.algo.SHA1 = d.extend({
+            _doReset: function() {
+              this._hash = new e.init([
+                1732584193,
+                4023233417,
+                2562383102,
+                271733878,
+                3285377520
+              ]);
+            },
+            _doProcessBlock: function(d, e) {
+              for (
+                var b = this._hash.words,
+                  l = b[0],
+                  k = b[1],
+                  h = b[2],
+                  g = b[3],
+                  j = b[4],
+                  a = 0;
+                80 > a;
+                a++
+              ) {
+                if (16 > a) m[a] = d[e + a] | 0;
+                else {
+                  var c = m[a - 3] ^ m[a - 8] ^ m[a - 14] ^ m[a - 16];
+                  m[a] = (c << 1) | (c >>> 31);
+                }
+                c = ((l << 5) | (l >>> 27)) + j + m[a];
+                c =
+                  20 > a
+                    ? c + (((k & h) | (~k & g)) + 1518500249)
+                    : 40 > a
+                    ? c + ((k ^ h ^ g) + 1859775393)
+                    : 60 > a
+                    ? c + (((k & h) | (k & g) | (h & g)) - 1894007588)
+                    : c + ((k ^ h ^ g) - 899497514);
+                j = g;
+                g = h;
+                h = (k << 30) | (k >>> 2);
+                k = l;
+                l = c;
+              }
+              b[0] = (b[0] + l) | 0;
+              b[1] = (b[1] + k) | 0;
+              b[2] = (b[2] + h) | 0;
+              b[3] = (b[3] + g) | 0;
+              b[4] = (b[4] + j) | 0;
+            },
+            _doFinalize: function() {
+              var d = this._data,
+                e = d.words,
+                b = 8 * this._nDataBytes,
+                l = 8 * d.sigBytes;
+              e[l >>> 5] |= 128 << (24 - (l % 32));
+              e[(((l + 64) >>> 9) << 4) + 14] = Math.floor(b / 4294967296);
+              e[(((l + 64) >>> 9) << 4) + 15] = b;
+              d.sigBytes = 4 * e.length;
+              this._process();
+              return this._hash;
+            },
+            clone: function() {
+              var e = d.clone.call(this);
+              e._hash = this._hash.clone();
+              return e;
+            }
+          }));
+        g.SHA1 = d._createHelper(j);
+        g.HmacSHA1 = d._createHmacHelper(j);
+      })();
+      (function() {
+        var g = CryptoJS,
+          j = g.enc.Utf8;
+        g.algo.HMAC = g.lib.Base.extend({
+          init: function(e, d) {
+            e = this._hasher = new e.init();
+            'string' == typeof d && (d = j.parse(d));
+            var g = e.blockSize,
+              n = 4 * g;
+            d.sigBytes > n && (d = e.finalize(d));
+            d.clamp();
+            for (
+              var q = (this._oKey = d.clone()),
+                b = (this._iKey = d.clone()),
+                l = q.words,
+                k = b.words,
+                h = 0;
+              h < g;
+              h++
+            )
+              (l[h] ^= 1549556828), (k[h] ^= 909522486);
+            q.sigBytes = b.sigBytes = n;
+            this.reset();
+          },
+          reset: function() {
+            var e = this._hasher;
+            e.reset();
+            e.update(this._iKey);
+          },
+          update: function(e) {
+            this._hasher.update(e);
+            return this;
+          },
+          finalize: function(e) {
+            var d = this._hasher;
+            e = d.finalize(e);
+            d.reset();
+            return d.finalize(this._oKey.clone().concat(e));
+          }
+        });
+      })();
+      (function() {
+        var g = CryptoJS,
+          j = g.lib,
+          e = j.Base,
+          d = j.WordArray,
+          j = g.algo,
+          m = j.HMAC,
+          n = (j.PBKDF2 = e.extend({
+            cfg: e.extend({ keySize: 4, hasher: j.SHA1, iterations: 1 }),
+            init: function(d) {
+              this.cfg = this.cfg.extend(d);
+            },
+            compute: function(e, b) {
+              for (
+                var g = this.cfg,
+                  k = m.create(g.hasher, e),
+                  h = d.create(),
+                  j = d.create([1]),
+                  n = h.words,
+                  a = j.words,
+                  c = g.keySize,
+                  g = g.iterations;
+                n.length < c;
+
+              ) {
+                var p = k.update(b).finalize(j);
+                k.reset();
+                for (var f = p.words, v = f.length, s = p, t = 1; t < g; t++) {
+                  s = k.finalize(s);
+                  k.reset();
+                  for (var x = s.words, r = 0; r < v; r++) f[r] ^= x[r];
+                }
+                h.concat(p);
+                a[0]++;
+              }
+              h.sigBytes = 4 * c;
+              return h;
+            }
+          }));
+        g.PBKDF2 = function(d, b, e) {
+          return n.create(e).compute(d, b);
+        };
+      })();
+    </script>
+    <script>
+      /*! srcdoc-polyfill - v0.1.1 - 2013-03-01
+       * http://github.com/jugglinmike/srcdoc-polyfill/
+       * Copyright (c) 2013 Mike Pennisi; Licensed MIT */
+      (function(window, document, undefined) {
+        var idx, iframes;
+        var _srcDoc = window.srcDoc;
+        var isCompliant = !!('srcdoc' in document.createElement('iframe'));
+        var implementations = {
+          compliant: function(iframe, content) {
+            if (content) {
+              iframe.setAttribute('srcdoc', content);
+            }
+          },
+          legacy: function(iframe, content) {
+            var jsUrl;
+
+            if (!iframe || !iframe.getAttribute) {
+              return;
+            }
+
+            if (!content) {
+              content = iframe.getAttribute('srcdoc');
+            } else {
+              iframe.setAttribute('srcdoc', content);
+            }
+
+            if (content) {
+              // The value returned by a script-targeted URL will be used as
+              // the iFrame's content. Create such a URL which returns the
+              // iFrame element's `srcdoc` attribute.
+              jsUrl = "javascript: window.frameElement.getAttribute('srcdoc');";
+
+              iframe.setAttribute('src', jsUrl);
+
+              // Explicitly set the iFrame's window.location for
+              // compatability with IE9, which does not react to changes in
+              // the `src` attribute when it is a `javascript:` URL, for
+              // some reason
+              if (iframe.contentWindow) {
+                iframe.contentWindow.location = jsUrl;
+              }
+            }
+          }
+        };
+        var srcDoc = (window.srcDoc = {
+          // Assume the best
+          set: implementations.compliant,
+          noConflict: function() {
+            window.srcDoc = _srcDoc;
+            return srcDoc;
+          }
+        });
+
+        // If the browser supports srcdoc, no shimming is necessary
+        if (isCompliant) {
+          return;
+        }
+
+        srcDoc.set = implementations.legacy;
+
+        // Automatically shim any iframes already present in the document
+        iframes = document.getElementsByTagName('iframe');
+        idx = iframes.length;
+
+        while (idx--) {
+          srcDoc.set(iframes[idx]);
+        }
+      })(this, this.document);
+    </script>
+    <script>
+      var pl = {
+        salt: 'w0Gji7KVFtVrfbA1iCPCo71mCLw4DPYayk1InmDOmSU=',
+        iv: 'BbPFXkHF+ElLtTgfbbhMzw==',
+        data:
+          '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'
       };
-      ga.q = [];
-      ga.l = +new Date();
-      ga('create', 'UA-XXXXX-Y', 'auto');
-      ga('send', 'pageview');
+
+      var submitPass = document.getElementById('submitPass');
+      var passEl = document.getElementById('pass');
+      var invalidPassEl = document.getElementById('invalidPass');
+      var successEl = document.getElementById('success');
+      var contentFrame = document.getElementById('contentFrame');
+
+      if (pl === '') {
+        submitPass.disabled = true;
+        passEl.disabled = true;
+        alert(
+          "This page is meant to be used with the encryption tool. It doesn't work standalone."
+        );
+      }
+
+      function doSubmit(evt) {
+        try {
+          var decrypted = decryptFile(
+            CryptoJS.enc.Base64.parse(pl.data),
+            passEl.value,
+            CryptoJS.enc.Base64.parse(pl.salt),
+            CryptoJS.enc.Base64.parse(pl.iv)
+          );
+          if (decrypted === '') throw 'No data returned';
+
+          // Set default iframe link targets to _top so all links break out of the iframe
+          decrypted = decrypted.replace(
+            '<head>',
+            '<head><base href="." target="_top">'
+          );
+
+          srcDoc.set(contentFrame, decrypted);
+
+          successEl.style.display = 'inline';
+          passEl.disabled = true;
+          submitPass.disabled = true;
+          setTimeout(function() {
+            dialogWrap.style.display = 'none';
+          }, 1000);
+        } catch (e) {
+          invalidPassEl.style.display = 'inline';
+          passEl.value = '';
+        }
+      }
+
+      submitPass.onclick = doSubmit;
+      passEl.onkeypress = function(e) {
+        if (!e) e = window.event;
+        var keyCode = e.keyCode || e.which;
+        invalidPassEl.style.display = 'none';
+        if (keyCode == '13') {
+          // Enter pressed
+          doSubmit();
+          return false;
+        }
+      };
+
+      function decryptFile(contents, password, salt, iv) {
+        var _cp = CryptoJS.lib.CipherParams.create({
+          ciphertext: contents
+        });
+        var key = CryptoJS.PBKDF2(password, salt, {
+          keySize: 256 / 32,
+          iterations: 100
+        });
+        var decrypted = CryptoJS.AES.decrypt(_cp, key, { iv: iv });
+
+        return decrypted.toString(CryptoJS.enc.Utf8);
+      }
     </script>
-    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
   </body>
 </html>
