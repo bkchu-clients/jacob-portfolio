@@ -11,7 +11,6 @@
 
   // add animations to the header only when the page has completely loaded
   $(document).ready(function() {
-    console.log('der');
     $('.main-header').addClass('animated');
   });
 
