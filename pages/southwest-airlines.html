@@ -1,246 +1,349 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
+﻿<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>
-      Southwest Airlines | Jacob Kim / Digital Product Designer
-    </title>
-    <meta name="description" content="I’m Jacob Kim, a digital product designer from Los Angeles, CA currently helping launch digital products at Verizon." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Password Protected Page</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700|Space+Mono:400,700');
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
-    <link rel="manifest" href="../site.webmanifest" />
-    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#ff5555" />
-    <meta name="msapplication-TileColor" content="#ff5555" />
-    <meta name="theme-color" content="#ff5555" />
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        font-family: 'Space Mono';
+        font-size: 8px;
+      }
+      #dialogText {
+        padding: 10px 30px;
+        color: white;
+        background-color: #ff5555;
+        font-size: 2rem;
+      }
 
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/preflight.min.css" rel="stylesheet" />
+      #dialogWrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eeeeee;
+      }
+
+      #dialogWrapCell {
+        z-index: 9999;
+        max-width: 90%;
+      }
+
+      #mainDialog {
+        max-width: 400px;
+        margin: 5px;
+        border-radius: 4px;
+
+        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #ffffff;
+        overflow: hidden;
+        text-align: left;
+      }
+
+      #passwordPrompt {
+        font-size: 2rem;
+      }
+
+      #passArea {
+        padding: 20px 30px;
+        background-color: white;
+      }
+      #passArea > * {
+        margin: 5px auto;
+      }
+
+      #pass {
+        width: 100%;
+        height: 40px;
+        font-size: 2rem;
+        border: solid 2px #3e3e3e;
+        border-radius: 4px;
+        padding: 1rem 1rem;
+      }
+
+      #messageWrapper {
+        float: left;
+        vertical-align: middle;
+        line-height: 30px;
+      }
+
+      .notifyText {
+        display: none;
+      }
+
+      #invalidPass {
+        color: red;
+      }
+
+      #success {
+        color: green;
+      }
+
+      #submitPass {
+        font-family: 'Space Mono';
+        font-size: 2rem;
+        border-radius: 5px;
+        background-color: #ff5555;
+        color: white;
+        padding: 1rem;
+        border: 0;
+        float: right;
+      }
+      #contentFrame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/header.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/southwest-airlines.css" />
-    <link rel="stylesheet" href="../css/cs.css" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/utilities.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css" />
-
-    <meta name="theme-color" content="#fafafa" />
   </head>
-
   <body>
-    <!-- [if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif] -->
-
-    <!-- header -->
-    <header class="main-header grid">
-      <div class="grid--inner">
-        <a href="/" class="main-header__link link width-10">
-          <img class="main-header__logo" src="../img/logo.svg" alt="logo" />
-          <div>
-            <h1 class="main-header__title">
-              Jacob Kim
-            </h1>
-            <h2 class="main-header__subtitle">Digital <br class="mobile-only" />Product Designer</h2>
-          </div>
-        </a>
-      </div>
-    </header>
-
-    <!-- main content -->
-    <main class="lightgallery">
-      <div class="grid">
+    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
+    <div id="dialogWrap">
+      <header class="main-header main-header--minimized grid">
         <div class="grid--inner">
-          <div class="cs-title width-10">
-            <h2 class="cs-title__header header">Southwest Airlines, Cargo</h2>
-            <h3 class="cs-title__subheader">Transforming a digital experience</h3>
-          </div>
-        </div>
-      </div>
-
-      <div class="overview grid">
-        <div class="grid--inner">
-          <img class="img__zoom width-10 width-6@m mb-20 lg:mb-0" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555173487/jacob-portfolio/swa/SWA_3.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555173487/jacob-portfolio/swa/SWA_3.png" alt="macbook showing southwest application" />
-          <div class="width-3 width-1@m"></div>
-          <img class="img__zoom width-4 width-2@m" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555173693/jacob-portfolio/swa/SWA_4.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555173693/jacob-portfolio/swa/SWA_4.png" alt="macbook showing southwest application" />
-          <div class="width-3 width-1@m"></div>
-          <div class="width-10 cs__space--6"></div>
-          <div class="width-10 width-5@m mb-12 lg:mb-0">
-            <p class="cs__text mb-12">Southwest Cargo provides fast and efficient shipping services for valued customers around the country. As a subsidiary of Southwest Airlines, Southwest Cargo focuses on enhancing customer experience with every package that is shipped.</p>
-            <p class="cs__text">My team consisted of 6 members. Two designers, one project manager and three UI developers. Before we began designing, a different agency had previously provided some mockups that we based our designs on. With the provided wireframes, my experience director and I finished all the designs while making them responsive. We collaborated with the client’s team to finish this project in 6 design sprints.</p>
-          </div>
-          <div class="width-10 width-5@m">
-            <p class="cs__text mb-12"><strong>The Challenge:</strong> How do we redesign Southwest’s Cargo website to keep it competitive with other airlines?</p>
-            <p class="cs__text mb-12"><strong>The Solution:</strong> We created a responsive web-based experience that emulates Southwest’s digital branding to allow for smooth transitions into next generation designs.</p>
-            <p class="cs__text"><strong>My Role:</strong> Along with my Experience Director, Lan Nguyen, I was the experience designer who focused on creating high fidelity wireframes, IA documentation and design patterns.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cs__space--10"></div>
-
-      <div class="grid">
-        <div class="grid--inner">
-          <h3 class="cs__subheader subheader width-10">Unfolding the project cycle</h3>
-          <div class="width-10 width-5@m">
-            <h4 class="cs__text bold mb-4">1. Sprint! (2 week intervals)</h4>
-            <p class="cs__text mb-24">We began each sprint by prioritizing features. Once we figured out which features were high priority I began designing wireframes.</p>
-
-            <h4 class="cs__text bold mb-4">2. Design Review</h4>
-            <p class="cs__text mb-24">We presented our designs to our main stakeholders on a weekly basis to receive feedback as well as approvals.</p>
-
-            <h4 class="cs__text bold mb-4">3. Feedback</h4>
-            <p class="cs__text mb-24">In addition to presenting designs to stakeholders, they had the opportunity to look through WIP designs using InVision.</p>
-
-            <h4 class="cs__text bold mb-4">4. Iterate</h4>
-            <p class="cs__text mb-24">Based on feedback, the experience director and I would iterate on our designs and prepare for our sprint review.</p>
-
-            <h4 class="cs__text bold mb-4">5. Demo to Client</h4>
-            <p class="cs__text mb-24 lg:mb-0">I presented current designs to key stakeholders to receive final feedback before moving onto the next sprint.</p>
-          </div>
-          <div class="width-1@m"></div>
-          <img class="img__zoom width-10 width-2@m object-contain mb-24 lg:mb-0" style="box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5);" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556833529/jacob-portfolio/swa/Ship-Ship-Howtoship-T-1.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556833529/jacob-portfolio/swa/Ship-Ship-Howtoship-T-1.png" />
-          <img class="img__zoom width-10 width-2@m object-contain" style="box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5);" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556835736/jacob-portfolio/swa/start_shipping.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556835736/jacob-portfolio/swa/start_shipping.png" />
-
-          <div class="cs__space--9 width-10"></div>
-
-          <h3 class="cs__subheader subheader width-10">Discovery</h3>
-          <div class="cs__text width-10 width-6@m">
-            <p class="mb-12">We spoke with our key stakeholders to understand what they were looking for in the redesign and what they were hoping to achieve. Southwest Cargo’s website hadn’t been updated since the early 2000’s and our stakeholders believed that they could reach a larger audience by transforming their web experience. We researched other cargo sites such as American Airlines, Delta Airlines, and Virgin Atlantic to see how they handled customer support, landing pages, and navigation.</p>
-            <p class="mb-12 lg:mb-0">It’s common for a cargo customer to already know what they’re shipping. They want to see the specifications for shipping certain products as well as locating a shipping facility. Our team focused on the customer experience for a user searching for their nearest facility and the landing pages for different packages. In order for Southwest Cargo to stay relevant in the industry they needed to also have a couple key features such as real - time tracking updates and a customer portal that had all their profile information.</p>
-          </div>
-          <div class="width-1@m"></div>
-          <div class="cs__box cs__box--gray width-10 width-3@m">
-            <img data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556834125/jacob-portfolio/swa/tools_widget.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556834125/jacob-portfolio/swa/tools_widget.png" />
-          </div>
-
-          <div class="cs__space--9 width-10"></div>
-
-          <h3 class="cs__subheader subheader width-10">Untangling paths to create a more intuitive sitemap</h3>
-          <img class="img__zoom width-10 mb-24" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555173485/jacob-portfolio/swa/SWA_2.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555173485/jacob-portfolio/swa/SWA_2.png" alt="southwest airlines sitemap" />
-          <p class="cs__text width-10 width-7@m mb-12">Before redesigning Southwest Cargo we had to understand how each page interacted with one another. A firm understanding of the taxonomy would solidify how we would organize parent pages, nested pages and external links. After mapping out the current state of Southwest Cargo, our experience director and I went to work. We created a sitemap that efficiently showed how each page interacted within the website while showing which pages could link to another page.</p>
-          <p class="cs__text width-10 width-7@m">We saw that the current sitemap did not match the layout of the existing site. In order to update the IA of the website, we needed to discover what pages were linked to other headers and what paths a user could take to complete a task. For example, a user could decide to send a package via NFG (Next Flight Guaranteed) by clicking the header, Ship, and get to the service levels to learn more about that shipping method. The user can also access the information for NFG by clicking the header, Learn, and looking under specialty shipments. A user can take multiple paths to complete a task and we determined these paths on the sitemap above.</p>
-
-          <div class="cs__space--11 width-10"></div>
-
-          <h3 class="cs__subheader subheader width-10">Prioritizing user needs</h3>
-          <p class="cs__text width-10 width-7@m">During sprint planning, we had to understand which tasks were the most common and frequent. After talking to our stakeholders and reviewing what the main purpose of the website was, we determined a couple high priority user flows. We learned that users go to the Cargo website to either locate their nearest shipping facility or track a shipment.</p>
-          <div class="width-2@m"></div>
-
-          <div class="cs__space--6 width-10"></div>
-
-          <div class="width-10 width-8@m">
-            <div class="cs__box cs__box--gray p-16 lg:p-32">
-              <p class="cs__text--spacemono">As a user, I want to learn about each facility so I can visit and send my cargo from the nearest location.</p>
-              <img class="img__zoom mt-16" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555173486/jacob-portfolio/swa/SWA_5.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555173486/jacob-portfolio/swa/SWA_5.png" alt="user flow 1" />
+          <a href="/" class="main-header__link link width-10">
+            <img class="main-header__logo" src="../img/logo.svg" alt="logo" />
+            <div>
+              <h1 class="main-header__title">
+                Jacob Kim
+              </h1>
+              <h2 class="main-header__subtitle">Digital <br class="mobile-only" />Product Designer</h2>
             </div>
-
-            <div class="cs__space--6 width-10"></div>
-
-            <div class="cs__box cs__box--gray p-16 lg:p-32">
-              <p class="cs__text--spacemono">As a user, I want to see my tracking history so I can locate my shipment.</p>
-              <img class="img__zoom mt-16" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555173484/jacob-portfolio/swa/SWA_1.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1555173484/jacob-portfolio/swa/SWA_1.png" alt="user flow 2" />
-            </div>
-          </div>
-          <div class="width-2@m"></div>
-
-          <div class="cs__space--11 width-10"></div>
-          <h2 class="cs__subheader subheader width-10">Conceptualizing designs</h2>
-
-          <h3 class="cs__subsubheader subsubheader width-10">New data leads to updated designs -</h3>
-          <p class="cs__text width-10 width-7@m mb-12">The tracking details page is comprised of multiple cards that show the current status of your shipment, shipper information, consignee information, lot information and total shipment content. Users are able to scroll through the information to look up their shipping details. In order to get to the tracking details page, the user must first choose the right card on the Tracking Results page. We highlighted the airway bill number at the top of each card so a user could tap on the number or the card itself.</p>
-          <p class="cs__text width-10 width-7@m">Towards the bottom of the page the user can see their “Lot Tracking Information”. If a shipment has multiple boxes they can be separated and sent on different planes. Visualizing the data for multiple lots was an area that we needed to think more through. Currently, the data is displayed on individual cards but with two or three different lots it can cause problems for the user.</p>
-          <div class="cs__space--7 width-10"></div>
-
-          <div class="cs__box cs__box--gray width-10 width-9@m p-20">
-            <h3 class="subsubheader width-10">Track your shipment -</h3>
-            <img class="img__zoom mt-16" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556775264/jacob-portfolio/swa/Group_16.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556775264/jacob-portfolio/swa/Group_16.png" alt="user flow 2" />
-          </div>
-          <div class="cs__space--7 width-10"></div>
-          <p class="cs__text width-10 width-7@m">The revamped Southwest Cargo website allows customers to seamlessly navigate through the site no matter what device they’re using. We followed Southwest’s brand philosophy and kept the user at the focus when making design decisions. Our goal was to give enough affordance throughout our designs to make it easy for users to locate, ship, learn, and manage shipments.</p>
-          <div class="cs__space--9 width-10"></div>
-        </div>
-      </div>
-
-      <div class="overview grid">
-        <div class="grid--inner">
-          <div class="h-1 lg:h-48 cs__space--16 width-10"></div>
-          <div class="width-10 swa__designs">
-            <img class="img__zoom swa__design" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556827868/jacob-portfolio/swa/Flight_Schedules-Results-M-1.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556827868/jacob-portfolio/swa/Flight_Schedules-Results-M-1.png" alt="mock 1" />
-            <img class="img__zoom swa__design" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556827875/jacob-portfolio/swa/Flight_Schedules-T-1.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556827875/jacob-portfolio/swa/Flight_Schedules-T-1.png" alt="mock 2" />
-            <img class="img__zoom swa__design" data-src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556827885/jacob-portfolio/swa/Flight_Schdules-D-1.png" src="https://res.cloudinary.com/bkchu/image/upload/q_auto:good,f_auto/v1556827885/jacob-portfolio/swa/Flight_Schdules-D-1.png" alt="mock 3" />
-          </div>
-          <div class="h-1 lg:h-48 cs__space--16 width-10"></div>
-        </div>
-      </div>
-
-      <div class="grid">
-        <div class="grid--inner">
-          <div class="cs__space--11 width-10"></div>
-          <h3 class="cs__subheader subheader width-10">Next steps</h3>
-          <p class="cs__text width-10 width-7@m">We finished the design sprints in 3 months. After multiple iterations, we redesigned Southwest Cargo’s website to be responsive. In order to allow for next generation adjustments, we created a framework that could be applied to current and future designs. The website is now live but we are still in the process of updating UI based on client feedback.</p>
-          <div class="cs__space--7 width-10"></div>
-          <div class="cs__box cs__box--gray width-10 width-8@m">
-            <p class="cs__text bold mb-8">Research, research, and more research</p>
-            <p class="cs__text">Research is not just valuable in the early stages of a project but valuable at every stage in the project cycle. As more people start to use Cargo’s new website it is essential to understand how they’re using the product and what features to add. With added time, I’d like to recruit participants who use the Cargo website to ship multiple packages at once. With multiple packages, users are presented with different ‘Lot’ data. Unfortunately, we did not have the time to interview or conduct contextual inquiries to observe how they interpret that data.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cs__space--16 width-10"></div>
-
-      <div class="grid cs-footer">
-        <div class="grid--inner">
-          <div class="width-10 flex justify-between">
-            <a class="w-auto subheader no-underline pr-4" href="./fintech.html">
-              Fintech Company
-            </a>
-            <a class="w-auto subheader no-underline text-right pl-4" href="./lantern-trips.html">
-              Lantern Trips
-            </a>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <!-- footer -->
-    <footer class="footer grid">
-      <div class="footer__content">
-        <p class="footer__greeting">Reach out ~</p>
-        <div class="footer__links">
-          <a href="mailto:jacobjinwoo@gmail.com" class="footer__link footer__link--first">
-            Email
-          </a>
-          <a href="https://www.linkedin.com/in/jacobjkim/" class="footer__link footer__link--second">
-            LinkedIn
           </a>
         </div>
-        <p class="footer__copyright">©2019 — Jacob Kim</p>
-      </div>
-    </footer>
-
-    <script src="../js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+      </header>
+        <div id="dialogWrapCell">
+            <div id="mainDialog">
+                <div id="dialogText">This page is password protected.</div>
+                <div id="passArea">
+                    <p id="passwordPrompt">Password</p>
+                    <input id="pass" type="password" name="pass">
+                    <div>
+                        <span id="messageWrapper">
+                            <span id="invalidPass" class="notifyText">Sorry, please try again.</span>
+                            <span id="success" class="notifyText">Success!</span>
+                            &nbsp;
+                        </span>
+                        <button id="submitPass" type="button">Submit</button>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
-      window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>');
+/*
+CryptoJS v3.1.2
+code.google.com/p/crypto-js
+(c) 2009-2013 by Jeff Mott. All rights reserved.
+code.google.com/p/crypto-js/wiki/License
+*/
+var CryptoJS=CryptoJS||function(u,p){var d={},l=d.lib={},s=function(){},t=l.Base={extend:function(a){s.prototype=this;var c=new s;a&&c.mixIn(a);c.hasOwnProperty("init")||(c.init=function(){c.$super.init.apply(this,arguments)});c.init.prototype=c;c.$super=this;return c},create:function(){var a=this.extend();a.init.apply(a,arguments);return a},init:function(){},mixIn:function(a){for(var c in a)a.hasOwnProperty(c)&&(this[c]=a[c]);a.hasOwnProperty("toString")&&(this.toString=a.toString)},clone:function(){return this.init.prototype.extend(this)}},
+r=l.WordArray=t.extend({init:function(a,c){a=this.words=a||[];this.sigBytes=c!=p?c:4*a.length},toString:function(a){return(a||v).stringify(this)},concat:function(a){var c=this.words,e=a.words,j=this.sigBytes;a=a.sigBytes;this.clamp();if(j%4)for(var k=0;k<a;k++)c[j+k>>>2]|=(e[k>>>2]>>>24-8*(k%4)&255)<<24-8*((j+k)%4);else if(65535<e.length)for(k=0;k<a;k+=4)c[j+k>>>2]=e[k>>>2];else c.push.apply(c,e);this.sigBytes+=a;return this},clamp:function(){var a=this.words,c=this.sigBytes;a[c>>>2]&=4294967295<<
+32-8*(c%4);a.length=u.ceil(c/4)},clone:function(){var a=t.clone.call(this);a.words=this.words.slice(0);return a},random:function(a){for(var c=[],e=0;e<a;e+=4)c.push(4294967296*u.random()|0);return new r.init(c,a)}}),w=d.enc={},v=w.Hex={stringify:function(a){var c=a.words;a=a.sigBytes;for(var e=[],j=0;j<a;j++){var k=c[j>>>2]>>>24-8*(j%4)&255;e.push((k>>>4).toString(16));e.push((k&15).toString(16))}return e.join("")},parse:function(a){for(var c=a.length,e=[],j=0;j<c;j+=2)e[j>>>3]|=parseInt(a.substr(j,
+2),16)<<24-4*(j%8);return new r.init(e,c/2)}},b=w.Latin1={stringify:function(a){var c=a.words;a=a.sigBytes;for(var e=[],j=0;j<a;j++)e.push(String.fromCharCode(c[j>>>2]>>>24-8*(j%4)&255));return e.join("")},parse:function(a){for(var c=a.length,e=[],j=0;j<c;j++)e[j>>>2]|=(a.charCodeAt(j)&255)<<24-8*(j%4);return new r.init(e,c)}},x=w.Utf8={stringify:function(a){try{return decodeURIComponent(escape(b.stringify(a)))}catch(c){throw Error("Malformed UTF-8 data");}},parse:function(a){return b.parse(unescape(encodeURIComponent(a)))}},
+q=l.BufferedBlockAlgorithm=t.extend({reset:function(){this._data=new r.init;this._nDataBytes=0},_append:function(a){"string"==typeof a&&(a=x.parse(a));this._data.concat(a);this._nDataBytes+=a.sigBytes},_process:function(a){var c=this._data,e=c.words,j=c.sigBytes,k=this.blockSize,b=j/(4*k),b=a?u.ceil(b):u.max((b|0)-this._minBufferSize,0);a=b*k;j=u.min(4*a,j);if(a){for(var q=0;q<a;q+=k)this._doProcessBlock(e,q);q=e.splice(0,a);c.sigBytes-=j}return new r.init(q,j)},clone:function(){var a=t.clone.call(this);
+a._data=this._data.clone();return a},_minBufferSize:0});l.Hasher=q.extend({cfg:t.extend(),init:function(a){this.cfg=this.cfg.extend(a);this.reset()},reset:function(){q.reset.call(this);this._doReset()},update:function(a){this._append(a);this._process();return this},finalize:function(a){a&&this._append(a);return this._doFinalize()},blockSize:16,_createHelper:function(a){return function(b,e){return(new a.init(e)).finalize(b)}},_createHmacHelper:function(a){return function(b,e){return(new n.HMAC.init(a,
+e)).finalize(b)}}});var n=d.algo={};return d}(Math);
+(function(){var u=CryptoJS,p=u.lib.WordArray;u.enc.Base64={stringify:function(d){var l=d.words,p=d.sigBytes,t=this._map;d.clamp();d=[];for(var r=0;r<p;r+=3)for(var w=(l[r>>>2]>>>24-8*(r%4)&255)<<16|(l[r+1>>>2]>>>24-8*((r+1)%4)&255)<<8|l[r+2>>>2]>>>24-8*((r+2)%4)&255,v=0;4>v&&r+0.75*v<p;v++)d.push(t.charAt(w>>>6*(3-v)&63));if(l=t.charAt(64))for(;d.length%4;)d.push(l);return d.join("")},parse:function(d){var l=d.length,s=this._map,t=s.charAt(64);t&&(t=d.indexOf(t),-1!=t&&(l=t));for(var t=[],r=0,w=0;w<
+l;w++)if(w%4){var v=s.indexOf(d.charAt(w-1))<<2*(w%4),b=s.indexOf(d.charAt(w))>>>6-2*(w%4);t[r>>>2]|=(v|b)<<24-8*(r%4);r++}return p.create(t,r)},_map:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="}})();
+(function(u){function p(b,n,a,c,e,j,k){b=b+(n&a|~n&c)+e+k;return(b<<j|b>>>32-j)+n}function d(b,n,a,c,e,j,k){b=b+(n&c|a&~c)+e+k;return(b<<j|b>>>32-j)+n}function l(b,n,a,c,e,j,k){b=b+(n^a^c)+e+k;return(b<<j|b>>>32-j)+n}function s(b,n,a,c,e,j,k){b=b+(a^(n|~c))+e+k;return(b<<j|b>>>32-j)+n}for(var t=CryptoJS,r=t.lib,w=r.WordArray,v=r.Hasher,r=t.algo,b=[],x=0;64>x;x++)b[x]=4294967296*u.abs(u.sin(x+1))|0;r=r.MD5=v.extend({_doReset:function(){this._hash=new w.init([1732584193,4023233417,2562383102,271733878])},
+_doProcessBlock:function(q,n){for(var a=0;16>a;a++){var c=n+a,e=q[c];q[c]=(e<<8|e>>>24)&16711935|(e<<24|e>>>8)&4278255360}var a=this._hash.words,c=q[n+0],e=q[n+1],j=q[n+2],k=q[n+3],z=q[n+4],r=q[n+5],t=q[n+6],w=q[n+7],v=q[n+8],A=q[n+9],B=q[n+10],C=q[n+11],u=q[n+12],D=q[n+13],E=q[n+14],x=q[n+15],f=a[0],m=a[1],g=a[2],h=a[3],f=p(f,m,g,h,c,7,b[0]),h=p(h,f,m,g,e,12,b[1]),g=p(g,h,f,m,j,17,b[2]),m=p(m,g,h,f,k,22,b[3]),f=p(f,m,g,h,z,7,b[4]),h=p(h,f,m,g,r,12,b[5]),g=p(g,h,f,m,t,17,b[6]),m=p(m,g,h,f,w,22,b[7]),
+f=p(f,m,g,h,v,7,b[8]),h=p(h,f,m,g,A,12,b[9]),g=p(g,h,f,m,B,17,b[10]),m=p(m,g,h,f,C,22,b[11]),f=p(f,m,g,h,u,7,b[12]),h=p(h,f,m,g,D,12,b[13]),g=p(g,h,f,m,E,17,b[14]),m=p(m,g,h,f,x,22,b[15]),f=d(f,m,g,h,e,5,b[16]),h=d(h,f,m,g,t,9,b[17]),g=d(g,h,f,m,C,14,b[18]),m=d(m,g,h,f,c,20,b[19]),f=d(f,m,g,h,r,5,b[20]),h=d(h,f,m,g,B,9,b[21]),g=d(g,h,f,m,x,14,b[22]),m=d(m,g,h,f,z,20,b[23]),f=d(f,m,g,h,A,5,b[24]),h=d(h,f,m,g,E,9,b[25]),g=d(g,h,f,m,k,14,b[26]),m=d(m,g,h,f,v,20,b[27]),f=d(f,m,g,h,D,5,b[28]),h=d(h,f,
+m,g,j,9,b[29]),g=d(g,h,f,m,w,14,b[30]),m=d(m,g,h,f,u,20,b[31]),f=l(f,m,g,h,r,4,b[32]),h=l(h,f,m,g,v,11,b[33]),g=l(g,h,f,m,C,16,b[34]),m=l(m,g,h,f,E,23,b[35]),f=l(f,m,g,h,e,4,b[36]),h=l(h,f,m,g,z,11,b[37]),g=l(g,h,f,m,w,16,b[38]),m=l(m,g,h,f,B,23,b[39]),f=l(f,m,g,h,D,4,b[40]),h=l(h,f,m,g,c,11,b[41]),g=l(g,h,f,m,k,16,b[42]),m=l(m,g,h,f,t,23,b[43]),f=l(f,m,g,h,A,4,b[44]),h=l(h,f,m,g,u,11,b[45]),g=l(g,h,f,m,x,16,b[46]),m=l(m,g,h,f,j,23,b[47]),f=s(f,m,g,h,c,6,b[48]),h=s(h,f,m,g,w,10,b[49]),g=s(g,h,f,m,
+E,15,b[50]),m=s(m,g,h,f,r,21,b[51]),f=s(f,m,g,h,u,6,b[52]),h=s(h,f,m,g,k,10,b[53]),g=s(g,h,f,m,B,15,b[54]),m=s(m,g,h,f,e,21,b[55]),f=s(f,m,g,h,v,6,b[56]),h=s(h,f,m,g,x,10,b[57]),g=s(g,h,f,m,t,15,b[58]),m=s(m,g,h,f,D,21,b[59]),f=s(f,m,g,h,z,6,b[60]),h=s(h,f,m,g,C,10,b[61]),g=s(g,h,f,m,j,15,b[62]),m=s(m,g,h,f,A,21,b[63]);a[0]=a[0]+f|0;a[1]=a[1]+m|0;a[2]=a[2]+g|0;a[3]=a[3]+h|0},_doFinalize:function(){var b=this._data,n=b.words,a=8*this._nDataBytes,c=8*b.sigBytes;n[c>>>5]|=128<<24-c%32;var e=u.floor(a/
+4294967296);n[(c+64>>>9<<4)+15]=(e<<8|e>>>24)&16711935|(e<<24|e>>>8)&4278255360;n[(c+64>>>9<<4)+14]=(a<<8|a>>>24)&16711935|(a<<24|a>>>8)&4278255360;b.sigBytes=4*(n.length+1);this._process();b=this._hash;n=b.words;for(a=0;4>a;a++)c=n[a],n[a]=(c<<8|c>>>24)&16711935|(c<<24|c>>>8)&4278255360;return b},clone:function(){var b=v.clone.call(this);b._hash=this._hash.clone();return b}});t.MD5=v._createHelper(r);t.HmacMD5=v._createHmacHelper(r)})(Math);
+(function(){var u=CryptoJS,p=u.lib,d=p.Base,l=p.WordArray,p=u.algo,s=p.EvpKDF=d.extend({cfg:d.extend({keySize:4,hasher:p.MD5,iterations:1}),init:function(d){this.cfg=this.cfg.extend(d)},compute:function(d,r){for(var p=this.cfg,s=p.hasher.create(),b=l.create(),u=b.words,q=p.keySize,p=p.iterations;u.length<q;){n&&s.update(n);var n=s.update(d).finalize(r);s.reset();for(var a=1;a<p;a++)n=s.finalize(n),s.reset();b.concat(n)}b.sigBytes=4*q;return b}});u.EvpKDF=function(d,l,p){return s.create(p).compute(d,
+l)}})();
+CryptoJS.lib.Cipher||function(u){var p=CryptoJS,d=p.lib,l=d.Base,s=d.WordArray,t=d.BufferedBlockAlgorithm,r=p.enc.Base64,w=p.algo.EvpKDF,v=d.Cipher=t.extend({cfg:l.extend(),createEncryptor:function(e,a){return this.create(this._ENC_XFORM_MODE,e,a)},createDecryptor:function(e,a){return this.create(this._DEC_XFORM_MODE,e,a)},init:function(e,a,b){this.cfg=this.cfg.extend(b);this._xformMode=e;this._key=a;this.reset()},reset:function(){t.reset.call(this);this._doReset()},process:function(e){this._append(e);return this._process()},
+finalize:function(e){e&&this._append(e);return this._doFinalize()},keySize:4,ivSize:4,_ENC_XFORM_MODE:1,_DEC_XFORM_MODE:2,_createHelper:function(e){return{encrypt:function(b,k,d){return("string"==typeof k?c:a).encrypt(e,b,k,d)},decrypt:function(b,k,d){return("string"==typeof k?c:a).decrypt(e,b,k,d)}}}});d.StreamCipher=v.extend({_doFinalize:function(){return this._process(!0)},blockSize:1});var b=p.mode={},x=function(e,a,b){var c=this._iv;c?this._iv=u:c=this._prevBlock;for(var d=0;d<b;d++)e[a+d]^=
+c[d]},q=(d.BlockCipherMode=l.extend({createEncryptor:function(e,a){return this.Encryptor.create(e,a)},createDecryptor:function(e,a){return this.Decryptor.create(e,a)},init:function(e,a){this._cipher=e;this._iv=a}})).extend();q.Encryptor=q.extend({processBlock:function(e,a){var b=this._cipher,c=b.blockSize;x.call(this,e,a,c);b.encryptBlock(e,a);this._prevBlock=e.slice(a,a+c)}});q.Decryptor=q.extend({processBlock:function(e,a){var b=this._cipher,c=b.blockSize,d=e.slice(a,a+c);b.decryptBlock(e,a);x.call(this,
+e,a,c);this._prevBlock=d}});b=b.CBC=q;q=(p.pad={}).Pkcs7={pad:function(a,b){for(var c=4*b,c=c-a.sigBytes%c,d=c<<24|c<<16|c<<8|c,l=[],n=0;n<c;n+=4)l.push(d);c=s.create(l,c);a.concat(c)},unpad:function(a){a.sigBytes-=a.words[a.sigBytes-1>>>2]&255}};d.BlockCipher=v.extend({cfg:v.cfg.extend({mode:b,padding:q}),reset:function(){v.reset.call(this);var a=this.cfg,b=a.iv,a=a.mode;if(this._xformMode==this._ENC_XFORM_MODE)var c=a.createEncryptor;else c=a.createDecryptor,this._minBufferSize=1;this._mode=c.call(a,
+this,b&&b.words)},_doProcessBlock:function(a,b){this._mode.processBlock(a,b)},_doFinalize:function(){var a=this.cfg.padding;if(this._xformMode==this._ENC_XFORM_MODE){a.pad(this._data,this.blockSize);var b=this._process(!0)}else b=this._process(!0),a.unpad(b);return b},blockSize:4});var n=d.CipherParams=l.extend({init:function(a){this.mixIn(a)},toString:function(a){return(a||this.formatter).stringify(this)}}),b=(p.format={}).OpenSSL={stringify:function(a){var b=a.ciphertext;a=a.salt;return(a?s.create([1398893684,
+1701076831]).concat(a).concat(b):b).toString(r)},parse:function(a){a=r.parse(a);var b=a.words;if(1398893684==b[0]&&1701076831==b[1]){var c=s.create(b.slice(2,4));b.splice(0,4);a.sigBytes-=16}return n.create({ciphertext:a,salt:c})}},a=d.SerializableCipher=l.extend({cfg:l.extend({format:b}),encrypt:function(a,b,c,d){d=this.cfg.extend(d);var l=a.createEncryptor(c,d);b=l.finalize(b);l=l.cfg;return n.create({ciphertext:b,key:c,iv:l.iv,algorithm:a,mode:l.mode,padding:l.padding,blockSize:a.blockSize,formatter:d.format})},
+decrypt:function(a,b,c,d){d=this.cfg.extend(d);b=this._parse(b,d.format);return a.createDecryptor(c,d).finalize(b.ciphertext)},_parse:function(a,b){return"string"==typeof a?b.parse(a,this):a}}),p=(p.kdf={}).OpenSSL={execute:function(a,b,c,d){d||(d=s.random(8));a=w.create({keySize:b+c}).compute(a,d);c=s.create(a.words.slice(b),4*c);a.sigBytes=4*b;return n.create({key:a,iv:c,salt:d})}},c=d.PasswordBasedCipher=a.extend({cfg:a.cfg.extend({kdf:p}),encrypt:function(b,c,d,l){l=this.cfg.extend(l);d=l.kdf.execute(d,
+b.keySize,b.ivSize);l.iv=d.iv;b=a.encrypt.call(this,b,c,d.key,l);b.mixIn(d);return b},decrypt:function(b,c,d,l){l=this.cfg.extend(l);c=this._parse(c,l.format);d=l.kdf.execute(d,b.keySize,b.ivSize,c.salt);l.iv=d.iv;return a.decrypt.call(this,b,c,d.key,l)}})}();
+(function(){for(var u=CryptoJS,p=u.lib.BlockCipher,d=u.algo,l=[],s=[],t=[],r=[],w=[],v=[],b=[],x=[],q=[],n=[],a=[],c=0;256>c;c++)a[c]=128>c?c<<1:c<<1^283;for(var e=0,j=0,c=0;256>c;c++){var k=j^j<<1^j<<2^j<<3^j<<4,k=k>>>8^k&255^99;l[e]=k;s[k]=e;var z=a[e],F=a[z],G=a[F],y=257*a[k]^16843008*k;t[e]=y<<24|y>>>8;r[e]=y<<16|y>>>16;w[e]=y<<8|y>>>24;v[e]=y;y=16843009*G^65537*F^257*z^16843008*e;b[k]=y<<24|y>>>8;x[k]=y<<16|y>>>16;q[k]=y<<8|y>>>24;n[k]=y;e?(e=z^a[a[a[G^z]]],j^=a[a[j]]):e=j=1}var H=[0,1,2,4,8,
+16,32,64,128,27,54],d=d.AES=p.extend({_doReset:function(){for(var a=this._key,c=a.words,d=a.sigBytes/4,a=4*((this._nRounds=d+6)+1),e=this._keySchedule=[],j=0;j<a;j++)if(j<d)e[j]=c[j];else{var k=e[j-1];j%d?6<d&&4==j%d&&(k=l[k>>>24]<<24|l[k>>>16&255]<<16|l[k>>>8&255]<<8|l[k&255]):(k=k<<8|k>>>24,k=l[k>>>24]<<24|l[k>>>16&255]<<16|l[k>>>8&255]<<8|l[k&255],k^=H[j/d|0]<<24);e[j]=e[j-d]^k}c=this._invKeySchedule=[];for(d=0;d<a;d++)j=a-d,k=d%4?e[j]:e[j-4],c[d]=4>d||4>=j?k:b[l[k>>>24]]^x[l[k>>>16&255]]^q[l[k>>>
+8&255]]^n[l[k&255]]},encryptBlock:function(a,b){this._doCryptBlock(a,b,this._keySchedule,t,r,w,v,l)},decryptBlock:function(a,c){var d=a[c+1];a[c+1]=a[c+3];a[c+3]=d;this._doCryptBlock(a,c,this._invKeySchedule,b,x,q,n,s);d=a[c+1];a[c+1]=a[c+3];a[c+3]=d},_doCryptBlock:function(a,b,c,d,e,j,l,f){for(var m=this._nRounds,g=a[b]^c[0],h=a[b+1]^c[1],k=a[b+2]^c[2],n=a[b+3]^c[3],p=4,r=1;r<m;r++)var q=d[g>>>24]^e[h>>>16&255]^j[k>>>8&255]^l[n&255]^c[p++],s=d[h>>>24]^e[k>>>16&255]^j[n>>>8&255]^l[g&255]^c[p++],t=
+d[k>>>24]^e[n>>>16&255]^j[g>>>8&255]^l[h&255]^c[p++],n=d[n>>>24]^e[g>>>16&255]^j[h>>>8&255]^l[k&255]^c[p++],g=q,h=s,k=t;q=(f[g>>>24]<<24|f[h>>>16&255]<<16|f[k>>>8&255]<<8|f[n&255])^c[p++];s=(f[h>>>24]<<24|f[k>>>16&255]<<16|f[n>>>8&255]<<8|f[g&255])^c[p++];t=(f[k>>>24]<<24|f[n>>>16&255]<<16|f[g>>>8&255]<<8|f[h&255])^c[p++];n=(f[n>>>24]<<24|f[g>>>16&255]<<16|f[h>>>8&255]<<8|f[k&255])^c[p++];a[b]=q;a[b+1]=s;a[b+2]=t;a[b+3]=n},keySize:8});u.AES=p._createHelper(d)})();
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/js/lightgallery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/modules/lg-zoom.min.js"></script>
-    <script src="../js/plugins.js"></script>
-    <script src="../js/main.js"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>
-      window.ga = function() {
-        ga.q.push(arguments);
-      };
-      ga.q = [];
-      ga.l = +new Date();
-      ga('create', 'UA-XXXXX-Y', 'auto');
-      ga('send', 'pageview');
+/*
+CryptoJS v3.1.2
+code.google.com/p/crypto-js
+(c) 2009-2013 by Jeff Mott. All rights reserved.
+code.google.com/p/crypto-js/wiki/License
+*/
+var CryptoJS=CryptoJS||function(g,j){var e={},d=e.lib={},m=function(){},n=d.Base={extend:function(a){m.prototype=this;var c=new m;a&&c.mixIn(a);c.hasOwnProperty("init")||(c.init=function(){c.$super.init.apply(this,arguments)});c.init.prototype=c;c.$super=this;return c},create:function(){var a=this.extend();a.init.apply(a,arguments);return a},init:function(){},mixIn:function(a){for(var c in a)a.hasOwnProperty(c)&&(this[c]=a[c]);a.hasOwnProperty("toString")&&(this.toString=a.toString)},clone:function(){return this.init.prototype.extend(this)}},
+q=d.WordArray=n.extend({init:function(a,c){a=this.words=a||[];this.sigBytes=c!=j?c:4*a.length},toString:function(a){return(a||l).stringify(this)},concat:function(a){var c=this.words,p=a.words,f=this.sigBytes;a=a.sigBytes;this.clamp();if(f%4)for(var b=0;b<a;b++)c[f+b>>>2]|=(p[b>>>2]>>>24-8*(b%4)&255)<<24-8*((f+b)%4);else if(65535<p.length)for(b=0;b<a;b+=4)c[f+b>>>2]=p[b>>>2];else c.push.apply(c,p);this.sigBytes+=a;return this},clamp:function(){var a=this.words,c=this.sigBytes;a[c>>>2]&=4294967295<<
+32-8*(c%4);a.length=g.ceil(c/4)},clone:function(){var a=n.clone.call(this);a.words=this.words.slice(0);return a},random:function(a){for(var c=[],b=0;b<a;b+=4)c.push(4294967296*g.random()|0);return new q.init(c,a)}}),b=e.enc={},l=b.Hex={stringify:function(a){var c=a.words;a=a.sigBytes;for(var b=[],f=0;f<a;f++){var d=c[f>>>2]>>>24-8*(f%4)&255;b.push((d>>>4).toString(16));b.push((d&15).toString(16))}return b.join("")},parse:function(a){for(var c=a.length,b=[],f=0;f<c;f+=2)b[f>>>3]|=parseInt(a.substr(f,
+2),16)<<24-4*(f%8);return new q.init(b,c/2)}},k=b.Latin1={stringify:function(a){var c=a.words;a=a.sigBytes;for(var b=[],f=0;f<a;f++)b.push(String.fromCharCode(c[f>>>2]>>>24-8*(f%4)&255));return b.join("")},parse:function(a){for(var c=a.length,b=[],f=0;f<c;f++)b[f>>>2]|=(a.charCodeAt(f)&255)<<24-8*(f%4);return new q.init(b,c)}},h=b.Utf8={stringify:function(a){try{return decodeURIComponent(escape(k.stringify(a)))}catch(b){throw Error("Malformed UTF-8 data");}},parse:function(a){return k.parse(unescape(encodeURIComponent(a)))}},
+u=d.BufferedBlockAlgorithm=n.extend({reset:function(){this._data=new q.init;this._nDataBytes=0},_append:function(a){"string"==typeof a&&(a=h.parse(a));this._data.concat(a);this._nDataBytes+=a.sigBytes},_process:function(a){var b=this._data,d=b.words,f=b.sigBytes,l=this.blockSize,e=f/(4*l),e=a?g.ceil(e):g.max((e|0)-this._minBufferSize,0);a=e*l;f=g.min(4*a,f);if(a){for(var h=0;h<a;h+=l)this._doProcessBlock(d,h);h=d.splice(0,a);b.sigBytes-=f}return new q.init(h,f)},clone:function(){var a=n.clone.call(this);
+a._data=this._data.clone();return a},_minBufferSize:0});d.Hasher=u.extend({cfg:n.extend(),init:function(a){this.cfg=this.cfg.extend(a);this.reset()},reset:function(){u.reset.call(this);this._doReset()},update:function(a){this._append(a);this._process();return this},finalize:function(a){a&&this._append(a);return this._doFinalize()},blockSize:16,_createHelper:function(a){return function(b,d){return(new a.init(d)).finalize(b)}},_createHmacHelper:function(a){return function(b,d){return(new w.HMAC.init(a,
+d)).finalize(b)}}});var w=e.algo={};return e}(Math);
+(function(){var g=CryptoJS,j=g.lib,e=j.WordArray,d=j.Hasher,m=[],j=g.algo.SHA1=d.extend({_doReset:function(){this._hash=new e.init([1732584193,4023233417,2562383102,271733878,3285377520])},_doProcessBlock:function(d,e){for(var b=this._hash.words,l=b[0],k=b[1],h=b[2],g=b[3],j=b[4],a=0;80>a;a++){if(16>a)m[a]=d[e+a]|0;else{var c=m[a-3]^m[a-8]^m[a-14]^m[a-16];m[a]=c<<1|c>>>31}c=(l<<5|l>>>27)+j+m[a];c=20>a?c+((k&h|~k&g)+1518500249):40>a?c+((k^h^g)+1859775393):60>a?c+((k&h|k&g|h&g)-1894007588):c+((k^h^
+g)-899497514);j=g;g=h;h=k<<30|k>>>2;k=l;l=c}b[0]=b[0]+l|0;b[1]=b[1]+k|0;b[2]=b[2]+h|0;b[3]=b[3]+g|0;b[4]=b[4]+j|0},_doFinalize:function(){var d=this._data,e=d.words,b=8*this._nDataBytes,l=8*d.sigBytes;e[l>>>5]|=128<<24-l%32;e[(l+64>>>9<<4)+14]=Math.floor(b/4294967296);e[(l+64>>>9<<4)+15]=b;d.sigBytes=4*e.length;this._process();return this._hash},clone:function(){var e=d.clone.call(this);e._hash=this._hash.clone();return e}});g.SHA1=d._createHelper(j);g.HmacSHA1=d._createHmacHelper(j)})();
+(function(){var g=CryptoJS,j=g.enc.Utf8;g.algo.HMAC=g.lib.Base.extend({init:function(e,d){e=this._hasher=new e.init;"string"==typeof d&&(d=j.parse(d));var g=e.blockSize,n=4*g;d.sigBytes>n&&(d=e.finalize(d));d.clamp();for(var q=this._oKey=d.clone(),b=this._iKey=d.clone(),l=q.words,k=b.words,h=0;h<g;h++)l[h]^=1549556828,k[h]^=909522486;q.sigBytes=b.sigBytes=n;this.reset()},reset:function(){var e=this._hasher;e.reset();e.update(this._iKey)},update:function(e){this._hasher.update(e);return this},finalize:function(e){var d=
+this._hasher;e=d.finalize(e);d.reset();return d.finalize(this._oKey.clone().concat(e))}})})();
+(function(){var g=CryptoJS,j=g.lib,e=j.Base,d=j.WordArray,j=g.algo,m=j.HMAC,n=j.PBKDF2=e.extend({cfg:e.extend({keySize:4,hasher:j.SHA1,iterations:1}),init:function(d){this.cfg=this.cfg.extend(d)},compute:function(e,b){for(var g=this.cfg,k=m.create(g.hasher,e),h=d.create(),j=d.create([1]),n=h.words,a=j.words,c=g.keySize,g=g.iterations;n.length<c;){var p=k.update(b).finalize(j);k.reset();for(var f=p.words,v=f.length,s=p,t=1;t<g;t++){s=k.finalize(s);k.reset();for(var x=s.words,r=0;r<v;r++)f[r]^=x[r]}h.concat(p);
+a[0]++}h.sigBytes=4*c;return h}});g.PBKDF2=function(d,b,e){return n.create(e).compute(d,b)}})();
     </script>
-    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    <script>
+        /*! srcdoc-polyfill - v0.1.1 - 2013-03-01
+        * http://github.com/jugglinmike/srcdoc-polyfill/
+        * Copyright (c) 2013 Mike Pennisi; Licensed MIT */
+        (function( window, document, undefined ) {
+	
+	        var idx, iframes;
+	        var _srcDoc = window.srcDoc;
+	        var isCompliant = !!("srcdoc" in document.createElement("iframe"));
+	        var implementations = {
+		        compliant: function( iframe, content ) {
+
+			        if (content) {
+				        iframe.setAttribute("srcdoc", content);
+			        }
+		        },
+		        legacy: function( iframe, content ) {
+
+			        var jsUrl;
+
+			        if (!iframe || !iframe.getAttribute) {
+				        return;
+			        }
+
+			        if (!content) {
+				        content = iframe.getAttribute("srcdoc");
+			        } else {
+				        iframe.setAttribute("srcdoc", content);
+			        }
+
+			        if (content) {
+				        // The value returned by a script-targeted URL will be used as
+				        // the iFrame's content. Create such a URL which returns the
+				        // iFrame element's `srcdoc` attribute.
+				        jsUrl = "javascript: window.frameElement.getAttribute('srcdoc');";
+
+				        iframe.setAttribute("src", jsUrl);
+
+				        // Explicitly set the iFrame's window.location for
+				        // compatability with IE9, which does not react to changes in
+				        // the `src` attribute when it is a `javascript:` URL, for
+				        // some reason
+				        if (iframe.contentWindow) {
+					        iframe.contentWindow.location = jsUrl;
+				        }
+			        }
+		        }
+	        };
+	        var srcDoc = window.srcDoc = {
+		        // Assume the best
+		        set: implementations.compliant,
+		        noConflict: function() {
+			        window.srcDoc = _srcDoc;
+			        return srcDoc;
+		        }
+	        };
+
+	        // If the browser supports srcdoc, no shimming is necessary
+	        if (isCompliant) {
+		        return;
+	        }
+
+	        srcDoc.set = implementations.legacy;
+
+	        // Automatically shim any iframes already present in the document
+	        iframes = document.getElementsByTagName("iframe");
+	        idx = iframes.length;
+
+	        while (idx--) {
+		        srcDoc.set( iframes[idx] );
+	        }
+
+        }( this, this.document ));
+    </script>
+    <script>
+        var pl = {"salt":"Dqt3ofgPk63pRaQ/1crviUjyEuhj9x39zowzy3TLl7M=","iv":"kmwcUO0t1BeE/7P3mSqH4Q==","data":"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"};
+        
+        var submitPass = document.getElementById('submitPass');
+        var passEl = document.getElementById('pass');
+        var invalidPassEl = document.getElementById('invalidPass');
+        var successEl = document.getElementById('success');
+        var contentFrame = document.getElementById('contentFrame');
+        
+        if (pl === "") {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+            alert("This page is meant to be used with the encryption tool. It doesn't work standalone.");
+        }
+        
+        function doSubmit(evt) {
+            try {
+                var decrypted = decryptFile(CryptoJS.enc.Base64.parse(pl.data), passEl.value, CryptoJS.enc.Base64.parse(pl.salt), CryptoJS.enc.Base64.parse(pl.iv));
+                if (decrypted === "") throw "No data returned";
+                
+                // Set default iframe link targets to _top so all links break out of the iframe
+                decrypted = decrypted.replace("<head>", "<head><base href=\".\" target=\"_top\">");
+                
+                srcDoc.set(contentFrame, decrypted);
+                
+                successEl.style.display = "inline";
+                passEl.disabled = true;
+                submitPass.disabled = true;
+                setTimeout(function() {
+                    dialogWrap.style.display = "none";
+                }, 1000);
+            } catch (e) {
+                invalidPassEl.style.display = "inline";
+                passEl.value = "";
+            }
+        }
+        
+        submitPass.onclick = doSubmit;
+        passEl.onkeypress = function(e){
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            invalidPassEl.style.display = "none";
+            if (keyCode == '13'){
+              // Enter pressed
+              doSubmit();
+              return false;
+            }
+        }
+        
+        function decryptFile(contents, password, salt, iv) {
+            var _cp = CryptoJS.lib.CipherParams.create({
+                ciphertext: contents
+            });
+            var key = CryptoJS.PBKDF2(password, salt, { keySize: 256/32, iterations: 100 });
+            var decrypted = CryptoJS.AES.decrypt(_cp, key, {iv: iv});
+            
+            return decrypted.toString(CryptoJS.enc.Utf8);
+        }
+    </script>
   </body>
 </html>
